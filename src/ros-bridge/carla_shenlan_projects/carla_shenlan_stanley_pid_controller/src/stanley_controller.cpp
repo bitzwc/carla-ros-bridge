@@ -11,14 +11,11 @@
 
 using namespace std;
 
-//stanley算法的实现
 namespace shenlan {
     namespace control {
 
-        //PID控制器，用于导航角误差的控制
         shenlan::control::PIDController e_theta_pid_controller(1.0, 0.0, 0.4); // PID控制器中的微分环节相当于阻尼，加在航向误差引起的前轮转角上
 
-        //角度转弧度
         double atan2_to_PI(const double atan2) 
         {
             return atan2 * M_PI / 180;
@@ -33,77 +30,116 @@ namespace shenlan {
 
         void StanleyController::LoadControlConf() 
         {
-            //增益系数
             k_y_ = 0.5;
-
-            //低速平滑系数，避免低速变化对角度产生太大影响
-            k_v_ = 5;
         }
 
         // /** to-do **/ 计算需要的控制命令, 实现对应的stanley模型,并将获得的控制命令传递给汽车
         // 提示，在该函数中你需要调用计算误差
         // 控制器中，前轮转角的命令是弧度单位，发送给carla的横向控制指令，范围是 -1~1
         void StanleyController::ComputeControlCmd(const VehicleState &vehicle_state, const TrajectoryData &planning_published_trajectory, ControlCmd &cmd) 
-        {  
-            //第一次执行时，没有加这句，没有把启动入口读取到的轨迹赋值给stanley对象，导致直接退出
-            this->trajectory_points_ = planning_published_trajectory.trajectory_points;
-            double x = vehicle_state.x;
-            double y = vehicle_state.y;
-            double v = vehicle_state.v;
-            double theta = vehicle_state.heading; //车辆的方向和X轴夹角
-            double e_y;
-            double e_theta;
-            //调用误差计算函数
-            ComputeLateralErrors(x, y, theta, e_y, e_theta);
-            //δ(t) = PD[θe(t)] + δe(t) = θe(t) + tan−1(k * e(t)/(v(t) + ks)) + δff(k)
-            //导航角误差和横向误差，转化成控制量
-            //1、航向角误差的PID控制，针对高速时控制量的大幅度变化做平滑
-            double e_theta_control = e_theta_pid_controller.Control(e_theta, 0.01);
+        {
+            this->trajectory_points_ = planning_published_trajectory.trajectory_points; // 参考路径点
+
+            // 主车的状态信息
+            double current_vehicle_x = vehicle_state.x;  
+            double current_vehicle_y = vehicle_state.y;
+            double current_vehicle_heading = vehicle_state.heading;
+            double current_vehicle_velocity = vehicle_state.velocity;
+
+            double e_y = 0.0;
+            double e_theta = 0.0;
+            this->ComputeLateralErrors(current_vehicle_x, current_vehicle_y, current_vehicle_heading, e_y, e_theta);
+
+            // e_y = std::atan2(this->k_y_ * e_y, current_vehicle_velocity); // atan2 返回的是弧度单位
+            // TODO: atan2 返回的是弧度单位，在分子上添加一个常数项，在低速条件下改善控制器性能
+            e_y = std::atan2(this->k_y_ * e_y, current_vehicle_velocity + 6.0 ); 
+            // 限制Cross track error 引起的前轮转角的取值区间
+            if (e_y > M_PI)
+            {
+                e_y = e_y - M_PI * 2;
+            }
+            if (e_y < -M_PI)
+            {
+                e_y = e_y + M_PI * 2;
+            }
+
+            // TODO: PID控制器中的微分环节相当于阻尼，加在航向误差引起的前轮转角上，抑制高速工况下的过大的前轮转角变化率
+            double e_theta_pd = e_theta_pid_controller.Control(e_theta, 0.01); // 这个0.01和主程序的循环周期匹配上
+
+            // 限制航向误差引起的前轮转角的取值区间
+            if (e_theta_pd > M_PI)
+            {
+                e_theta_pd = e_theta_pd - M_PI * 2;
+            }
+            if (e_theta_pd < -M_PI)
+            {
+                e_theta_pd = e_theta_pd + M_PI * 2;
+            }
+
+            // TODO: 在连续弯道中，引入一个前馈项来提高跟踪性能，前馈项和路径曲率相同就足够
+            TrajectoryPoint current_closest_point = this->QueryNearestPointByPosition(current_vehicle_x, current_vehicle_y); // 得到距离最近的路径点的信息
+            double kappa_factor_angle = 0; 
+
+            // std::cout << "Current kappa:" << current_closest_point.kappa << std::endl;
+
+            if (isnan(current_closest_point.kappa))
+            {
+                kappa_factor_angle = 0;
+            }
+            else
+            {
+                kappa_factor_angle = -current_closest_point.kappa; 
+            }
             
-            //由于减完后的角度误差在(-2PI, 2PI)，这里需要做一下角度转换(-PI, PI)，认为向右转3/2PI等于向左转1/2PI，即-1/2PI
-            if(e_theta_control > M_PI){
-                e_theta_control = e_theta_control - 2*M_PI;
-            }else if(e_theta_control < - M_PI){
-                e_theta_control = e_theta_control + 2*M_PI;
+            double raw_steering_control = e_y + 0.5 * e_theta_pd + 2.6 * kappa_factor_angle;
+
+            // 限制前轮转角的取值区间
+            if (raw_steering_control > M_PI)
+            {
+                raw_steering_control = raw_steering_control - M_PI * 2;
+            }
+            if (raw_steering_control < -M_PI)
+            {
+                raw_steering_control = raw_steering_control + M_PI * 2;
             }
 
-            //2、横向误差的控制，atan2在分母为正数时范围在(-1/2PI,1/2PI)
-            double e_y_control = std::atan2(k_y_ * e_y, v + k_v_);
-
-            //3、曲率的前置反馈，大小等于曲率，方向取决车辆方向和法线方向的叉乘
-            TrajectoryPoint path_point = QueryNearestPointByPosition(x, y);
-            double k = path_point.kappa;
-            double e_k_control = -2*k; //这个参数根据实际情况调节
-
-            double lateral_control = e_theta_control + e_y_control + e_k_control;
-            cout << "车辆方向:" << 180*theta/M_PI << "°,最近轨迹点切线方向:" << 180*theta_ref_/M_PI << "°,曲率：" << k << ",车辆速度:" << v;
-
-            //输出转向控制量，限定范围
-            if(lateral_control <= -1){
-                lateral_control = -1;
+            // 限制前轮最大转角，这里定义前轮最大转角位于 [-20度～20度]
+            if (raw_steering_control >= atan2_to_PI(20.0))
+            {
+                raw_steering_control = atan2_to_PI(20.0);
             }
-            if(lateral_control >= 1){
-                lateral_control = 1;
+            else if (raw_steering_control <= -atan2_to_PI(20.0))
+            {
+                raw_steering_control = -atan2_to_PI(20.0);
             }
-            cout << ",总横向控制:" << lateral_control << ",航向角误差控制:" << e_theta_control << ",横向误差控制:" << e_y_control << endl;
 
-            cmd.steer_target = lateral_control;
+            // Carla 里面的横向控制信号范围 -1~1 之间
+            // raw_steering_control = raw_steering_control / atan2_to_PI(20.0) * 0.2;
+
+            cmd.steer_target = raw_steering_control; // 给出控制信号      
         }
 
-        // /** to-do **/ 计算需要的误差，包括横向误差，朝向误差，误差计算函数没有传入主车速度，因此返回的位置误差就是误差，不是根据误差计算得到的前轮转角
+        // /** to-do **/ 计算需要的误差，包括横向误差，纵向误差，误差计算函数没有传入主车速度，因此返回的位置误差就是误差，不是根据误差计算得到的前轮转角
         void StanleyController::ComputeLateralErrors(const double x, const double y, const double theta, double &e_y, double &e_theta) 
         {
-            //找到当前车辆位置和轨迹最近的点，到这个点的距离就是横向误差，这里可以直接用轨迹点的切线单位向量和轨迹点到车辆的向量的叉乘，因为这两个向量是垂直的，大小就等于轨迹点到车辆的欧式距离，且方向符合右手定则
-            //当车辆向左打方向时，认为角度是负的
-            TrajectoryPoint path_point = QueryNearestPointByPosition(x, y);
+            TrajectoryPoint current_closest_point = this->QueryNearestPointByPosition(x, y); // 得到距离最近的路径点的信息
 
-            //这里需要有正负的区分，用的向量叉乘计算 z = x1y2-x2y1，叉乘为正时，表示要向左转弯，这里增加负号
-            e_y = -(std::cos(theta) * (path_point.y - y) - std::sin(theta) * (path_point.x - x));
+            e_y = sqrt((x - current_closest_point.x) * (x - current_closest_point.x) + (y - current_closest_point.y) * (y - current_closest_point.y));
 
-            //找到当前车辆位置和轨迹最近的点，获取切线方向的角度，减去车辆的方向角度，就是导航角误差
-            //第一次执行时，这里方向反了，当轨迹切线角度比车辆角度大时，应该左转，此时角度误差是负的
-            //减完后的误差项范围在(-2PI, 2PI)
-            e_theta = theta - theta_ref_;
+            // 将位置误差转换为前轮转角的时候：需要将路径上距离车辆最近的点从世界坐标系变换到车辆坐标系下，根据路径点在车辆坐标系下的横坐标的正负决定前轮转角的方向
+            // double closest_point_x_in_vehicle_coordinate =   (current_closest_point.x - x) * cos(theta) + (current_closest_point.y - y) * sin(theta);
+            double closest_point_y_in_vehicle_coordinate = - (current_closest_point.x - x) * sin(theta) + (current_closest_point.y - y) * cos(theta);
+            if (closest_point_y_in_vehicle_coordinate > 0) // 车辆坐标系：X轴沿着车辆纵向，向前为正，Y沿着车辆横向，向左为正（从车头往前看的视角），在车辆坐标系下，距离车辆最近的路径点位于车辆左侧，车辆应该左转以跟踪参考路径，
+            {
+                e_y = -e_y;
+            }
+            else if (closest_point_y_in_vehicle_coordinate < 0)
+            {
+                e_y = e_y;
+            }
+
+            // std::cout << "******************" << this->theta_ref_ << ", " << current_closest_point.heading << std::endl;
+            e_theta = -(theta_ref_ - theta); // 路径上距离车辆最近的点的参考航向角，大于车辆的当前航向角的话，车辆应左转以跟踪航向
         }
 
         // 返回参考路径上和车辆当前位置距离最近的点，返回的是点结构体
@@ -123,7 +159,7 @@ namespace shenlan {
             }
             // cout << " index_min: " << index_min << endl;
             //cout << "tarjectory.heading: " << trajectory_points_[index_min].heading << endl;
-            theta_ref_ = trajectory_points_[index_min].heading; // 获得距离车辆当前位置最近的路径点的角度
+            theta_ref_ = trajectory_points_[index_min].heading; // 获得距离车辆当前位置最近的路径点的航向角
 
             return trajectory_points_[index_min];
         }
