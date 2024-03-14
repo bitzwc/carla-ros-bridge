@@ -101,7 +101,7 @@ namespace shenlan {
             matrix_q_ = Matrix::Zero(basic_state_size_, basic_state_size_);
 
             // int q_param_size = 4;
-            matrix_q_(0, 0) = 2;    // TODO: lateral_error
+            matrix_q_(0, 0) = 4;    // TODO: lateral_error
             matrix_q_(1, 1) = 1;    // TODO: lateral_error_rate
             matrix_q_(2, 2) = 0.1;    // TODO: heading_error
             matrix_q_(3, 3) = 0.1;    // TODO: heading__error_rate
@@ -111,7 +111,7 @@ namespace shenlan {
 
             // lqr cost function中 输入控制量u的权重R = [10]
             matrix_r_ = Matrix::Identity(1, 1);
-            matrix_r_(0, 0) = 8;
+            matrix_r_(0, 0) = 10;
 
             return;
         }
@@ -182,13 +182,11 @@ namespace shenlan {
             Matrix matrix_u = - matrix_k_ * matrix_state_;
             double steer_angle_feedback = 0;
             steer_angle_feedback = matrix_u(0, 0);
-            std::cout << "反馈转向角: " << steer_angle_feedback * 180 / M_PI << std::endl;
 
             // TODO 07 计算前馈控制，计算横向转角的反馈量
             double steer_angle_feedforward = 0.0;
             steer_angle_feedforward = ComputeFeedForward(localization, ref_curv_);
             double steer_angle = steer_angle_feedback + steer_angle_feedforward;
-            std::cout << "前馈转向角: " << steer_angle_feedforward * 180 / M_PI << std::endl;
 
             // 限制前轮最大转角，这里定义前轮最大转角位于 [-20度～20度]
             if (steer_angle >= atan2_to_PI(20.0)) {
@@ -197,7 +195,9 @@ namespace shenlan {
                 steer_angle = -atan2_to_PI(20.0);
             }
             // Set the steer commands
-            std::cout << "转向角: " << steer_angle * 180 / M_PI << std::endl;
+            std::cout << "反馈转向角: " << steer_angle_feedback * 180 / M_PI;
+            std::cout << "，前馈转向角: " << steer_angle_feedforward * 180 / M_PI;
+            std::cout << "，转向角: " << steer_angle * 180 / M_PI << std::endl;
             cmd.steer_target = steer_angle;
 
             return true;
@@ -236,9 +236,9 @@ namespace shenlan {
                 ref_curvature = 0;
             }
             const double v = localization.velocity; //假设车辆无侧滑，vy约等于0，v约等于vx
-            //老王视频的公式（假设侧偏刚度为负数，这里侧偏刚度是正的，所以要加负号）
-            double feed_forward_control = ref_curvature * (wheelbase_ - lr_ * matrix_k_(0, 2) -
-                                                           mass_ * v * v * (- lr_ / cf_ + lf_ / cr_ - lf_ * matrix_k_(0, 2) / cr_ )/ wheelbase_);
+            //这里前馈控制量要乘以-1，因为carla左转是负数控制
+            double feed_forward_control = -1 * (ref_curvature * (wheelbase_ - lr_ * matrix_k_(0, 2) -
+                                                                 mass_ * v * v * (- lr_ / cf_ + lf_ / cr_ - lf_ * matrix_k_(0, 2) / cr_ )/ wheelbase_));
 
             //乌宁视频的公式，第二项正负号相反，分母乘了2倍（但其实侧偏刚度已经算了左右两轮之和）
 //    const double kv = lr_ * mass_ / (2 * cf_ * wheelbase_) - lf_ * mass_ / (2 * cr_ * wheelbase_);
@@ -260,6 +260,9 @@ namespace shenlan {
             //获取最近的轨迹点
             TrajectoryPoint trajeoryPoint = QueryNearestPointByPosition(x, y);
 
+            /*
+             * 正负号的说明：在carla里，steel为负数时，车辆向左转，此时控制量为负数，误差为正数
+             */
             //横向距离误差，车辆方向向量a = (cos(theta), sin(theta))，车辆到轨迹点向量b = (xr-x, yr-y)
             //此时车辆到轨迹点的距离为ecg = a x b（计算按照行列式，方向按照右手定则，车辆方向在轨迹右侧则为正，此时车辆应该向左转向）
             lat_con_err->lateral_error = cos(theta) * (trajeoryPoint.y - y) - sin(theta) * (trajeoryPoint.x - x);
@@ -272,8 +275,8 @@ namespace shenlan {
             // 这里为什么是sin(e_theta)，这个是横摆角误差，而不是航向角误差？
             lat_con_err->lateral_error_rate = linear_v * sin(e_theta);
 
-            //横摆角误差变化率 = 车辆质心的转动角速度 - 轨迹点的转动角速度（速度/半径 = 速度 * 曲率）
-            lat_con_err->heading_error_rate = angular_v - trajeoryPoint.v * trajeoryPoint.kappa;
+            //横摆角误差变化率 = 车辆质心的转动角速度 - 轨迹点的转动角速度？（速度/半径 = 速度 * 曲率）
+            lat_con_err->heading_error_rate = trajeoryPoint.v * trajeoryPoint.kappa - angular_v;
         }
 
 // 查询距离当前位置最近的轨迹点

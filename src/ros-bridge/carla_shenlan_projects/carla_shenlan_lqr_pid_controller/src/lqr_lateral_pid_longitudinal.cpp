@@ -219,8 +219,8 @@ void LQRControllerNode::loadRoadmap(const std::string& roadmap_path)
         double pt_y = std::atof(subArray[3].c_str());
         // double pt_v = std::atof(subArray[6].c_str());
 
-        //这里的速度是什么速度？
-        v_points.push_back(30.0);
+        //轨迹点速度
+        v_points.push_back(20.0);
         xy_points.push_back(std::make_pair(pt_x, pt_y));
     }
     infile.close();
@@ -373,8 +373,7 @@ void LQRControllerNode::VehicleControllerIterationCallback()
         double v_err = target_point_.v - vehicleState_.velocity;           // 速度误差
         double yaw_err = vehicleState_.heading - target_point_.heading;    // 横摆角误差
 
-        cout << "车辆当前速度: " << vehicleState_.velocity << ", 目标速度: " << target_point_.v;
-        cout << ", 速度误差: " << v_err << ", 横摆角误差: " << yaw_err << endl;
+        cout << "车辆当前速度: " << vehicleState_.velocity << ", 目标速度: " << target_point_.v << ", 速度误差: " << v_err << endl;
 
         //纵向速度PID控制器
         double acceleration_cmd = pid_controller_longitudinal->Control(v_err, 0.01);
