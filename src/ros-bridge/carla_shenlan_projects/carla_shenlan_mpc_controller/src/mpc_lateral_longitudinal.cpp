@@ -1,3 +1,7 @@
+/*
+ * mpc控制入口
+ */
+
 #include "carla_shenlan_mpc_controller/mpc_lateral_longitudinal.h"
 
 #include <chrono>
@@ -12,10 +16,14 @@
 #include "std_msgs/msg/string.hpp"
 
 // using namespace std;
+//<functional> 头文件中定义的一个对象，它代表了一个占位符，可以用于表示一个未指定的参数位置
+//和std::bind配合使用，将函数对象的参数位置与实际的参数值进行分离，从而实现了函数的延迟调用
 using std::placeholders::_1;
 
+//获取mpc横纵向控制日志
 static const rclcpp::Logger LOGGER = rclcpp::get_logger("mpc_lateral_longitudinal");
 
+//初始化mpc控制节点
 MPCControllerNode::MPCControllerNode()
     : Node("mpc_lateral_longitudinal")
 /*'''**************************************************************************************
@@ -26,6 +34,8 @@ MPCControllerNode::MPCControllerNode()
 - Comments    : None
 **************************************************************************************'''*/
 {
+    //this指代当前MPCControllerNode对象
+    //定义名字为roadmap_path的参数默认值为roadmap_path
     this->declare_parameter<std::string>("roadmap_path", roadmap_path);    //读取路网文件名
     this->declare_parameter<double>("target_speed", target_speed);         //读取目标速度
     this->declare_parameter<double>("goal_tolerance", goalTolerance_);     //读取目标速度
