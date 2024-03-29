@@ -8,6 +8,7 @@
 #include "Eigen/LU"
 #include "math.h"
 
+//Forward Gradient求解
 FG_eval::FG_eval(const Eigen::VectorXd &state,
                  VectorXd coeffs,
                  const double &target_v,
@@ -89,11 +90,14 @@ Input(s) :1. fg: where the cost function and vehicle model/contraints is defined
 Retrun(s):
 Comments : yaw_rate == yaw_rate
 *******************************************************************************/
+// 重载函数调用运算符，创建一个可以传递任意数目参数的运算符函数
+    // 函数对象,可以将像函数调用一样使用函数对象
 void FG_eval::operator()(ADvector &fg, ADvector &vars)
 {
     // 部分代码已经给出，请同学们补全
     fg[0] = 0; // 0 is the index at which Ipopt expects fg to store the cost value,
     /* TODO: Objective term 1: Keep close to reference values.*/ 
+    //跟踪误差
     for (size_t t = 0; t < Np; t++)
     {
         fg[0] += cte_weight * ; 
@@ -101,12 +105,14 @@ void FG_eval::operator()(ADvector &fg, ADvector &vars)
         fg[0] += v_weight * ; 
     }
     /* TODO: Objective term 2: Avoid to actuate as much as possible, minimize the use of actuators.*/
+    //控制误差
     for (size_t t = 0; t < Nc; t++)
     {
         fg[0] += steer_actuator_cost_weight_fg * ;
         fg[0] += acc_actuator_cost_weight_fg * ;
     }
     /* TODO: Objective term 3: Enforce actuators smoothness in change, minimize the value gap between sequential actuation.*/
+    //平滑误差
     for (size_t t = 0; t < Nc - 1; t++)
     {
         fg[0] += change_steer_cost_weight * ;
@@ -374,10 +380,13 @@ std::vector<double> mpc_controller::Solve(const Eigen::VectorXd &state,
     CppAD::ipopt::solve<Dvector, FG_eval>(
         options,
         vars,
-        vars_lower_bounds, vars_upper_bounds,
-        constraints_lower_bounds, constraints_upper_bounds,
+        vars_lower_bounds, 
+        vars_upper_bounds,
+        constraints_lower_bounds, 
+        constraints_upper_bounds,
         fg_eval,
-        solution);
+        solution
+    );
 
     /* Check some of the solution values. */
     ok &= solution.status == CppAD::ipopt::solve_result<Dvector>::success;

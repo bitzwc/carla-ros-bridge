@@ -23,9 +23,8 @@ using std::placeholders::_1;
 //获取mpc横纵向控制日志
 static const rclcpp::Logger LOGGER = rclcpp::get_logger("mpc_lateral_longitudinal");
 
-//初始化mpc控制节点
-MPCControllerNode::MPCControllerNode()
-    : Node("mpc_lateral_longitudinal")
+//初始化mpc控制节点，继承rclcpp::Node类
+MPCControllerNode::MPCControllerNode(): Node("mpc_lateral_longitudinal")
 /*'''**************************************************************************************
 - FunctionName: None
 - Function    : None
@@ -35,7 +34,7 @@ MPCControllerNode::MPCControllerNode()
 **************************************************************************************'''*/
 {
     //this指代当前MPCControllerNode对象
-    //定义名字为roadmap_path的参数默认值为roadmap_path
+    //声明"roadmap_path"参数，默认值为roadmap_path，这些参数的值在launch的时候读取配置文件，参数必须先声明才能get
     this->declare_parameter<std::string>("roadmap_path", roadmap_path);    //读取路网文件名
     this->declare_parameter<double>("target_speed", target_speed);         //读取目标速度
     this->declare_parameter<double>("goal_tolerance", goalTolerance_);     //读取目标速度
@@ -43,6 +42,7 @@ MPCControllerNode::MPCControllerNode()
     this->declare_parameter<double>("speed_I", speed_I);
     this->declare_parameter<double>("speed_D", speed_D);
 
+    //获取"roadmap_path"参数值写入roadmap_path变量
     this->get_parameter<std::string>("roadmap_path", roadmap_path);    //读取路网文件名
     this->get_parameter<double>("target_speed", target_speed);         //读取目标速度
     this->get_parameter<double>("goal_tolerance", goalTolerance_);     //读取目标速度
@@ -115,7 +115,7 @@ MPCControllerNode::MPCControllerNode()
     RCLCPP_INFO(this->get_logger(), "mpc_working_mode %d", this->working_mode);
     RCLCPP_INFO(this->get_logger(), "mpc_with_planner_flag %d", this->with_planner_flag);
 
-    //加载路网文件
+    //加载参考线
     std::cout << "roadmap_path: " << roadmap_path << "  " << target_speed << std::endl;
     loadRoadmap(roadmap_path);
 
@@ -125,10 +125,16 @@ MPCControllerNode::MPCControllerNode()
     // mpc_controller_lateral->LoadControlConf();
     // mpc_controller_lateral->Init();
 
-    localization_data_subscriber = this->create_subscription<nav_msgs::msg::Odometry>("/carla/ego_vehicle/odometry", 10, std::bind(&MPCControllerNode::OdomCallback, this, _1));
-    lacalization_data_imu_subscriber = this->create_subscription<sensor_msgs::msg::Imu>("/carla/ego_vehicle/imu", 10, std::bind(&MPCControllerNode::IMUCallback, this, _1));
+    //订阅位置：x、y坐标，纵向速度、横向速度、横摆角
+    localization_data_subscriber = this->create_subscription<nav_msgs::msg::Odometry>("/carla/ego_vehicle/odometry", 10, 
+        std::bind(&MPCControllerNode::OdomCallback, this, _1));
+    //订阅imu：横向加速度、纵向加速度、转向加速度
+    lacalization_data_imu_subscriber = this->create_subscription<sensor_msgs::msg::Imu>("/carla/ego_vehicle/imu", 10, 
+        std::bind(&MPCControllerNode::IMUCallback, this, _1));
+    //发布控制：油门、转向、刹车
+    vehicle_control_publisher = this->create_publisher<carla_msgs::msg::CarlaEgoVehicleControl>(
+        "/carla/ego_vehicle/vehicle_control_cmd", 10);
 
-    vehicle_control_publisher = this->create_publisher<carla_msgs::msg::CarlaEgoVehicleControl>("/carla/ego_vehicle/vehicle_control_cmd", 10);
     control_cmd.header.stamp = this->now();
     control_cmd.gear = 1;
     control_cmd.manual_gear_shift = false;
@@ -136,13 +142,19 @@ MPCControllerNode::MPCControllerNode()
     control_cmd.hand_brake = false;
 
     auto time_node_start = this->now();
-    vehicle_control_target_velocity_publisher = this->create_publisher<carla_msgs::msg::CarlaVehicleTargetVelocity>("/carla/ego_vehicle/target_velocity", 10);
+    //发布目标速度
+    vehicle_control_target_velocity_publisher = this->create_publisher<carla_msgs::msg::CarlaVehicleTargetVelocity>(
+        "/carla/ego_vehicle/target_velocity", 10);
     vehicle_control_target_velocity.header.stamp = this->now();
     vehicle_control_target_velocity.velocity = 0.0;
 
-    carla_status_subscriber = this->create_subscription<carla_msgs::msg::CarlaEgoVehicleStatus>("/carla/ego_vehicle/vehicle_status", 10, std::bind(&MPCControllerNode::VehicleStatusCallback, this, _1));
+    //订阅车辆状态
+    carla_status_subscriber = this->create_subscription<carla_msgs::msg::CarlaEgoVehicleStatus>(
+        "/carla/ego_vehicle/vehicle_status", 10, std::bind(&MPCControllerNode::VehicleStatusCallback, this, _1));
 
+    //发布全局参考线
     global_path_publisher_ = this->create_publisher<nav_msgs::msg::Path>("/global_reference_path", 2);
+    //发布历史轨迹
     history_path_visualization_publisher = this->create_publisher<nav_msgs::msg::Path>("/history_path", 2);
 
     // Initialize the transform broadcaster
@@ -153,7 +165,9 @@ MPCControllerNode::MPCControllerNode()
     mpc_output_path_publisher = this->create_publisher<visualization_msgs::msg::Marker>("mpc_output_path", 10);
     mpc_iteration_time_publisher = this->create_publisher<std_msgs::msg::Float32>("mpc_iteration_duration", 10);    // 用于统计MPC求解时间的广播器
 
-    vehicle_control_iteration_timer = this->create_wall_timer(50ms, std::bind(&MPCControllerNode::VehicleControllerIterationCallback, this));
+    //定时器，执行控制和全局路径的发布
+    vehicle_control_iteration_timer = this->create_wall_timer(50ms, std::bind(&MPCControllerNode::VehicleControllerIterationCallback, 
+        this));
     global_path_publish_timer = this->create_wall_timer(500ms, std::bind(&MPCControllerNode::GlobalPathPublishCallback, this));
 
     RCLCPP_INFO(LOGGER, "mpc_control_node init finish!");
@@ -169,6 +183,7 @@ MPCControllerNode::~MPCControllerNode()
 **************************************************************************************'''*/
 {}
 
+//车辆位置信息订阅器回调执行，0.01s执行一次
 void MPCControllerNode::OdomCallback(nav_msgs::msg::Odometry::SharedPtr msg)
 /*'''**************************************************************************************
 - FunctionName: None
@@ -184,19 +199,23 @@ void MPCControllerNode::OdomCallback(nav_msgs::msg::Odometry::SharedPtr msg)
     tf2::Matrix3x3(quat_tf).getRPY(vehicleState_.roll, vehicleState_.pitch, vehicleState_.yaw);
 
     if (firstRecord_) {
+        //车辆状态存储了出发点x、y坐标
         vehicleState_.start_point_x = msg->pose.pose.position.x;
         vehicleState_.start_point_y = msg->pose.pose.position.y;
         firstRecord_ = false;
     }
+    //车辆状态存储当前的x、y坐标
     vehicleState_.x = msg->pose.pose.position.x;
     vehicleState_.y = msg->pose.pose.position.y;
+    //车辆速度写入车辆状态
     vehicleState_.vx = msg->twist.twist.linear.x;
     vehicleState_.vy = msg->twist.twist.linear.y;
     vehicleState_.vz = msg->twist.twist.linear.z;
     vehicleState_.velocity = std::sqrt(vehicleState_.vx * vehicleState_.vx + vehicleState_.vy * vehicleState_.vy + vehicleState_.vz * vehicleState_.vz) * 3.6;    // 本车速度
+    //车辆横摆角
     vehicleState_.heading = vehicleState_.yaw;
     // cout << "vehicleState_.heading: " << vehicleState_.heading << endl;
-
+    //车辆x、y坐标，横摆角，纵向速度，横向速度
     px = msg->pose.pose.position.x;
     py = msg->pose.pose.position.y;
     psi = vehicleState_.yaw;
@@ -240,6 +259,8 @@ void MPCControllerNode::OdomCallback(nav_msgs::msg::Odometry::SharedPtr msg)
 
     tf_broadcaster_gps_vehicle->sendTransform(transformStamped);
 }
+
+//车辆IMU订阅器回调执行，每0.01s执行一次，这里主要是获取纵向加速度、横向加速度、转向加速度
 void MPCControllerNode::IMUCallback(sensor_msgs::msg::Imu::SharedPtr msg)
 /*'''**************************************************************************************
 - FunctionName: None
@@ -250,13 +271,20 @@ void MPCControllerNode::IMUCallback(sensor_msgs::msg::Imu::SharedPtr msg)
 **************************************************************************************'''*/
 {
     RCLCPP_INFO(LOGGER, "Got IMU data!!!");
-    vehicleState_.angular_velocity = msg->angular_velocity.z;                                                                                                // 平面角速度(绕z轴转动的角速度)
-    vehicleState_.acceleration = sqrt(msg->linear_acceleration.x * msg->linear_acceleration.x + msg->linear_acceleration.y * msg->linear_acceleration.y);    // 加速度
-
+    // 平面角速度(绕z轴转动的角速度)
+    vehicleState_.angular_velocity = msg->angular_velocity.z;  
+    // 加速度                                                                                              
+    vehicleState_.acceleration = sqrt(msg->linear_acceleration.x * msg->linear_acceleration.x + 
+        msg->linear_acceleration.y * msg->linear_acceleration.y);    
+    //纵向加速度
     a_longitudinal = msg->linear_acceleration.x;
+    //横向加速度
     a_lateral = msg->linear_acceleration.y;
+    //转动加速度
     yaw_rate = msg->angular_velocity.z;
 }
+
+//加载路径参考线信息
 void MPCControllerNode::loadRoadmap(const std::string& roadmap_path)
 /*'''**************************************************************************************
 - FunctionName: None
@@ -276,7 +304,9 @@ void MPCControllerNode::loadRoadmap(const std::string& roadmap_path)
         std::stringstream ss(_line);
         string _sub;
         vector<string> subArray;
-        //按照逗号分隔
+        //将读取的每行文件流按照逗号分隔，每段_sub，存入subArray中
+        //,x,y,yaw,
+        //1,1.882,325.0,-195.4,0
         while (getline(ss, _sub, ',')) {
             subArray.push_back(_sub);
         }
@@ -284,7 +314,9 @@ void MPCControllerNode::loadRoadmap(const std::string& roadmap_path)
         double pt_y = std::atof(subArray[3].c_str());
         // double pt_v = std::atof(subArray[6].c_str());
 
+        //速度
         v_points.push_back(20.0);
+        //坐标
         xy_points.push_back(std::make_pair(pt_x, pt_y));
     }
     infile.close();
@@ -294,7 +326,11 @@ void MPCControllerNode::loadRoadmap(const std::string& roadmap_path)
     std::vector<double> accumulated_s;
     std::vector<double> kappas;
     std::vector<double> dkappas;
+
+    //将读到的xy坐标存到参考线对象，生成指针
     std::unique_ptr<shenlan::control::ReferenceLine> reference_line = std::make_unique<shenlan::control::ReferenceLine>(xy_points);
+    
+    //计算参考线曲率等信息
     reference_line->ComputePathProfile(&headings, &accumulated_s, &kappas, &dkappas);
 
     for (size_t i = 0; i < headings.size(); i++) {
@@ -302,10 +338,13 @@ void MPCControllerNode::loadRoadmap(const std::string& roadmap_path)
     }
 
     size_t _count_points = headings.size();
+
+    //开始减速点和停车点
     size_t _stop_begin_point = ceil(_count_points * 0.85);
     size_t _stop_point = ceil(_count_points * 0.95);
     std::cout << "slow down points:" << _stop_begin_point << "  " << _stop_point << std::endl;
 
+    //对于在开始减速点和停车点之间的点，均匀降低速度至0
     int _index_before_stop = 0;
     for (size_t i = 0; i < headings.size(); i++) {
         TrajectoryPoint trajectory_pt;
@@ -327,20 +366,26 @@ void MPCControllerNode::loadRoadmap(const std::string& roadmap_path)
 
         planning_published_trajectory.trajectory_points.push_back(trajectory_pt);
 
+        //这里给出了车辆在某时刻下的位置pos、和方向
+        //geometry_msgs::msg::PoseStamped
         this_pose_stamped.header.frame_id = "map";
         this_pose_stamped.header.stamp = this->get_clock()->now();
+        //车辆位置
         this_pose_stamped.pose.position.x = xy_points[i].first;
         this_pose_stamped.pose.position.y = xy_points[i].second;
         this_pose_stamped.pose.position.z = 0;
+        //四元数，表示方向
         this_pose_stamped.pose.orientation.x = 0;
         this_pose_stamped.pose.orientation.y = 0;
         this_pose_stamped.pose.orientation.z = 0;
         this_pose_stamped.pose.orientation.w = 0;    // 这里实际上是放的frenet坐标系的S
 
+        //nav_msgs::msg::Path
         global_path.poses.push_back(this_pose_stamped);
         global_path.header.frame_id = "map";
     }
 
+    //轨迹点写入planning_published_trajectory.trajectory_points和trajectory_points_
     goal_point = planning_published_trajectory.trajectory_points.back();
 
     trajectory_points_ = planning_published_trajectory.trajectory_points;
@@ -368,6 +413,7 @@ void MPCControllerNode::VehicleStatusCallback(carla_msgs::msg::CarlaEgoVehicleSt
 **************************************************************************************'''*/
 {
     vehicle_control_target_velocity.header.stamp = msg->header.stamp;
+    //车辆当前的转向角，为什么乘以24？
     delta = msg->control.steer * 24;    // [-1, 1] from carla
 }
 
@@ -407,6 +453,7 @@ TrajectoryPoint MPCControllerNode::QueryNearestPointByPosition(const double x, c
     return trajectory_points_[index_min];
 }
 
+//车辆控制发布器入口，50ms执行一次
 void MPCControllerNode::VehicleControllerIterationCallback()
 /*'''**************************************************************************************
 - FunctionName: None
@@ -424,24 +471,27 @@ void MPCControllerNode::VehicleControllerIterationCallback()
     // ControlCmd cmd;
 
     if (!firstRecord_) {    //有定位数据开始控制
-
+        //预测点个数
         reference_path_length = 16;    // 20 points
         global_path_remap_x.clear();
         global_path_remap_y.clear();
 
         for (size_t i = 0; i < xy_points.size() - 1; i++) {
+            //计算误差，参考线-实际
             double shift_x = xy_points[i].first - px;
             double shift_y = xy_points[i].second - py;
             global_path_remap_x.push_back(shift_x * cos(psi) + shift_y * sin(psi));
             global_path_remap_y.push_back(-shift_x * sin(psi) + shift_y * cos(psi));
         }
-        // 从全局路径中，找到距离当前位置最近的前方的点。
+        // 从全局路径中，找到距离当前位置最近的前方的点，第几个点存入former_point_of_current_position
         for (size_t i = former_point_of_current_position; i < global_path_remap_x.size(); i++) {
             if (global_path_remap_x[i] > 0.0) {
                 former_point_of_current_position = i;
                 break;
             }
         }
+
+        //这里是一些矩阵的操作？
         VectorXd coeffs;
         double cte;
         /* Convert to Eigen::VectorXd */
@@ -474,13 +524,31 @@ void MPCControllerNode::VehicleControllerIterationCallback()
         // cout << pred_v_longitudinal << " *********** v_longitudinal" << target_v << "target_v" << endl;
         /* Feed in the predicted state values.  这里传入的是车辆坐标系下的控制器时延模型*/
         Eigen::VectorXd state(8);
-        state << pred_px, pred_py, pred_psi, pred_v_longitudinal, pred_v_lateral, pred_omega, pred_cte, pred_epsi;
 
+        // 这里只预测了未来1个时刻的状态？
+        state << pred_px, pred_py, pred_psi, pred_v_longitudinal, pred_v_lateral, pred_omega, pred_cte, pred_epsi;
+        //mpc求解，输出方向盘和油门
         auto vars =
             mpc.Solve(state, coeffs,
                       target_v,    // m/s
-                      cte_weight, epsi_weight, v_weight, steer_actuator_cost_weight, acc_actuator_cost_weight, change_steer_cost_weight, change_accel_cost_weight, mpc_control_horizon_length, mpc_control_step_length, kinamatic_para_Lf, a_lateral, old_steer_value, old_throttle_value, steering_ratio);
-        old_steer_value = vars[0]; // * (1 / (24 * M_PI / 180));    // carla里面的横向控制信号 [-1,1]，但是模型计算的时候使用的是弧度单位的前轮转角，当前轮最大转角为24°的时候，通过这个公式进行转换
+                      cte_weight, 
+                      epsi_weight, 
+                      v_weight, 
+                      steer_actuator_cost_weight, 
+                      acc_actuator_cost_weight, 
+                      change_steer_cost_weight, 
+                      change_accel_cost_weight, 
+                      mpc_control_horizon_length, 
+                      mpc_control_step_length, 
+                      kinamatic_para_Lf, 
+                      a_lateral, 
+                      old_steer_value, 
+                      old_throttle_value, 
+                      steering_ratio
+            );
+        // carla里面的横向控制信号 [-1,1]，但是模型计算的时候使用的是弧度单位的前轮转角，当前轮最大转角为24°的时候，通过这个公式进行转换
+        // 更新上次控制量
+        old_steer_value = vars[0]; // * (1 / (24 * M_PI / 180));
         old_throttle_value = vars[1];
 
         control_cmd.header.stamp = this->now();
@@ -512,7 +580,7 @@ void MPCControllerNode::VehicleControllerIterationCallback()
         }
         // control_cmd.steer = 0;
         // control_cmd.throttle = 0.2;
-        control_cmd.brake = 0;
+        control_cmd.brake = 0; //这里为什么要重置为0？
         control_cmd.gear = 1;
         control_cmd.reverse = false;
         control_cmd.hand_brake = false;
