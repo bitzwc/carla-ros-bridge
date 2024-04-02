@@ -475,15 +475,16 @@ void MPCControllerNode::VehicleControllerIterationCallback()
         reference_path_length = 16;    // 20 points
         global_path_remap_x.clear();
         global_path_remap_y.clear();
-
+        //参考线的点坐标x,y
         for (size_t i = 0; i < xy_points.size() - 1; i++) {
-            //计算误差，参考线-实际
+            //计算误差，参考点 - 车辆x坐标
             double shift_x = xy_points[i].first - px;
             double shift_y = xy_points[i].second - py;
+            //这是怎么算的？
             global_path_remap_x.push_back(shift_x * cos(psi) + shift_y * sin(psi));
             global_path_remap_y.push_back(-shift_x * sin(psi) + shift_y * cos(psi));
         }
-        // 从全局路径中，找到距离当前位置最近的前方的点，第几个点存入former_point_of_current_position
+        // 从全局路径中，将启动点向前推进，这是找到最近的参考点吗?
         for (size_t i = former_point_of_current_position; i < global_path_remap_x.size(); i++) {
             if (global_path_remap_x[i] > 0.0) {
                 former_point_of_current_position = i;
@@ -491,7 +492,7 @@ void MPCControllerNode::VehicleControllerIterationCallback()
             }
         }
 
-        //这里是一些矩阵的操作？
+        //这里是一些矩阵的操作
         VectorXd coeffs;
         double cte;
         /* Convert to Eigen::VectorXd */
@@ -501,6 +502,7 @@ void MPCControllerNode::VehicleControllerIterationCallback()
         Eigen::Map<VectorXd> ptsy_transform(ptry, reference_path_length);
         /* Fit coefficients of fifth order polynomial*/
         coeffs = polyfit(ptsx_transform, ptsy_transform, 5);
+        //polyeval是多项式求值函数，比如计算y = a0*x^3 + a1*x^2 + a2*x + a3在x=0的值
         cte = polyeval(coeffs, 0);    // 在车辆坐标系下，当前时刻的位置偏差就是期望轨迹在车辆坐标系中的截距
         double epsi = -atan(coeffs[1]);
 

@@ -97,12 +97,12 @@ void FG_eval::operator()(ADvector &fg, ADvector &vars)
     // 部分代码已经给出，请同学们补全
     fg[0] = 0; // 0 is the index at which Ipopt expects fg to store the cost value,
     /* TODO: Objective term 1: Keep close to reference values.*/ 
-    //跟踪误差
+    //跟踪误差，fg[0]为目标函数f(x)
     for (size_t t = 0; t < Np; t++)
     {
-        fg[0] += cte_weight * ; 
-        fg[0] += epsi_weight * ;
-        fg[0] += v_weight * ; 
+        fg[0] += cte_weight * CppAD::pow(vars[cte_start], 2); //横向跟踪误差(cross track error, 简称CTE) 
+        fg[0] += epsi_weight * pow(vars[epsi_start], 2); //夹角误差
+        fg[0] += v_weight * pow(vars[v_longitudinal] - , 2); 
     }
     /* TODO: Objective term 2: Avoid to actuate as much as possible, minimize the use of actuators.*/
     //控制误差
@@ -173,7 +173,7 @@ void FG_eval::operator()(ADvector &fg, ADvector &vars)
                                            4 * coeffs[4] * CppAD::pow(x_0, 3) +
                                            5 * coeffs[5] * CppAD::pow(x_0, 4)); // + 6 * coeffs[6] * CppAD::pow(x_0, 5));
 
-        // TODO： 补全车辆动力学模型，作为MPC的等式约束条件，车辆动力学模型需要注意参数的正方向的定义
+        // TODO: 补全车辆动力学模型，作为MPC的等式约束条件，车辆动力学模型需要注意参数的正方向的定义
         /*The idea here is to constraint this value to be 0.*/
         /* 全局坐标系 */ 
         fg[1 + x_start + t] = ;
@@ -377,6 +377,7 @@ std::vector<double> mpc_controller::Solve(const Eigen::VectorXd &state,
 
     /* Solve the problem. */
     // cout << "Solve the problem......" << endl;
+    //operator重载的函数在这里被调用
     CppAD::ipopt::solve<Dvector, FG_eval>(
         options,
         vars,

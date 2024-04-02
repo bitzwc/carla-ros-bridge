@@ -44,7 +44,7 @@ class mpc_controller {
     virtual ~mpc_controller();
 
     // Solve the model given an initial state and polynomial coefficients
-    // Retrun the first actuators
+    // Return the first actuators
     std::vector<double> Solve(const Eigen::VectorXd &state, const Eigen::VectorXd &coeffs, const double &target_v, const int &cte_weight, const int &epsi_weight, const int &v_weight, const int &steer_actuator_cost_weight, const int &acc_actuator_cost_weight, const int &change_steer_cost_weight,
                               const int &change_accel_cost_weight, const int &mpc_control_horizon_length, const double &mpc_control_step_length, const double &kinamatic_para_Lf, const double &a_lateral, const double &old_steer_value, const double &old_throttle_value, const double &steer_ratio);
 };
@@ -134,11 +134,28 @@ class FG_eval {
    public:
     /* coeffs are the coefficients of the fitted polynomial,
        will be used by the cross track error and heading error equations.*/
-    FG_eval(const Eigen::VectorXd &state, VectorXd coeffs, const double &target_v, const int &cte_weight, const int &epsi_weight, const int &v_weight, const int &steer_actuator_cost_weight_fg, const int &acc_actuator_cost_weight, const int &change_steer_cost_weight,
-            const int &change_accel_cost_weight, const int &mpc_prediction_horizon_length, const int &mpc_control_horizon_length, const double &mpc_control_step_length, const double &kinamatic_para_Lf, const double &a_lateral, const double &old_steer_value, const double &old_throttle_value,
-            const double &steer_ratio);
+    FG_eval(
+      const Eigen::VectorXd &state, 
+      VectorXd coeffs, 
+      const double &target_v, 
+      const int &cte_weight, 
+      const int &epsi_weight, 
+      const int &v_weight, 
+      const int &steer_actuator_cost_weight_fg, 
+      const int &acc_actuator_cost_weight, 
+      const int &change_steer_cost_weight,
+      const int &change_accel_cost_weight, 
+      const int &mpc_prediction_horizon_length, 
+      const int &mpc_control_horizon_length, 
+      const double &mpc_control_step_length, 
+      const double &kinamatic_para_Lf, 
+      const double &a_lateral, 
+      const double &old_steer_value, 
+      const double &old_throttle_value,
+      const double &steer_ratio
+   );
     ~FG_eval();
-    // 重载函数调用运算符，创建一个可以传递任意数目参数的运算符函数
+    //函数调用运算符()重载，创建一个可以传递任意数目参数的运算符函数
     // 函数对象,可以将像函数调用一样使用函数对象
     void operator()(ADvector &fg, ADvector &vars);
 };    // namespace shenlan
