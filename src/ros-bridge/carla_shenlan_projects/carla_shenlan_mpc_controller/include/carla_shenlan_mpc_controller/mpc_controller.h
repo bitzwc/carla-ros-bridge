@@ -86,6 +86,7 @@ class FG_eval {
     presented in the classroom matched the previous radius.
     This is the length from front to CoG that has a similar radius.
     */
+   //质心到前轮距离占比，从配置读取，是个double值
     double Lf;
 
     /*Indexes on the 1-D vector for readability，

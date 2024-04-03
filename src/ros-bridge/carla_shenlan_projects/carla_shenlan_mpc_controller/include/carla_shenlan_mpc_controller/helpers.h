@@ -27,11 +27,11 @@ string hasData(string s)
   return "";
 }
 
-//
-// Helper functions to fit and evaluate polynomials.
-//
-
-// Evaluate a polynomial.
+/*
+  计算多项式的结果
+  @coeffs 多项式系数向量，第几个元素表示第几阶
+  @x 计算点
+*/
 double polyeval(const VectorXd &coeffs, double x)
 {
   double result = 0.0;
@@ -45,11 +45,19 @@ double polyeval(const VectorXd &coeffs, double x)
 // Fit a polynomial.
 // Adapted from:
 // https://github.com/JuliaMath/Polynomials.jl/blob/master/src/Polynomials.jl#L676-L716
+/*
+  拟合多项式
+  @xvals 输入x向量
+  @yvals 输入y向量
+  @order 多项式阶数
+  @输出 多项式系数向量
+*/
 VectorXd polyfit(const VectorXd &xvals, const VectorXd &yvals, int order)
 {
   assert(xvals.size() == yvals.size());
   assert(order >= 1 && order <= xvals.size() - 1);
 
+  //A矩阵为[I, X, X^2,..., X^order]
   Eigen::MatrixXd A(xvals.size(), order + 1);
 
   for (int i = 0; i < xvals.size(); ++i)
@@ -64,10 +72,13 @@ VectorXd polyfit(const VectorXd &xvals, const VectorXd &yvals, int order)
       A(j, i + 1) = A(j, i) * xvals(j);
     }
   }
-
+  //QR分解，Q为正交矩阵，https://blog.csdn.net/u011028771/article/details/78196556
   auto Q = A.householderQr();
+
+  //Ax=b->QRx=b->Rx=QTb，R为上三角矩阵，[R1, 0]T
   auto result = Q.solve(yvals);
 
+  //系数解 order+1维向量
   return result;
 }
 

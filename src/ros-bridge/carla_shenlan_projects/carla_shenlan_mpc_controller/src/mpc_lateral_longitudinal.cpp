@@ -473,18 +473,22 @@ void MPCControllerNode::VehicleControllerIterationCallback()
     if (!firstRecord_) {    //有定位数据开始控制
         //预测点个数
         reference_path_length = 16;    // 20 points
+
         global_path_remap_x.clear();
         global_path_remap_y.clear();
+
         //参考线的点坐标x,y
         for (size_t i = 0; i < xy_points.size() - 1; i++) {
             //计算误差，参考点 - 车辆x坐标
             double shift_x = xy_points[i].first - px;
             double shift_y = xy_points[i].second - py;
-            //这是怎么算的？
+
+            //参考线的投影点和车辆的距离，在车辆方向和垂直车辆方向的分量
             global_path_remap_x.push_back(shift_x * cos(psi) + shift_y * sin(psi));
             global_path_remap_y.push_back(-shift_x * sin(psi) + shift_y * cos(psi));
         }
-        // 从全局路径中，将启动点向前推进，这是找到最近的参考点吗?
+
+        //找到沿车辆方向最近的点
         for (size_t i = former_point_of_current_position; i < global_path_remap_x.size(); i++) {
             if (global_path_remap_x[i] > 0.0) {
                 former_point_of_current_position = i;
@@ -492,26 +496,31 @@ void MPCControllerNode::VehicleControllerIterationCallback()
             }
         }
 
-        //这里是一些矩阵的操作
         VectorXd coeffs;
         double cte;
         /* Convert to Eigen::VectorXd */
         double* ptrx = &global_path_remap_x[former_point_of_current_position];
+
+        //这里的Map不是映射容器，而是模板类，将ptrx的内存指针映射成Eigen::VectorXd类型
+        //下面会得到16个元素的向量，第一个元素是ptrx指向的距离double值，后面的点是global_path_remap_x
         Eigen::Map<VectorXd> ptsx_transform(ptrx, reference_path_length);
         double* ptry = &global_path_remap_y[former_point_of_current_position];
         Eigen::Map<VectorXd> ptsy_transform(ptry, reference_path_length);
-        /* Fit coefficients of fifth order polynomial*/
+        
+        //使用车辆坐标系下的前视点距离坐标，拟合5次多项式
         coeffs = polyfit(ptsx_transform, ptsy_transform, 5);
+
         //polyeval是多项式求值函数，比如计算y = a0*x^3 + a1*x^2 + a2*x + a3在x=0的值
         cte = polyeval(coeffs, 0);    // 在车辆坐标系下，当前时刻的位置偏差就是期望轨迹在车辆坐标系中的截距
-        double epsi = -atan(coeffs[1]);
+        double epsi = -atan(coeffs[1]); //一次项系数？
 
         // std::cout << "cte: " << cte << " , epsi: " << epsi << std::endl;
 
-        /*Latency for predicting time at actuation*/
+        //控制信号延时补偿
         double dt = controller_delay_compensation;
         // double dt = 0;
 
+        //这是什么？质心到前轮距离？0.95
         double Lf = kinamatic_para_Lf;
 
         /* Predict future state (take latency into account) x, y and psi are all zero in the new reference system */
@@ -527,7 +536,7 @@ void MPCControllerNode::VehicleControllerIterationCallback()
         /* Feed in the predicted state values.  这里传入的是车辆坐标系下的控制器时延模型*/
         Eigen::VectorXd state(8);
 
-        // 这里只预测了未来1个时刻的状态？
+        // 这里只计算了当前的状态x0
         state << pred_px, pred_py, pred_psi, pred_v_longitudinal, pred_v_lateral, pred_omega, pred_cte, pred_epsi;
         //mpc求解，输出方向盘和油门
         auto vars =
@@ -653,7 +662,7 @@ void MPCControllerNode::VehicleControllerIterationCallback()
         mpc_output_path.points.clear();
 
         geometry_msgs::msg::Point pp;
-        // 可视化原始点
+        // 可视化Np个预测点，Np时域的坐标数据vars = [前轮转角，纵向加速度，x1，x2，……，xNp，y1，y2，……，yNp]
         for (uint i = 2; i < vars.size(); i++) {
             if (i % 2 == 0) {
                 pp.x = vars[i];

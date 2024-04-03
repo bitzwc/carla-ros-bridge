@@ -84,7 +84,7 @@ FG_eval::~FG_eval() {}
 Name     :
 Type     :
 Function :
-Input(s) :1. fg: where the cost function and vehicle model/contraints is defined; 存放的是变量之间的关系
+Input(s) :1. fg: 定义目标函数f(x)和约束g(x)
           2. vars: this vector contains all variables used by the cost function 
                    and model: [x,y,psi,v,cte,e_psi][front_wheel_angle,a](state & actuators) 存放的是变量
 Retrun(s):
@@ -94,29 +94,29 @@ Comments : yaw_rate == yaw_rate
     // 函数对象,可以将像函数调用一样使用函数对象
 void FG_eval::operator()(ADvector &fg, ADvector &vars)
 {
-    // 部分代码已经给出，请同学们补全
+    // 部分代码已经给出，请同学们补全，fg[0]为目标函数f(x)
     fg[0] = 0; // 0 is the index at which Ipopt expects fg to store the cost value,
     /* TODO: Objective term 1: Keep close to reference values.*/ 
-    //跟踪误差，fg[0]为目标函数f(x)
+    //跟踪误差，和参考线的误差要小
     for (size_t t = 0; t < Np; t++)
     {
-        fg[0] += cte_weight * CppAD::pow(vars[cte_start], 2); //横向跟踪误差(cross track error, 简称CTE) 
-        fg[0] += epsi_weight * pow(vars[epsi_start], 2); //夹角误差
-        fg[0] += v_weight * pow(vars[v_longitudinal] - , 2); 
+        fg[0] += cte_weight * CppAD::pow(vars[cte_start + t], 2); //横向跟踪误差(cross track error, 简称CTE) 
+        fg[0] += epsi_weight * CppAD::pow(vars[epsi_start + t], 2); //夹角误差
+        fg[0] += v_weight * CppAD::pow(vars[v_longitudinal_start + t] - ref_v, 2); 
     }
     /* TODO: Objective term 2: Avoid to actuate as much as possible, minimize the use of actuators.*/
-    //控制误差
+    //控制误差，控制量要小
     for (size_t t = 0; t < Nc; t++)
     {
-        fg[0] += steer_actuator_cost_weight_fg * ;
-        fg[0] += acc_actuator_cost_weight_fg * ;
+        fg[0] += steer_actuator_cost_weight_fg * CppAD::pow(vars[front_wheel_angle_start + t], 2);
+        fg[0] += acc_actuator_cost_weight_fg * CppAD::pow(vars[longitudinal_acceleration_start + t], 2);
     }
     /* TODO: Objective term 3: Enforce actuators smoothness in change, minimize the value gap between sequential actuation.*/
-    //平滑误差
+    //平滑误差，控制量的变化要小
     for (size_t t = 0; t < Nc - 1; t++)
     {
-        fg[0] += change_steer_cost_weight * ;
-        fg[0] += change_accel_cost_weight * ;
+        fg[0] += change_steer_cost_weight * CppAD::pow(vars[front_wheel_angle_start + t + 1] - vars[front_wheel_angle_start + t], 2);
+        fg[0] += change_accel_cost_weight * CppAD::pow(vars[longitudinal_acceleration_start + t + 1] - vars[longitudinal_acceleration_start + t], 2);
     }
 
     /* Initial constraints, initialize the model to the initial state*/
@@ -135,7 +135,7 @@ void FG_eval::operator()(ADvector &fg, ADvector &vars)
         AD<double> x_0 = vars[x_start + t - 1];
         AD<double> y_0 = vars[y_start + t - 1];
         AD<double> psi_0 = vars[psi_start + t - 1];
-        AD<double> v_longitudinal_0 = vars[v_longitudinal_start + t - 1] + 0.00001;
+        AD<double> v_longitudinal_0 = vars[v_longitudinal_start + t - 1] + 0.00001; //防止速度为0
         AD<double> v_lateral_0 = vars[v_lateral_start + t - 1];
         AD<double> yaw_rate_0 = vars[yaw_rate_start + t - 1];
         AD<double> cte_0 = vars[cte_start + t - 1];
@@ -167,6 +167,7 @@ void FG_eval::operator()(ADvector &fg, ADvector &vars)
                          coeffs[5] * CppAD::pow(x_0, 5); // + coeffs[6] * CppAD::pow(x_0, 6);
 
         // reference psi: can be calculated as the tangential angle of the polynomial f evaluated at x_0
+        //f_0对x_0求导后的结果
         AD<double> psi_des_0 = CppAD::atan(1 * coeffs[1] +
                                            2 * coeffs[2] * x_0 +
                                            3 * coeffs[3] * CppAD::pow(x_0, 2) +
@@ -175,22 +176,30 @@ void FG_eval::operator()(ADvector &fg, ADvector &vars)
 
         // TODO: 补全车辆动力学模型，作为MPC的等式约束条件，车辆动力学模型需要注意参数的正方向的定义
         /*The idea here is to constraint this value to be 0.*/
+        //以下都是约束，下一时刻 = 上一时刻 + 导数 * dt
         /* 全局坐标系 */ 
-        fg[1 + x_start + t] = ;
-        fg[1 + y_start + t] = ;
+        //CppAD::cos和普通的cos有什么区别？
+        fg[1 + x_start + t] = x_0 + (v_longitudinal_0 * CppAD::cos(psi_0) + v_lateral_0 * CppAD::sin(psi_0))*dt - x_1;
+        fg[1 + y_start + t] = y_0 + (v_longitudinal_0 * CppAD::sin(psi_0) - v_lateral_0 * CppAD::cos(psi_0))*dt - y_1;
 
-        /* 航向角变化 */
-        fg[1 + psi_start + t] = ;
+        /* 航向角变化*/
+        //航向角加速度,TODO: 补全
+        // AD<double> a_psi = -v_longitudinal_0 * front_wheel_angle_0 / lf;
+        // fg[1 + psi_start + t] = psi_0 + a_psi * dt - psi_1;
+        fg[1 + psi_start + t] = psi_0 + yaw_rate_0 * dt - psi_1;
 
         /* 车辆纵向速度 */
-        fg[1 + v_longitudinal_start + t] = ;
+        fg[1 + v_longitudinal_start + t] = v_longitudinal_0 + longitudinal_acceleration_0 * dt - v_longitudinal_1;
 
-        /* 车辆侧向速度 */
-        fg[1 + v_lateral_start + t] = ;
+        /* 车辆横向速度 */
+        //横向加速度,TODO: 补全
+        AD<double> a_lateral = 2/m*(Cf * ((yaw_rate_0 * Lf+-front_wheel_angle_0 / l )) - v_longitudinal * yaw_rate_0 + 
+        fg[1 + v_lateral_start + t] = v_lateral_0 + a_lateral * dt - v_lateral_1;
         
         /* 车辆横摆角速度 */
-
-        fg[1 + yaw_rate_start + t] = ;
+        //车辆横摆角加速度,TODO: 补全
+        AD<double> yaw_accel = 
+        fg[1 + yaw_rate_start + t] = yaw_rate_0 + yaw_accel * dt - yaw_rate_1;
 
         /* 横向位置跟踪误差 */
         fg[1 + cte_start + t] = cte_1 - (f_0 - y_0 + v_longitudinal_0 * CppAD::tan(epsi_0) * dt);
@@ -231,9 +240,13 @@ std::vector<double> mpc_controller::Solve(const Eigen::VectorXd &state,
                                           const double &old_throttle_value,
                                           const double &steer_ratio)
 {
+    //控制时域长度
     this->Nc = mpc_control_horizon_length;
+
+    //预测时域长度
     this->Np = Nc + 1;
 
+    //每个变量分配对应的位置
     this->x_start = 0;
     this->y_start = x_start + Np;
     this->psi_start = y_start + Np;
@@ -361,6 +374,7 @@ std::vector<double> mpc_controller::Solve(const Eigen::VectorXd &state,
     /* NOTE: You don't have to worry about these options. options for IPOPT solver. */
     std::string options;
     /* Uncomment this if you'd like more print information. */
+    //关闭任何优化器的输出
     options += "Integer print_level  0\n";
     /* NOTE: Setting sparse to true allows the solver to take advantage
        of sparse routines, this makes the computation MUCH FASTER. If you can
@@ -378,6 +392,15 @@ std::vector<double> mpc_controller::Solve(const Eigen::VectorXd &state,
     /* Solve the problem. */
     // cout << "Solve the problem......" << endl;
     //operator重载的函数在这里被调用
+    //https://blog.csdn.net/BigDavid123/article/details/136310264
+    // option：求解器的配置项
+    // vars：待求解的优化变量(包含初值)
+    // vars_lower_bounds：待优化变量的下限
+    // vars_upper_bounds：待优化变量的上限
+    // constraints_lower_bounds：约束表达式的下限
+    // constraints_upper_bounds：约束表达式的上限
+    // fg_eval：存储目标函数和约束变量的表达式
+    // solution：优化后的结果保存在这里
     CppAD::ipopt::solve<Dvector, FG_eval>(
         options,
         vars,
@@ -390,6 +413,7 @@ std::vector<double> mpc_controller::Solve(const Eigen::VectorXd &state,
     );
 
     /* Check some of the solution values. */
+    //判断求解是否成功
     ok &= solution.status == CppAD::ipopt::solve_result<Dvector>::success;
 
     /* Cost! */
@@ -403,10 +427,12 @@ std::vector<double> mpc_controller::Solve(const Eigen::VectorXd &state,
     // cout << solution.x << endl;
     // cout << front_wheel_angle_start << endl;
 
+    //solution.x是求解的结果，包含8*Np + 2*Nc个变量，通过前轮转角索引和纵向加速度索引来获取2个控制量
     result.push_back(solution.x[front_wheel_angle_start]);
     result.push_back(solution.x[longitudinal_acceleration_start]);
 
     /* Add 'future' solutions (where MPC is going). */
+    // 将Np个位置x和Np个位置y写入result，作为未来Np个时域的车辆位置预测
     for (size_t i = 0; i < Np - 1; i++)
     {
         result.push_back(solution.x[x_start + i]);
