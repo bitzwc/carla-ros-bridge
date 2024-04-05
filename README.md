@@ -34,11 +34,12 @@
 1. carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller/src/mpc_controller.cpp 中的 TODO 部分
 
 # MPC & Foxy 启动流程
+./CarlaUE4.sh -quality-level=Low
 1. cd /carla-ros-bridge
 2. source source_env.sh
 3. colcon build
 4. source source_env.sh
-5. ros2 launch carla_shenlan_bridge_ego_vis carla_bridge_ego_vehilce.launch.py
+5. ros2 launch carla_shenlan_bridge_ego_vis carla_bridge_ego_vehicle.launch.py
 6. 在新的终端里面: ros2 launch carla_shenlan_mpc_controller mpc_launch.py
 
 <!-- ![alt](./figures/test.jpg) -->

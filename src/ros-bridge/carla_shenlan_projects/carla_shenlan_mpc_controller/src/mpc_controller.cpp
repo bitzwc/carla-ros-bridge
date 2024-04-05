@@ -178,28 +178,30 @@ void FG_eval::operator()(ADvector &fg, ADvector &vars)
         /*The idea here is to constraint this value to be 0.*/
         //以下都是约束，下一时刻 = 上一时刻 + 导数 * dt
         /* 全局坐标系 */ 
-        //CppAD::cos和普通的cos有什么区别？
-        fg[1 + x_start + t] = x_0 + (v_longitudinal_0 * CppAD::cos(psi_0) + v_lateral_0 * CppAD::sin(psi_0))*dt - x_1;
-        fg[1 + y_start + t] = y_0 + (v_longitudinal_0 * CppAD::sin(psi_0) - v_lateral_0 * CppAD::cos(psi_0))*dt - y_1;
+        fg[1 + x_start + t] = x_1 - (x_0 + (v_longitudinal_0 * CppAD::cos(psi_0) - v_lateral_0 * CppAD::sin(psi_0))*dt);
+        fg[1 + y_start + t] = y_1 - (y_0 + (v_longitudinal_0 * CppAD::sin(psi_0) + v_lateral_0 * CppAD::cos(psi_0))*dt);
 
         /* 航向角变化*/
-        //航向角加速度,TODO: 补全
-        // AD<double> a_psi = -v_longitudinal_0 * front_wheel_angle_0 / lf;
-        // fg[1 + psi_start + t] = psi_0 + a_psi * dt - psi_1;
-        fg[1 + psi_start + t] = psi_0 + yaw_rate_0 * dt - psi_1;
+        //航向角速度,TODO: 这里为什么不是用yaw_rate_0？
+        AD<double> a_psi = -v_longitudinal_0 * (front_wheel_angle_0 / 1) / lf;
+        fg[1 + psi_start + t] = psi_1 - (psi_0 + a_psi * dt);
+        // fg[1 + psi_start + t] = psi_1 - (psi_0 + yaw_rate_0 * dt);
 
         /* 车辆纵向速度 */
-        fg[1 + v_longitudinal_start + t] = v_longitudinal_0 + longitudinal_acceleration_0 * dt - v_longitudinal_1;
+        fg[1 + v_longitudinal_start + t] = v_longitudinal_1 - (v_longitudinal_0 + longitudinal_acceleration_0 * dt);
 
         /* 车辆横向速度 */
-        //横向加速度,TODO: 补全
-        AD<double> a_lateral = 2/m*(Cf * ((yaw_rate_0 * Lf+-front_wheel_angle_0 / l )) - v_longitudinal * yaw_rate_0 + 
-        fg[1 + v_lateral_start + t] = v_lateral_0 + a_lateral * dt - v_lateral_1;
+        //横向加速度,TODO: 这里为什么要减去v_longitudinal_0 * yaw_rate_0？为什么正负数不一样？
+        AD<double> a_lateral = -v_longitudinal_0 * yaw_rate_0 +
+            2/m*(Cf * (-(yaw_rate_0 * lf+ v_lateral_0)/v_longitudinal_0 - front_wheel_angle_0/1)
+            + Cr * (yaw_rate_0 * lr - v_lateral_0) / v_longitudinal_0);
+        fg[1 + v_lateral_start + t] = v_lateral_1 - (v_lateral_0 + a_lateral * dt);
         
         /* 车辆横摆角速度 */
-        //车辆横摆角加速度,TODO: 补全
-        AD<double> yaw_accel = 
-        fg[1 + yaw_rate_start + t] = yaw_rate_0 + yaw_accel * dt - yaw_rate_1;
+        //车辆横摆角加速度,TODO: 这里为什么正负号不一样？
+        AD<double> yaw_accel = 2/I*(lf*Cf*(-(yaw_rate_0 * lf+ v_lateral_0)/v_longitudinal_0 - front_wheel_angle_0/1)
+            - lr*Cr*(yaw_rate_0 * lr - v_lateral_0) / v_longitudinal_0);
+        fg[1 + yaw_rate_start + t] = yaw_rate_1 - (yaw_rate_0 + yaw_accel * dt);
 
         /* 横向位置跟踪误差 */
         fg[1 + cte_start + t] = cte_1 - (f_0 - y_0 + v_longitudinal_0 * CppAD::tan(epsi_0) * dt);
@@ -424,8 +426,9 @@ std::vector<double> mpc_controller::Solve(const Eigen::VectorXd &state,
     /* Return the first actuator values. The variables can be accessed with 'solution.x[i]'. */
     std::vector<double> result;
     result.clear();
-    // cout << solution.x << endl;
-    // cout << front_wheel_angle_start << endl;
+    // std::cout << solution.x << std::endl;
+    std::cout << "转向角：" << solution.x[front_wheel_angle_start];    
+    std::cout << "纵向加速度：" << solution.x[longitudinal_acceleration_start] << std::endl;
 
     //solution.x是求解的结果，包含8*Np + 2*Nc个变量，通过前轮转角索引和纵向加速度索引来获取2个控制量
     result.push_back(solution.x[front_wheel_angle_start]);

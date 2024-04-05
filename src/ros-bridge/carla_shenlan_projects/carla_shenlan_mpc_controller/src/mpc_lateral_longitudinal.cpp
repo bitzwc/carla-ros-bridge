@@ -214,7 +214,7 @@ void MPCControllerNode::OdomCallback(nav_msgs::msg::Odometry::SharedPtr msg)
     vehicleState_.velocity = std::sqrt(vehicleState_.vx * vehicleState_.vx + vehicleState_.vy * vehicleState_.vy + vehicleState_.vz * vehicleState_.vz) * 3.6;    // 本车速度
     //车辆横摆角
     vehicleState_.heading = vehicleState_.yaw;
-    // cout << "vehicleState_.heading: " << vehicleState_.heading << endl;
+    cout << "vehicleState_.heading: " << vehicleState_.heading;
     //车辆x、y坐标，横摆角，纵向速度，横向速度
     px = msg->pose.pose.position.x;
     py = msg->pose.pose.position.y;
@@ -222,7 +222,7 @@ void MPCControllerNode::OdomCallback(nav_msgs::msg::Odometry::SharedPtr msg)
     v_longitudinal = msg->twist.twist.linear.x;
     v_lateral = msg->twist.twist.linear.y;
 
-    // cout << "v_longitudinal: " << v_longitudinal << " , v_lateral" << v_lateral << endl;
+    cout << "v_longitudinal: " << v_longitudinal << " , v_lateral" << v_lateral << endl;
 
     /* 将收到的定位信息发布出来,在rviz里显示历史轨迹 */
     history_path.header.stamp = this->get_clock()->now();
@@ -270,7 +270,7 @@ void MPCControllerNode::IMUCallback(sensor_msgs::msg::Imu::SharedPtr msg)
 - Comments    : None
 **************************************************************************************'''*/
 {
-    RCLCPP_INFO(LOGGER, "Got IMU data!!!");
+    // RCLCPP_INFO(LOGGER, "Got IMU data!!!");
     // 平面角速度(绕z轴转动的角速度)
     vehicleState_.angular_velocity = msg->angular_velocity.z;  
     // 加速度                                                                                              
@@ -280,7 +280,7 @@ void MPCControllerNode::IMUCallback(sensor_msgs::msg::Imu::SharedPtr msg)
     a_longitudinal = msg->linear_acceleration.x;
     //横向加速度
     a_lateral = msg->linear_acceleration.y;
-    //转动加速度
+    //转动角速度
     yaw_rate = msg->angular_velocity.z;
 }
 
@@ -691,7 +691,7 @@ void MPCControllerNode::VehicleControllerIterationCallback()
         iteration_time_length = (end_mpc - start_mpc).nanoseconds();
         mpc_iteration_duration_msg.data = iteration_time_length / 1000000;
         mpc_iteration_time_publisher->publish(mpc_iteration_duration_msg);
-        RCLCPP_INFO(this->get_logger(), "mpc iteration time: %f ms", iteration_time_length / 1000000);
+        // RCLCPP_INFO(this->get_logger(), "mpc iteration time: %f ms", iteration_time_length / 1000000);
 
         mpc_reference_path_publisher->publish(reference_path);
         mpc_output_path_publisher->publish(mpc_output_path);
