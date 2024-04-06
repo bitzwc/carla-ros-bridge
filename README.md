@@ -31,7 +31,7 @@
 6. 在新的终端里面: ros2 launch carla_shenlan_lqr_pid_controller lqr_launch.py
 
 # MPC & Foxy 需要完成的内容
-1. carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller/src/mpc_controller.cpp 中的 TODO 部分
+1. 
 
 # MPC & Foxy 启动流程
 1. cd /carla-ros-bridge
@@ -40,5 +40,14 @@
 4. source source_env.sh
 5. ros2 launch carla_shenlan_bridge_ego_vis carla_bridge_ego_vehilce.launch.py
 6. 在新的终端里面: ros2 launch carla_shenlan_mpc_controller mpc_launch.py
+
+# Lattice & Foxy 启动流程
+1. 需要完成部分： lattice_planner.cpp 中的TODO部分
+2. cd /carla-ros-bridge
+3. source source_env.sh
+4. colcon build
+5. source source_env.sh
+6. ros2 launch carla_shenlan_bridge_ego_vis carla_bridge_ego_vehilce.launch.py
+7. 在新的终端里面: ros2 launch carla_shenlan_lattice_planner lattice_launch.py
 
 <!-- ![alt](./figures/test.jpg) -->

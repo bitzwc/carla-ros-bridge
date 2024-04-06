@@ -1,4 +1,4 @@
-#include "carla_shenlan_mpc_controller/mpc_lateral_longitudinal.h"
+#include "carla_shenlan_lattice_planner/lattice_mpc_lateral_longitudinal.h"
 
 #include <chrono>
 #include <cstdio>
@@ -14,10 +14,10 @@
 // using namespace std;
 using std::placeholders::_1;
 
-static const rclcpp::Logger LOGGER = rclcpp::get_logger("mpc_lateral_longitudinal");
+static const rclcpp::Logger LOGGER = rclcpp::get_logger("lattice_mpc_lateral_longitudinal");
 
-MPCControllerNode::MPCControllerNode()
-    : Node("mpc_lateral_longitudinal")
+LatticePlannerNode::LatticePlannerNode()
+    : Node("lattice_mpc_lateral_longitudinal")
 /*'''**************************************************************************************
 - FunctionName: None
 - Function    : None
@@ -105,9 +105,34 @@ MPCControllerNode::MPCControllerNode()
     RCLCPP_INFO(this->get_logger(), "mpc_working_mode %d", this->working_mode);
     RCLCPP_INFO(this->get_logger(), "mpc_with_planner_flag %d", this->with_planner_flag);
 
+    float c_speed_, c_d_, c_d_d_, c_d_dd_, s0_;
+    this->declare_parameter<float>("c_speed", c_speed_);                        //读取Frenet规划器，初始目标速度
+    this->declare_parameter<float>("c_d", c_d_);                                //读取Frenet规划器，初始横向偏差
+    this->declare_parameter<float>("c_d_d", c_d_d_);                            //读取Frenet规划器，初始横向速度偏差
+    this->declare_parameter<float>("c_d_dd", c_d_dd_);                          //读取Frenet规划器，初始横向加速度偏差
+    this->declare_parameter<float>("s0", s0_);                                  //读取Frenet规划器，初始纵向距离
+
+    this->get_parameter<float>("c_speed", c_speed_);                        //读取Frenet规划器，初始目标速度
+    this->get_parameter<float>("c_d", c_d_);                                //读取Frenet规划器，初始横向偏差
+    this->get_parameter<float>("c_d_d", c_d_d_);                            //读取Frenet规划器，初始横向速度偏差
+    this->get_parameter<float>("c_d_dd", c_d_dd_);                          //读取Frenet规划器，初始横向加速度偏差
+    this->get_parameter<float>("s0", s0_);
+
     //加载路网文件
-    std::cout << "roadmap_path: " << roadmap_path << "  " << target_speed << std::endl;
+    // std::cout << "roadmap_path: " << roadmap_path << "  " << target_speed << std::endl;
     loadRoadmap(roadmap_path);
+
+    GetWayPoints();    //在参考路径的基础上进行采点，这里为什么不直接使用参考路径，而要采点->样条->采点呢？
+
+    // 构建相对平滑的Frenet曲线坐标系，一个中间暂时方案
+    csp_obj_ = new Spline2D(wx_, wy_);
+
+    // 构造全局路径变量
+    GenerateGlobalPath();
+
+    //  Update Obstacle 添加虚拟障碍物
+    UpdateStaticObstacle();
+
 
     // pid_controller_longitudinal = std::make_unique<shenlan::control::PIDController>(speed_P, speed_I, speed_D);
 
@@ -115,8 +140,10 @@ MPCControllerNode::MPCControllerNode()
     // mpc_controller_lateral->LoadControlConf();
     // mpc_controller_lateral->Init();
 
-    localization_data_subscriber = this->create_subscription<nav_msgs::msg::Odometry>("/carla/ego_vehicle/odometry", 10, std::bind(&MPCControllerNode::OdomCallback, this, _1));
-    lacalization_data_imu_subscriber = this->create_subscription<sensor_msgs::msg::Imu>("/carla/ego_vehicle/imu", 10, std::bind(&MPCControllerNode::IMUCallback, this, _1));
+    //订阅位姿
+    localization_data_subscriber = this->create_subscription<nav_msgs::msg::Odometry>("/carla/ego_vehicle/odometry", 10, std::bind(&LatticePlannerNode::OdomCallback, this, _1));
+    //订阅IMU惯性测量单元
+    lacalization_data_imu_subscriber = this->create_subscription<sensor_msgs::msg::Imu>("/carla/ego_vehicle/imu", 10, std::bind(&LatticePlannerNode::IMUCallback, this, _1));
 
     vehicle_control_publisher = this->create_publisher<carla_msgs::msg::CarlaEgoVehicleControl>("/carla/ego_vehicle/vehicle_control_cmd", 10);
     control_cmd.header.stamp = this->now();
@@ -125,12 +152,14 @@ MPCControllerNode::MPCControllerNode()
     control_cmd.reverse = false;
     control_cmd.hand_brake = false;
 
+    
+
     auto time_node_start = this->now();
     vehicle_control_target_velocity_publisher = this->create_publisher<carla_msgs::msg::CarlaVehicleTargetVelocity>("/carla/ego_vehicle/target_velocity", 10);
     vehicle_control_target_velocity.header.stamp = this->now();
     vehicle_control_target_velocity.velocity = 0.0;
 
-    carla_status_subscriber = this->create_subscription<carla_msgs::msg::CarlaEgoVehicleStatus>("/carla/ego_vehicle/vehicle_status", 10, std::bind(&MPCControllerNode::VehicleStatusCallback, this, _1));
+    carla_status_subscriber = this->create_subscription<carla_msgs::msg::CarlaEgoVehicleStatus>("/carla/ego_vehicle/vehicle_status", 10, std::bind(&LatticePlannerNode::VehicleStatusCallback, this, _1));
 
     global_path_publisher_ = this->create_publisher<nav_msgs::msg::Path>("/global_reference_path", 2);
     history_path_visualization_publisher = this->create_publisher<nav_msgs::msg::Path>("/history_path", 2);
@@ -143,13 +172,19 @@ MPCControllerNode::MPCControllerNode()
     mpc_output_path_publisher = this->create_publisher<visualization_msgs::msg::Marker>("mpc_output_path", 10);
     mpc_iteration_time_publisher = this->create_publisher<std_msgs::msg::Float32>("mpc_iteration_duration", 10);    // 用于统计MPC求解时间的广播器
 
-    vehicle_control_iteration_timer = this->create_wall_timer(50ms, std::bind(&MPCControllerNode::VehicleControllerIterationCallback, this));
-    global_path_publish_timer = this->create_wall_timer(500ms, std::bind(&MPCControllerNode::GlobalPathPublishCallback, this));
+    vehicle_control_iteration_timer = this->create_wall_timer(50ms, std::bind(&LatticePlannerNode::VehicleControllerIterationCallback, this));
+    global_path_publish_timer = this->create_wall_timer(500ms, std::bind(&LatticePlannerNode::GlobalPathPublishCallback, this));
+
+    obstacles_visualization_publisher = this->create_publisher<visualization_msgs::msg::MarkerArray>("/obstacles_vis", 10);
+    obstacles_vis_publish_timer = this->create_wall_timer(20ms, std::bind(&LatticePlannerNode::ObstacleVisPublishCallback, this));
+
+    replan_path_publisher_ = this->create_publisher<nav_msgs::msg::Path>("/replanned_path", 2);
+    lattice_planner_timer = this->create_wall_timer(100ms, std::bind(&LatticePlannerNode::LatticePlannerCallback, this));
 
     RCLCPP_INFO(LOGGER, "mpc_control_node init finish!");
 }
 
-MPCControllerNode::~MPCControllerNode()
+LatticePlannerNode::~LatticePlannerNode()
 /*'''**************************************************************************************
 - FunctionName: None
 - Function    : None
@@ -159,7 +194,351 @@ MPCControllerNode::~MPCControllerNode()
 **************************************************************************************'''*/
 {}
 
-void MPCControllerNode::OdomCallback(nav_msgs::msg::Odometry::SharedPtr msg)
+void LatticePlannerNode::ObstacleVisPublishCallback()
+/*'''**************************************************************************************
+- FunctionName: 读取障碍物坐标，发布障碍物topic
+- Function    : None
+- Inputs      : None
+- Outputs     : None
+- Comments    : None
+**************************************************************************************'''*/
+{
+    obstacles_all.markers.clear();
+    int _id = 0;
+    for (Poi_f single_obstacle : obstcle_list_)
+    {
+        visualization_msgs::msg::Marker marker;
+        marker.header.frame_id = "map";
+        marker.header.stamp = this->now();
+        marker.ns = "my_namespace";
+        marker.id = _id;
+        marker.type = visualization_msgs::msg::Marker::CYLINDER;
+        marker.action = visualization_msgs::msg::Marker::ADD;
+        marker.pose.position.x = single_obstacle[0];
+        marker.pose.position.y = single_obstacle[1];
+        marker.pose.position.z = 0;
+        marker.pose.orientation.x = 0.0;
+        marker.pose.orientation.y = 0.0;
+        marker.pose.orientation.z = 0.0;
+        marker.pose.orientation.w = 1.0;
+        marker.scale.x = 1.2*2.5;
+        marker.scale.y = 1.2;
+        marker.scale.z = 1.2;
+        marker.color.a = 1.0; // Don't forget to set the alpha!
+        marker.color.r = 1.0;
+        marker.color.g = 1.0;
+        marker.color.b = 0.0;
+        obstacles_all.markers.push_back(marker);
+        _id++;
+    }
+    obstacles_visualization_publisher->publish(obstacles_all);
+
+}
+
+void LatticePlannerNode::LatticePlannerCallback() 
+/*'''**************************************************************************************
+- FunctionName: 重新规划路径，考虑障碍物
+- Function    : None
+- Inputs      : None
+- Outputs     : None
+- Comments    : None
+**************************************************************************************'''*/
+{
+    if (!firstRecord_) {    //有定位数据开始规划
+        // TODO:这里之后可以再被优化，采用更好的Frenet坐标系取点方式。
+        const double ego_s = GetNearestReferenceLength(vehicleState_);
+        const double ego_l = GetNearestReferenceLatDist(vehicleState_);
+        const double ego_speed = vehicleState_.velocity;
+
+        s0_ = ego_s;
+        if (std::abs(ego_speed) > 1e-3) {
+            c_speed_ = ego_speed;
+        }
+        c_d_ = ego_l;
+        std::cout << "vehicleState_.x: " << vehicleState_.x << ", vehicleState_.y: " << vehicleState_.y << ", c_d_: " << c_d_ << ", ego_s: " << ego_s << std::endl;
+        // Idea:
+        // 判断是否是终点,这里之后需要优化一下，加一个精准停车功能，然后缩小误差范围，发送Stop命令
+        if (std::abs(s0_ - end_s_) < 2.0) {
+            // break;
+            isReachGoal_ = true;
+            RCLCPP_ERROR(LOGGER, "Goal Reached!");
+        }
+
+        FrenetOptimalTrajectory frenet_optimal_trajectory;
+        // to-do step 1 finish frenet_optimal_planning
+        FrenetPath final_path = frenet_optimal_trajectory.frenet_optimal_planning(*csp_obj_, s0_, c_speed_, c_d_, c_d_d_, c_d_dd_, obstcle_list_);
+        // std::cout << "final_path.s.size(): " << final_path.s.size() << std::endl;
+        // std::cout << "final_path.s.empty(): " << final_path.s.empty() << std::endl;
+        // std::cout << "near_goal_: " << near_goal_ << std::endl;
+        if (!final_path.s.empty() && !near_goal_) {
+            s0_ = final_path.s[1];
+            c_d_ = final_path.d[1];
+            c_d_d_ = final_path.d_d[1];
+            c_d_dd_ = final_path.d_dd[1];
+            c_speed_ = final_path.s_d[1];
+
+            // 可视化重规划轨迹
+            // visualization_->publishLocalPlan(final_path);
+            nav_msgs::msg::Path local_path;
+            local_path.header.frame_id = "map";
+            local_path.header.stamp = this->get_clock()->now();
+            const int size = final_path.t.size();
+            for (int i = 0; i < size; i++) {
+                geometry_msgs::msg::PoseStamped pose;
+                pose.header.frame_id = "map";
+                pose.header.stamp = rclcpp::Time();
+                pose.pose.position.x = final_path.x[i];
+                pose.pose.position.y = final_path.y[i];
+                pose.pose.position.z = 0.0;
+                pose.pose.orientation.x = 0.0;
+                pose.pose.orientation.y = 0.0;
+                pose.pose.orientation.z = 0.0;
+                pose.pose.orientation.w = 0.0;
+                local_path.poses.push_back(pose);
+            }
+            replan_path_publisher_->publish(local_path);
+
+            const auto trajectory = GetTrajectoryFromFrenetPath(final_path);
+            planningPublishedTrajectoryDebug_ = trajectory;
+            last_trajectory_ = trajectory;
+
+            if (std::abs(final_path.s.back() - end_s_) < 2.0) {
+                RCLCPP_INFO(LOGGER, "Near Goal");
+                near_goal_ = true;
+            }
+        } else {
+            // Backup
+            planningPublishedTrajectoryDebug_ = last_trajectory_;
+        }
+
+        // addLocalTrajectoryMarker(
+        //     planningPublishedTrajectoryDebug_.trajectory_points, frame_id_);
+
+        plannerFlag_ = true;
+    }
+}
+
+
+int LatticePlannerNode::GetNearestReferenceIndex(const VehicleState &ego_state) 
+/*'''**************************************************************************************
+- FunctionName: None
+- Function    : None
+- Inputs      : None
+- Outputs     : None
+- Comments    : None
+**************************************************************************************'''*/
+{
+    double min_dist = std::numeric_limits<double>::max();
+    size_t min_index = 0;
+
+    for (size_t i = 0; i < global_plan_.poses.size(); ++i) {
+        const double distance = DistanceXY(ego_state, global_plan_.poses[i].pose.position);
+        if (distance < min_dist) {
+            min_dist = distance;
+            min_index = i;
+        }
+    }
+    return min_index;
+}
+
+double LatticePlannerNode::GetNearestReferenceLength(const VehicleState &ego_state) 
+/*'''**************************************************************************************
+- FunctionName: None
+- Function    : None
+- Inputs      : None
+- Outputs     : None
+- Comments    : None
+**************************************************************************************'''*/
+{
+    return global_plan_.poses[GetNearestReferenceIndex(ego_state)].pose.position.z;    // s存在position.z中
+}
+
+double LatticePlannerNode::GetNearestReferenceLatDist(const VehicleState &ego_state) 
+/*'''**************************************************************************************
+- FunctionName: None
+- Function    : None
+- Inputs      : None
+- Outputs     : None
+- Comments    : None
+**************************************************************************************'''*/
+{
+    double min_dist = std::numeric_limits<double>::max();
+    size_t min_index = 0;
+
+    for (size_t i = 0; i < global_plan_.poses.size() - 1; ++i) {
+        const double distance = DistanceXY(ego_state, global_plan_.poses[i].pose.position);
+        if (distance < min_dist) {
+            min_dist = distance;
+            min_index = i;
+        }
+    }
+    const int sign = LeftOfLine(ego_state, global_plan_.poses[min_index], global_plan_.poses[min_index + 1]) ? 1 : -1;
+    return sign * min_dist;
+}
+/*'''**************************************************************************************
+- FunctionName: None
+- Function    : None
+- Inputs      : None
+- Outputs     : None
+- Comments    : None
+**************************************************************************************'''*/
+bool LatticePlannerNode::LeftOfLine(const VehicleState &p, const geometry_msgs::msg::PoseStamped &p1, const geometry_msgs::msg::PoseStamped &p2) {
+    // const double tmpx = (p1.pose.position.x - p2.pose.position.x) / (p1.pose.position.y - p2.pose.position.y) * (p.y - p2.pose.position.y) + p2.pose.position.x;
+    // std::cout << "p1.pose.position.x: " << p1.pose.position.x << ", p2.pose.position.x: " << p2.pose.position.x << ", p1.pose.position.y: " << p1.pose.position.y << ", p2.pose.position.y: " << p2.pose.position.y << ", p.y: " << p.y << ", p2.pose.position.y" << p2.pose.position.y << ", p2.pose.position.x" << p2.pose.position.x << std::endl;
+    // std::cout << "tmpx: " << tmpx << "p.x: " << p.x << std::endl;
+    
+    // if (tmpx > p.x)    //当tmpx>p.x的时候，说明点在线的左边，小于在右边，等于则在线上。
+    //     return true;
+    // return false;
+
+    const double tmpx = (p1.pose.position.x - p.x) * (p2.pose.position.y-p.y) - (p1.pose.position.y - p.y) * (p2.pose.position.x - p.x);
+    if (tmpx > 0.0)
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+TrajectoryData LatticePlannerNode::GetTrajectoryFromFrenetPath(const FrenetPath &path) 
+/*'''**************************************************************************************
+- FunctionName: None
+- Function    : None
+- Inputs      : None
+- Outputs     : None
+- Comments    : None
+**************************************************************************************'''*/
+{
+    TrajectoryData trajectory;
+    const int traj_size = path.t.size();
+    trajectory.trajectory_points.reserve(traj_size);
+
+    for (int i = 0; i < traj_size; i++) {
+        TrajectoryPoint trajectory_pt;
+        trajectory_pt.x = path.x[i];
+        trajectory_pt.y = path.y[i];
+        trajectory_pt.v = path.ds[i];
+        trajectory_pt.a = 0.0;
+        trajectory_pt.heading = path.yaw[i];
+        trajectory_pt.kappa = path.c[i];
+        trajectory.trajectory_points.push_back(trajectory_pt);
+    }
+    return trajectory;
+}
+
+/*
+  障碍物
+*/
+void LatticePlannerNode::UpdateStaticObstacle() 
+/*'''**************************************************************************************
+- FunctionName: None
+- Function    : None
+- Inputs      : None
+- Outputs     : None
+- Comments    : None
+**************************************************************************************'''*/
+{
+    std::vector<Poi_f> obstcles{{255, -195.1}, {175, -199.1}};
+    // std::vector<Poi_f> obstcles{};
+    obstcle_list_ = obstcles;
+}
+
+
+void LatticePlannerNode::GenerateGlobalPath() 
+/*'''**************************************************************************************
+- FunctionName: 根据样条曲线生成全局路径离散点
+- Function    : GenerateGlobalPath
+- Inputs      : csp_obj_ 样条曲线
+- Outputs     : r_x、r_y、ryaw、rcurvature、rs 采样点位置、转向角、曲率、位移0.1米间隔
+- Comments    : None
+**************************************************************************************'''*/
+{
+
+    Vec_f r_x;
+    Vec_f r_y;
+    Vec_f ryaw;
+    Vec_f rcurvature;
+    Vec_f rs;
+
+    global_plan_.poses.clear();
+    global_plan_.header.frame_id = "map";
+    global_plan_.header.stamp = this->get_clock()->now();
+    // 0.1米的间隔进行踩点
+    for (float i = 0; i < csp_obj_->s.back(); i += 0.1) {
+        std::array<float, 2> point_ = csp_obj_->calc_postion(i);
+        r_x.push_back(point_[0]);
+        r_y.push_back(point_[1]);
+        ryaw.push_back(csp_obj_->calc_yaw(i));
+        rcurvature.push_back(csp_obj_->calc_curvature(i));
+        rs.push_back(i);
+
+        geometry_msgs::msg::PoseStamped pt;
+        pt.header.stamp = this->get_clock()->now();
+        pt.header.frame_id = "map";
+        pt.pose.position.x = point_[0];
+        pt.pose.position.y = point_[1];
+        pt.pose.position.z = i;    //使用position.z存储路径的s
+        pt.pose.orientation = this->createQuaternionMsgFromYaw(csp_obj_->calc_yaw(i));
+        global_plan_.poses.push_back(pt);
+    }
+
+    //终点坐标
+    end_x_ = r_x.back();
+    end_y_ = r_y.back();
+    end_s_ = rs.back();
+    RCLCPP_INFO_STREAM(LOGGER, "s_end= " << end_s_);
+
+    // for (float i = 0; i < csp_obj_->s.back(); i += 0.1) {
+    //     std::array<float, 2> point_ = csp_obj_->calc_postion(i);
+    //     // r_x.push_back(point_[0]);
+    //     // r_y.push_back(point_[1]);
+    //     // ryaw.push_back(csp_obj_->calc_yaw(i));
+    //     // rcurvature.push_back(csp_obj_->calc_curvature(i));
+    //     // rs.push_back(i);
+    //     global_path.header.frame_id = "gps";
+    //     geometry_msgs::msg::PoseStamped pt;
+    //     pt.header.stamp = this->get_clock()->now();
+    //     pt.header.frame_id = "gps";
+    //     pt.pose.position.x = point_[0];
+    //     pt.pose.position.y = point_[1];
+    //     pt.pose.position.z = 0;    //使用position.z存储路径的s
+    //     pt.pose.orientation = this->createQuaternionMsgFromYaw(csp_obj_->calc_yaw(i));
+    //     global_path.poses.push_back(pt);
+    // }
+}
+
+/*
+  参考路径点比较密集，大概每0.6米一个，在此基础上进行采样，每隔2米位移选取一个采样点
+  参考路径：trajectory_points_
+  采样点：wx_、wy_
+*/
+void LatticePlannerNode::GetWayPoints() {
+    const int refline_size = trajectory_points_.size();
+
+    const auto &trajectory_pt = trajectory_points_;
+
+    double sum_s = 0;
+    wx_.push_back(trajectory_pt[0].x);
+    wy_.push_back(trajectory_pt[0].y);
+    for (int i = 1; i < refline_size; i++) {
+        const double dx = trajectory_pt[i].x - trajectory_pt[i - 1].x;
+        const double dy = trajectory_pt[i].y - trajectory_pt[i - 1].y;
+        const double s = std::sqrt(dx * dx + dy * dy);
+        sum_s += s;
+        // 每隔2米的距离进行采点
+        if (sum_s > 2.0) {
+            wx_.push_back(trajectory_pt[i].x);
+            wy_.push_back(trajectory_pt[i].y);
+            RCLCPP_INFO_STREAM(LOGGER, "waypt, x= " << wx_.back() << ", y= " << wy_.back());
+            sum_s = 0;
+        }
+    }
+
+    RCLCPP_INFO_STREAM(LOGGER, "refline_size= " << refline_size << ", waypoint size= " << wx_.size());
+}
+
+void LatticePlannerNode::OdomCallback(nav_msgs::msg::Odometry::SharedPtr msg)
 /*'''**************************************************************************************
 - FunctionName: None
 - Function    : None
@@ -230,7 +609,7 @@ void MPCControllerNode::OdomCallback(nav_msgs::msg::Odometry::SharedPtr msg)
 
     tf_broadcaster_gps_vehicle->sendTransform(transformStamped);
 }
-void MPCControllerNode::IMUCallback(sensor_msgs::msg::Imu::SharedPtr msg)
+void LatticePlannerNode::IMUCallback(sensor_msgs::msg::Imu::SharedPtr msg)
 /*'''**************************************************************************************
 - FunctionName: None
 - Function    : None
@@ -247,12 +626,12 @@ void MPCControllerNode::IMUCallback(sensor_msgs::msg::Imu::SharedPtr msg)
     a_lateral = msg->linear_acceleration.y;
     yaw_rate = msg->angular_velocity.z;
 }
-void MPCControllerNode::loadRoadmap(const std::string& roadmap_path)
+void LatticePlannerNode::loadRoadmap(const std::string& roadmap_path)
 /*'''**************************************************************************************
-- FunctionName: None
-- Function    : None
-- Inputs      : None
-- Outputs     : None
+- FunctionName: 读取文件，加载参考路径
+- Function    : loadRoadmap
+- Inputs      : roadmap_path
+- Outputs     : trajectory_points_ 轨迹点集合，global_path 全局路径
 - Comments    : None
 **************************************************************************************'''*/
 {
@@ -261,7 +640,7 @@ void MPCControllerNode::loadRoadmap(const std::string& roadmap_path)
     assert(infile.is_open());                            //若失败,则输出错误消息,并终止程序运行
 
     while (getline(infile, _line)) {
-        std::cout << _line << std::endl;
+        // std::cout << _line << std::endl;
         //解析每行的数据
         std::stringstream ss(_line);
         string _sub;
@@ -284,17 +663,18 @@ void MPCControllerNode::loadRoadmap(const std::string& roadmap_path)
     std::vector<double> accumulated_s;
     std::vector<double> kappas;
     std::vector<double> dkappas;
-    std::unique_ptr<shenlan::control::ReferenceLine> reference_line = std::make_unique<shenlan::control::ReferenceLine>(xy_points);
+    std::unique_ptr<shenlan::control::ReferenceLine> reference_line = 
+            std::make_unique<shenlan::control::ReferenceLine>(xy_points);
     reference_line->ComputePathProfile(&headings, &accumulated_s, &kappas, &dkappas);
 
-    for (size_t i = 0; i < headings.size(); i++) {
-        std::cout << "pt " << i << " heading: " << headings[i] << " acc_s: " << accumulated_s[i] << " kappa: " << kappas[i] << " dkappas: " << dkappas[i] << std::endl;
-    }
+    // for (size_t i = 0; i < headings.size(); i++) {
+    //     std::cout << "pt " << i << " heading: " << headings[i] << " acc_s: " << accumulated_s[i] << " kappa: " << kappas[i] << " dkappas: " << dkappas[i] << std::endl;
+    // }
 
     size_t _count_points = headings.size();
     size_t _stop_begin_point = ceil(_count_points * 0.85);
     size_t _stop_point = ceil(_count_points * 0.95);
-    std::cout << "slow down points:" << _stop_begin_point << "  " << _stop_point << std::endl;
+    // std::cout << "slow down points:" << _stop_begin_point << "  " << _stop_point << std::endl;
 
     int _index_before_stop = 0;
     for (size_t i = 0; i < headings.size(); i++) {
@@ -306,7 +686,9 @@ void MPCControllerNode::loadRoadmap(const std::string& roadmap_path)
             _index_before_stop++;
         } else {
             if (trajectory_pt.v > 1.0) {
-                trajectory_pt.v = v_points[_index_before_stop] * ((double)i / ((double)_stop_begin_point - (double)_stop_point) - (double)_stop_point / ((double)_stop_begin_point - (double)_stop_point));
+                trajectory_pt.v = v_points[_index_before_stop] * (
+                    (double)i / ((double)_stop_begin_point - (double)_stop_point) 
+                    - (double)_stop_point / ((double)_stop_begin_point - (double)_stop_point));
             } else {
                 trajectory_pt.v = 0;
             }
@@ -336,7 +718,7 @@ void MPCControllerNode::loadRoadmap(const std::string& roadmap_path)
     trajectory_points_ = planning_published_trajectory.trajectory_points;
 }
 
-void MPCControllerNode::GlobalPathPublishCallback()
+void LatticePlannerNode::GlobalPathPublishCallback()
 /*'''**************************************************************************************
 - FunctionName: None
 - Function    : None
@@ -348,7 +730,7 @@ void MPCControllerNode::GlobalPathPublishCallback()
     global_path.header.stamp = this->get_clock()->now();
     global_path_publisher_->publish(global_path);
 }
-void MPCControllerNode::VehicleStatusCallback(carla_msgs::msg::CarlaEgoVehicleStatus::SharedPtr msg)
+void LatticePlannerNode::VehicleStatusCallback(carla_msgs::msg::CarlaEgoVehicleStatus::SharedPtr msg)
 /*'''**************************************************************************************
 - FunctionName: None
 - Function    : None
@@ -361,7 +743,7 @@ void MPCControllerNode::VehicleStatusCallback(carla_msgs::msg::CarlaEgoVehicleSt
     delta = msg->control.steer * 24;    // [-1, 1] from carla
 }
 
-double MPCControllerNode::PointDistanceSquare(const TrajectoryPoint& point, const double x, const double y)
+double LatticePlannerNode::PointDistanceSquare(const TrajectoryPoint& point, const double x, const double y)
 /*'''**************************************************************************************
 - FunctionName: None
 - Function    : 两点之间的距离
@@ -375,7 +757,7 @@ double MPCControllerNode::PointDistanceSquare(const TrajectoryPoint& point, cons
     return dx * dx + dy * dy;
 }
 
-TrajectoryPoint MPCControllerNode::QueryNearestPointByPosition(const double x, const double y)
+TrajectoryPoint LatticePlannerNode::QueryNearestPointByPosition(const double x, const double y)
 /*'''**************************************************************************************
 - FunctionName: None
 - Function    : None
@@ -397,7 +779,7 @@ TrajectoryPoint MPCControllerNode::QueryNearestPointByPosition(const double x, c
     return trajectory_points_[index_min];
 }
 
-void MPCControllerNode::VehicleControllerIterationCallback()
+void LatticePlannerNode::VehicleControllerIterationCallback()
 /*'''**************************************************************************************
 - FunctionName: None
 - Function    : None
@@ -413,15 +795,19 @@ void MPCControllerNode::VehicleControllerIterationCallback()
 
     // ControlCmd cmd;
 
-    if (!firstRecord_) {    //有定位数据开始控制
+    if (!firstRecord_ && plannerFlag_) {    //有定位数据开始控制
 
-        reference_path_length = 16;    // 20 points
+        reference_path_length = 12;    // 20 points
         global_path_remap_x.clear();
         global_path_remap_y.clear();
+        // std::cout << "planningPublishedTrajectoryDebug_.trajectory_points.size(): " << planningPublishedTrajectoryDebug_.trajectory_points.size() << std::endl;
+        for (size_t i = 0; i < planningPublishedTrajectoryDebug_.trajectory_points.size() - 1; i++) {
+            double shift_x = planningPublishedTrajectoryDebug_.trajectory_points[i].x - px;
+            double shift_y = planningPublishedTrajectoryDebug_.trajectory_points[i].y - py;
+        // for (size_t i = 0; i < xy_points.size() - 1; i++) {
+        //     double shift_x = xy_points[i].first - px;
+        //     double shift_y = xy_points[i].second - py;
 
-        for (size_t i = 0; i < xy_points.size() - 1; i++) {
-            double shift_x = xy_points[i].first - px;
-            double shift_y = xy_points[i].second - py;
             global_path_remap_x.push_back(shift_x * cos(psi) + shift_y * sin(psi));
             global_path_remap_y.push_back(-shift_x * sin(psi) + shift_y * cos(psi));
         }
@@ -613,7 +999,7 @@ int main(int argc, char** argv) {
     RCLCPP_INFO(LOGGER, "Initializa Node~");
     std::cout << argv[0] << std::endl;
     rclcpp::init(argc, argv);
-    auto n = std::make_shared<MPCControllerNode>();
+    auto n = std::make_shared<LatticePlannerNode>();
     rclcpp::spin(n);
     rclcpp::shutdown();
     return 0;

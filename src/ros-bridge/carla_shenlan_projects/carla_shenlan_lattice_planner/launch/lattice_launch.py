@@ -16,12 +16,12 @@ def generate_launch_description():
     # print(__file__)
     print("****************")
 
-    print(get_package_share_directory('carla_shenlan_mpc_controller'))
+    print(get_package_share_directory('carla_shenlan_lattice_planner'))
     print(os.getcwd())
     
-    lqr_parameters_configuration = os.path.join(os.getcwd(), 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller/config', 'mpc_parameters_configuration.yaml')
+    lqr_parameters_configuration = os.path.join(os.getcwd(), 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner/config', 'lattice_parameters_configuration.yaml')
 
-    rviz_config_dir = os.path.join(os.getcwd(), 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller/rviz', 'mpc_vis.rviz')
+    rviz_config_dir = os.path.join(os.getcwd(), 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner/rviz', 'lattice_vis.rviz')
     print(lqr_parameters_configuration)
 
     
@@ -32,9 +32,9 @@ def generate_launch_description():
             description='Prefix for node names'
         ),
         Node(
-            package='carla_shenlan_mpc_controller',
-            executable='mpc_lateral_longitudinal',
-            name='mpc_lateral_longitudinal',
+            package='carla_shenlan_lattice_planner',
+            executable='lattice_mpc_lateral_longitudinal',
+            name='lattice_mpc_lateral_longitudinal',
             parameters=[lqr_parameters_configuration],
             # remappings=None,
             # arguments=None,

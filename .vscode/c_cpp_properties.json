@@ -6,15 +6,11 @@
         "limitSymbolsToIncludedHeaders": false
       },
       "includePath": [
-        "/home/zhangwencheng/Documents/project/carla-ros-bridge/install/carla_waypoint_types/include/**",
-        "/home/zhangwencheng/Documents/project/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/**",
-        "/home/zhangwencheng/Documents/project/carla-ros-bridge/install/carla_msgs/include/**",
+        "${workspaceFolder}/install/**",
+        "${workspaceFolder}/install/**/include/**",
+        "${workspaceFolder}/src/ros-bridge/carla_shenlan_projects/**/include/**",
+        "${workspaceFolder}/src/ros-bridge/**/include/**",
         "/opt/ros/foxy/include/**",
-        "/home/zhangwencheng/Documents/project/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_lqr_pid_controller/include/**",
-        "/home/zhangwencheng/Documents/project/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller/include/**",
-        "/home/zhangwencheng/Documents/project/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller/include/**",
-        "/home/zhangwencheng/Documents/project/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_stanley_pid_controller/include/**",
-        "/home/zhangwencheng/Documents/project/carla-ros-bridge/src/ros-bridge/pcl_recorder/include/**",
         "/usr/include/**"
       ],
       "name": "ROS",
