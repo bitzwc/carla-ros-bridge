@@ -166,11 +166,13 @@ Vec_Path FrenetOptimalTrajectory::check_paths(Vec_Path path_list, const Vec_Poi 
 };
 
 // TODO: step 1 finish frenet_optimal_planning
-FrenetPath FrenetOptimalTrajectory::frenet_optimal_planning(Spline2D csp, float s0, float c_speed, float c_d, float c_d_d, float c_d_dd, Vec_Poi ob) {
+FrenetPath FrenetOptimalTrajectory::frenet_optimal_planning(Spline2D csp, float s0, float c_speed, float c_d, 
+    float c_d_d, float c_d_dd, Vec_Poi ob) {
 
 };
 
-FrenetPath FrenetOptimalTrajectory::frenet_optimal_planning(Spline2D csp, const FrenetInitialConditions& frenet_init_conditions, Vec_Poi ob) {
+FrenetPath FrenetOptimalTrajectory::frenet_optimal_planning(Spline2D csp, 
+            const FrenetInitialConditions& frenet_init_conditions, Vec_Poi ob) {
     float c_speed = frenet_init_conditions.c_speed;
     float c_d = frenet_init_conditions.c_d;
     float c_d_d = frenet_init_conditions.c_d_d;
