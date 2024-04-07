@@ -14,7 +14,7 @@
 
 // namespace shenlan {
 
-//浮点向量做微分
+//浮点向量做微分，inline的作用是内联函数，在调用点展开函数，不用每次都加载到栈内存
 inline Vec_f vec_diff(Vec_f input) {
     Vec_f output;
     for (unsigned int i = 1; i < input.size(); i++) {
@@ -23,6 +23,7 @@ inline Vec_f vec_diff(Vec_f input) {
     return output;
 };
 
+//浮点向量做累加
 inline Vec_f cum_sum(Vec_f input) {
     Vec_f output;
     float temp = 0;
