@@ -363,7 +363,7 @@ double LatticePlannerNode::GetNearestReferenceLength(const VehicleState &ego_sta
 
 double LatticePlannerNode::GetNearestReferenceLatDist(const VehicleState &ego_state) 
 /*'''**************************************************************************************
-- FunctionName: None
+- FunctionName: 获取最近横向距离
 - Function    : None
 - Inputs      : None
 - Outputs     : None
@@ -384,7 +384,7 @@ double LatticePlannerNode::GetNearestReferenceLatDist(const VehicleState &ego_st
     return sign * min_dist;
 }
 /*'''**************************************************************************************
-- FunctionName: None
+- FunctionName: 是否点在线的左边
 - Function    : None
 - Inputs      : None
 - Outputs     : None
@@ -411,7 +411,7 @@ bool LatticePlannerNode::LeftOfLine(const VehicleState &p, const geometry_msgs::
 
 TrajectoryData LatticePlannerNode::GetTrajectoryFromFrenetPath(const FrenetPath &path) 
 /*'''**************************************************************************************
-- FunctionName: None
+- FunctionName: 将frenet路径转化成轨迹
 - Function    : None
 - Inputs      : None
 - Outputs     : None

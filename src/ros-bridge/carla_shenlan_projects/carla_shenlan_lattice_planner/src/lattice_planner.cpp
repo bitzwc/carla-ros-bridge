@@ -145,6 +145,7 @@ void FrenetOptimalTrajectory::calc_global_paths(Vec_Path& path_list, Spline2D cs
 
 };
 
+//碰撞检测
 bool FrenetOptimalTrajectory::check_collision(FrenetPath path, const Vec_Poi ob) {
     for (auto point : ob) {
         for (unsigned int i = 0; i < path.x.size(); i++) {
@@ -161,16 +162,57 @@ bool FrenetOptimalTrajectory::check_collision(FrenetPath path, const Vec_Poi ob)
 Vec_Path FrenetOptimalTrajectory::check_paths(Vec_Path path_list, const Vec_Poi ob) {
     Vec_Path output_fp_list;
     //TODO: 补全代码
+    for(FrenetPath path: path_list){
+        //限制最大速度，最大加速度，最大曲率
+        if(path.max_speed > MAX_SPEED || path.max_accel > MAX_ACCEL || path.max_curvature > MAX_CURVATURE){
+            continue;
+        }
+        //避障，check_collision
+        if(check_collision(path, ob)){
+            continue;
+        }
+        output_fp_list.push_back(path);
+    }
 
     return output_fp_list;
 };
 
 // TODO: step 1 finish frenet_optimal_planning
+/*
+    找到最优路径
+    csp：在x和y上的样条曲线
+    s0：初始位置
+    c_speed：初始速度
+    c_d：初始横向位移
+    c_d_d：初始横向
+    ob：障碍物列表
+*/
 FrenetPath FrenetOptimalTrajectory::frenet_optimal_planning(Spline2D csp, float s0, float c_speed, float c_d, 
     float c_d_d, float c_d_dd, Vec_Poi ob) {
+    //先根据初始点状态进行采样，获取采样后的路径集合
+    Vec_Path fp_list = calc_frenet_paths(c_speed, c_d, c_d_d, c_d_dd, s0);
 
+    //补全采样轨迹的曲线参数，calc_global_paths
+    calc_global_paths(fp_list, csp);
+
+    //路径合理性、安全性检测，过滤出有效路径，check_paths
+    Vec_Path save_paths = check_paths(fp_list, ob);
+
+    //计算路径cost，保留最小cost的路径
+    float min_cost = std::numeric_limits<float>::max();
+    FrenetPath final_path;
+    for (FrenetPath path : save_paths) {
+        //cf、cd、cv分别是什么？
+        if (min_cost >= cf) {
+            min_cost = cf;
+            final_path = path;
+        }
+    }
+    return final_path;
 };
 
+
+//这个函数有什么用？
 FrenetPath FrenetOptimalTrajectory::frenet_optimal_planning(Spline2D csp, 
             const FrenetInitialConditions& frenet_init_conditions, Vec_Poi ob) {
     float c_speed = frenet_init_conditions.c_speed;
@@ -181,10 +223,12 @@ FrenetPath FrenetOptimalTrajectory::frenet_optimal_planning(Spline2D csp,
 
     Vec_Path fp_list = calc_frenet_paths(c_speed, c_d, c_d_d, c_d_dd, s0);
     calc_global_paths(fp_list, csp);
+    //所有的路径集合
     Vec_Path save_paths = check_paths(fp_list, ob);
 
     float min_cost = std::numeric_limits<float>::max();
     FrenetPath final_path;
+    //cost最小
     for (auto path : save_paths) {
         if (min_cost >= path.cf) {
             min_cost = path.cf;
