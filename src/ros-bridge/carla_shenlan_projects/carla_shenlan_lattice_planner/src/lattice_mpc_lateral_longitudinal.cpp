@@ -518,13 +518,13 @@ void LatticePlannerNode::GenerateGlobalPath()
 
 /*
   参考路径点比较密集，大概每0.6米一个，在此基础上进行采样，每隔2米位移选取一个采样点
-  参考路径：trajectory_points_
+  参考路径：planning_published_trajectory.trajectory_points
   采样点：wx_、wy_
 */
 void LatticePlannerNode::GetWayPoints() {
-    const int refline_size = trajectory_points_.size();
+    const int refline_size = planning_published_trajectory.trajectory_points.size();
 
-    const auto &trajectory_pt = trajectory_points_;
+    const auto &trajectory_pt = planning_published_trajectory.trajectory_points;
 
     double sum_s = 0;
     wx_.push_back(trajectory_pt[0].x);
