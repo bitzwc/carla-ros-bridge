@@ -14,7 +14,6 @@
 
 // namespace shenlan {
 
-//浮点向量做微分，inline的作用是内联函数，在调用点展开函数，不用每次都加载到栈内存
 inline Vec_f vec_diff(Vec_f input) {
     Vec_f output;
     for (unsigned int i = 1; i < input.size(); i++) {
@@ -23,7 +22,6 @@ inline Vec_f vec_diff(Vec_f input) {
     return output;
 };
 
-//浮点向量做累加
 inline Vec_f cum_sum(Vec_f input) {
     Vec_f output;
     float temp = 0;
@@ -36,64 +34,50 @@ inline Vec_f cum_sum(Vec_f input) {
 
 class Spline {
    public:
-    Vec_f x; //横坐标
-    Vec_f y; //纵坐标
-    int nx;  //点个数
-    Vec_f h; //步长
-    Vec_f a; //三次曲线系数a、b、c、d
+    Vec_f x;
+    Vec_f y;
+    int nx;
+    Vec_f h;
+    Vec_f a;
     Vec_f b;
     Vec_f c;
     // Eigen::VectorXf c;
     Vec_f d;
 
     Spline(){};
-    //这里设计三次方程为y = a_i + b_i * (x-x_i) + c_i * (x-x_i)^2 + d_i * (x-x_i)^3，因此a_i = yi，将a初始化为y
-    //这里在调用Spline时，初始化了x、y、nx、h、a
+    // d_i * (x-x_i)^3 + c_i * (x-x_i)^2 + b_i * (x-x_i) + a_i
     Spline(Vec_f x_, Vec_f y_) : x(x_), y(y_), nx(x_.size()), h(vec_diff(x_)), a(y_) {
         Eigen::MatrixXf A = calc_A();
         Eigen::VectorXf B = calc_B();
-
-        //这里求解出来的是系数c
         Eigen::VectorXf c_eigen = A.colPivHouseholderQr().solve(B);
         float* c_pointer = c_eigen.data();
         // Eigen::Map<Eigen::VectorXf>(c, c_eigen.rows(), 1) = c_eigen;
         c.assign(c_pointer, c_pointer + c_eigen.rows());
 
-        //得到c之后，求解d和b
         for (int i = 0; i < nx - 1; i++) {
             d.push_back((c[i + 1] - c[i]) / (3.0 * h[i]));
             b.push_back((a[i + 1] - a[i]) / h[i] - h[i] * (c[i + 1] + 2 * c[i]) / 3.0);
         }
     };
 
-    //计算y = a_i + b_i * (x-x_i) + c_i * (x-x_i)^2 + d_i * (x-x_i)^3
     float calc(float t) {
         if (t < x.front() || t > x.back()) {
             throw std::invalid_argument("received value out of the pre-defined range");
         }
-
-        //查找到t所在的线段id，也就是i
         int seg_id = bisect(t, 0, nx);
-
-        //步长，x-x_i
         float dx = t - x[seg_id];
-
-        //求插值拟合的多项式结果
         return a[seg_id] + b[seg_id] * dx + c[seg_id] * dx * dx + d[seg_id] * dx * dx * dx;
     };
 
-    //计算一阶导数y = b_i + 2 * c_i * (x-x_i) + 3 * d_i * (x-x_i)^2
     float calc_d(float t) {
         if (t < x.front() || t > x.back()) {
             throw std::invalid_argument("received value out of the pre-defined range");
         }
-        //这里为什么是nx-1？
         int seg_id = bisect(t, 0, nx - 1);
         float dx = t - x[seg_id];
         return b[seg_id] + 2 * c[seg_id] * dx + 3 * d[seg_id] * dx * dx;
     }
-    
-    //计算二阶导数y = 2 * c_i + 6 * d_i * (x-x_i)
+
     float calc_dd(float t) {
         if (t < x.front() || t > x.back()) {
             throw std::invalid_argument("received value out of the pre-defined range");
@@ -104,7 +88,6 @@ class Spline {
     }
 
    private:
-   //这里是构造自然边界的样条矩阵A和B，参考 https://zhuanlan.zhihu.com/p/62860859
     Eigen::MatrixXf calc_A() {
         Eigen::MatrixXf A = Eigen::MatrixXf::Zero(nx, nx);
         A(0, 0) = 1;
@@ -120,8 +103,6 @@ class Spline {
         A(nx - 1, nx - 1) = 1.0;
         return A;
     };
-
-    //和知乎上教程不同的是m替换成了2c，约掉了2，所以变成3*
     Eigen::VectorXf calc_B() {
         Eigen::VectorXf B = Eigen::VectorXf::Zero(nx);
         for (int i = 0; i < nx - 2; i++) {
@@ -130,7 +111,6 @@ class Spline {
         return B;
     };
 
-    //二分查找，找到浮点t最接近于哪个点
     int bisect(float t, int start, int end) {
         int mid = (start + end) / 2;
         if (t == x[mid] || end - start <= 1) {
@@ -142,7 +122,7 @@ class Spline {
         }
     }
 };
-//样条类，输入给定点，输出连续光滑的曲线。包括插值样条、逼近样条
+
 class Spline2D {
    public:
     Spline sx;
@@ -150,21 +130,17 @@ class Spline2D {
     Vec_f s;
 
     Spline2D(Vec_f x, Vec_f y) {
-        //这里是在三维空间中，累计位移s对应二维空间的x
         s = calc_s(x, y);
-        //分别对累计位移s，在x和y上进行插值求解，得到对应的插值对象
         sx = Spline(s, x);
         sy = Spline(s, y);
     };
 
-    //计算位置s_t所在的点坐标
     Poi_f calc_postion(float s_t) {
         float x = sx.calc(s_t);
         float y = sy.calc(s_t);
         return {{x, y}};
     };
 
-    //计算位置s_t所在的点曲率
     float calc_curvature(float s_t) {
         float dx = sx.calc_d(s_t);
         float ddx = sx.calc_dd(s_t);
@@ -173,7 +149,6 @@ class Spline2D {
         return (ddy * dx - ddx * dy) / (dx * dx + dy * dy);
     };
 
-    //计算位置s_t所在的点转向角
     float calc_yaw(float s_t) {
         float dx = sx.calc_d(s_t);
         float dy = sy.calc_d(s_t);
@@ -181,7 +156,6 @@ class Spline2D {
     };
 
    private:
-    //计算累计位移
     Vec_f calc_s(Vec_f x, Vec_f y) {
         Vec_f ds;
         Vec_f out_s{0};

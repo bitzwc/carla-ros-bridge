@@ -122,9 +122,9 @@ LatticePlannerNode::LatticePlannerNode()
     // std::cout << "roadmap_path: " << roadmap_path << "  " << target_speed << std::endl;
     loadRoadmap(roadmap_path);
 
-    GetWayPoints();    //在参考路径的基础上进行采点，这里为什么不直接使用参考路径，而要采点->样条->采点呢？
+    GetWayPoints();    //在参考路径的基础上进行采点
 
-    // 构建相对平滑的Frenet曲线坐标系，一个中间暂时方案，这里使用的三次多项式插值计算，得到曲线插值对象
+    // 构建相对平滑的Frenet曲线坐标系，一个中间暂时方案
     csp_obj_ = new Spline2D(wx_, wy_);
 
     // 构造全局路径变量
@@ -140,16 +140,10 @@ LatticePlannerNode::LatticePlannerNode()
     // mpc_controller_lateral->LoadControlConf();
     // mpc_controller_lateral->Init();
 
-    //订阅位姿
-    localization_data_subscriber = this->create_subscription<nav_msgs::msg::Odometry>("/carla/ego_vehicle/odometry", 
-        10, std::bind(&LatticePlannerNode::OdomCallback, this, _1));
-    //订阅IMU惯性测量单元
-    lacalization_data_imu_subscriber = this->create_subscription<sensor_msgs::msg::Imu>("/carla/ego_vehicle/imu", 
-        10, std::bind(&LatticePlannerNode::IMUCallback, this, _1));
+    localization_data_subscriber = this->create_subscription<nav_msgs::msg::Odometry>("/carla/ego_vehicle/odometry", 10, std::bind(&LatticePlannerNode::OdomCallback, this, _1));
+    lacalization_data_imu_subscriber = this->create_subscription<sensor_msgs::msg::Imu>("/carla/ego_vehicle/imu", 10, std::bind(&LatticePlannerNode::IMUCallback, this, _1));
 
-    //车辆控制发布
-    vehicle_control_publisher = this->create_publisher<carla_msgs::msg::CarlaEgoVehicleControl>(
-            "/carla/ego_vehicle/vehicle_control_cmd", 10);
+    vehicle_control_publisher = this->create_publisher<carla_msgs::msg::CarlaEgoVehicleControl>("/carla/ego_vehicle/vehicle_control_cmd", 10);
     control_cmd.header.stamp = this->now();
     control_cmd.gear = 1;
     control_cmd.manual_gear_shift = false;
@@ -159,14 +153,11 @@ LatticePlannerNode::LatticePlannerNode()
     
 
     auto time_node_start = this->now();
-    vehicle_control_target_velocity_publisher = this->create_publisher<carla_msgs::msg::CarlaVehicleTargetVelocity>(
-        "/carla/ego_vehicle/target_velocity", 10);
+    vehicle_control_target_velocity_publisher = this->create_publisher<carla_msgs::msg::CarlaVehicleTargetVelocity>("/carla/ego_vehicle/target_velocity", 10);
     vehicle_control_target_velocity.header.stamp = this->now();
     vehicle_control_target_velocity.velocity = 0.0;
 
-    //订阅车辆状态信息
-    carla_status_subscriber = this->create_subscription<carla_msgs::msg::CarlaEgoVehicleStatus>(
-        "/carla/ego_vehicle/vehicle_status", 10, std::bind(&LatticePlannerNode::VehicleStatusCallback, this, _1));
+    carla_status_subscriber = this->create_subscription<carla_msgs::msg::CarlaEgoVehicleStatus>("/carla/ego_vehicle/vehicle_status", 10, std::bind(&LatticePlannerNode::VehicleStatusCallback, this, _1));
 
     global_path_publisher_ = this->create_publisher<nav_msgs::msg::Path>("/global_reference_path", 2);
     history_path_visualization_publisher = this->create_publisher<nav_msgs::msg::Path>("/history_path", 2);
@@ -182,8 +173,8 @@ LatticePlannerNode::LatticePlannerNode()
     vehicle_control_iteration_timer = this->create_wall_timer(50ms, std::bind(&LatticePlannerNode::VehicleControllerIterationCallback, this));
     global_path_publish_timer = this->create_wall_timer(500ms, std::bind(&LatticePlannerNode::GlobalPathPublishCallback, this));
 
-    obstacles_visualization_publisher = this->create_publisher<visualization_msgs::msg::MarkerArray>("/obstacles_vis", 10);
     obstacles_vis_publish_timer = this->create_wall_timer(20ms, std::bind(&LatticePlannerNode::ObstacleVisPublishCallback, this));
+    obstacles_visualization_publisher = this->create_publisher<visualization_msgs::msg::MarkerArray>("/obstacles_vis", 10);
 
     replan_path_publisher_ = this->create_publisher<nav_msgs::msg::Path>("/replanned_path", 2);
     lattice_planner_timer = this->create_wall_timer(100ms, std::bind(&LatticePlannerNode::LatticePlannerCallback, this));
@@ -203,7 +194,7 @@ LatticePlannerNode::~LatticePlannerNode()
 
 void LatticePlannerNode::ObstacleVisPublishCallback()
 /*'''**************************************************************************************
-- FunctionName: 读取障碍物坐标，增加障碍物秒数信息，发布障碍物topic
+- FunctionName: None
 - Function    : None
 - Inputs      : None
 - Outputs     : None
@@ -244,7 +235,7 @@ void LatticePlannerNode::ObstacleVisPublishCallback()
 
 void LatticePlannerNode::LatticePlannerCallback() 
 /*'''**************************************************************************************
-- FunctionName: 重新规划路径，考虑障碍物
+- FunctionName: None
 - Function    : None
 - Inputs      : None
 - Outputs     : None
@@ -273,8 +264,7 @@ void LatticePlannerNode::LatticePlannerCallback()
 
         FrenetOptimalTrajectory frenet_optimal_trajectory;
         // to-do step 1 finish frenet_optimal_planning
-        FrenetPath final_path = frenet_optimal_trajectory.frenet_optimal_planning(
-            *csp_obj_, s0_, c_speed_, c_d_, c_d_d_, c_d_dd_, obstcle_list_);
+        FrenetPath final_path = frenet_optimal_trajectory.frenet_optimal_planning(*csp_obj_, s0_, c_speed_, c_d_, c_d_d_, c_d_dd_, obstcle_list_);
         // std::cout << "final_path.s.size(): " << final_path.s.size() << std::endl;
         // std::cout << "final_path.s.empty(): " << final_path.s.empty() << std::endl;
         // std::cout << "near_goal_: " << near_goal_ << std::endl;
@@ -363,7 +353,7 @@ double LatticePlannerNode::GetNearestReferenceLength(const VehicleState &ego_sta
 
 double LatticePlannerNode::GetNearestReferenceLatDist(const VehicleState &ego_state) 
 /*'''**************************************************************************************
-- FunctionName: 获取最近横向距离
+- FunctionName: None
 - Function    : None
 - Inputs      : None
 - Outputs     : None
@@ -384,7 +374,7 @@ double LatticePlannerNode::GetNearestReferenceLatDist(const VehicleState &ego_st
     return sign * min_dist;
 }
 /*'''**************************************************************************************
-- FunctionName: 是否点在线的左边
+- FunctionName: None
 - Function    : None
 - Inputs      : None
 - Outputs     : None
@@ -411,7 +401,7 @@ bool LatticePlannerNode::LeftOfLine(const VehicleState &p, const geometry_msgs::
 
 TrajectoryData LatticePlannerNode::GetTrajectoryFromFrenetPath(const FrenetPath &path) 
 /*'''**************************************************************************************
-- FunctionName: 将frenet路径转化成轨迹
+- FunctionName: None
 - Function    : None
 - Inputs      : None
 - Outputs     : None
@@ -437,10 +427,10 @@ TrajectoryData LatticePlannerNode::GetTrajectoryFromFrenetPath(const FrenetPath 
 
 void LatticePlannerNode::UpdateStaticObstacle() 
 /*'''**************************************************************************************
-- FunctionName: 障碍物列表坐标
-- Function    : UpdateStaticObstacle
-- Inputs      : 手动写死坐标
-- Outputs     : 障碍物列表
+- FunctionName: None
+- Function    : None
+- Inputs      : None
+- Outputs     : None
 - Comments    : None
 **************************************************************************************'''*/
 {
@@ -452,10 +442,10 @@ void LatticePlannerNode::UpdateStaticObstacle()
 
 void LatticePlannerNode::GenerateGlobalPath() 
 /*'''**************************************************************************************
-- FunctionName: 根据样条曲线生成全局路径离散点
-- Function    : GenerateGlobalPath
-- Inputs      : csp_obj_ 样条曲线
-- Outputs     : r_x、r_y、ryaw、rcurvature、rs 采样点位置、转向角、曲率、位移0.1米间隔
+- FunctionName: None
+- Function    : None
+- Inputs      : None
+- Outputs     : None
 - Comments    : None
 **************************************************************************************'''*/
 {
@@ -469,15 +459,12 @@ void LatticePlannerNode::GenerateGlobalPath()
     global_plan_.poses.clear();
     global_plan_.header.frame_id = "map";
     global_plan_.header.stamp = this->get_clock()->now();
-    // 0.1米的间隔进行踩点，i是从初始点开始的累计位移
+    // 0.1米的间隔进行踩点
     for (float i = 0; i < csp_obj_->s.back(); i += 0.1) {
-        //计算位置
         std::array<float, 2> point_ = csp_obj_->calc_postion(i);
         r_x.push_back(point_[0]);
         r_y.push_back(point_[1]);
-        //计算转向角
         ryaw.push_back(csp_obj_->calc_yaw(i));
-        //计算曲率
         rcurvature.push_back(csp_obj_->calc_curvature(i));
         rs.push_back(i);
 
@@ -486,12 +473,11 @@ void LatticePlannerNode::GenerateGlobalPath()
         pt.header.frame_id = "map";
         pt.pose.position.x = point_[0];
         pt.pose.position.y = point_[1];
-        pt.pose.position.z = i;    //使用position.z存储路径的s，这个有什么用？
-        pt.pose.orientation = this->createQuaternionMsgFromYaw(csp_obj_->calc_yaw(i));//转向角转四元数
+        pt.pose.position.z = i;    //使用position.z存储路径的s
+        pt.pose.orientation = this->createQuaternionMsgFromYaw(csp_obj_->calc_yaw(i));
         global_plan_.poses.push_back(pt);
     }
 
-    //终点坐标
     end_x_ = r_x.back();
     end_y_ = r_y.back();
     end_s_ = rs.back();
@@ -515,12 +501,6 @@ void LatticePlannerNode::GenerateGlobalPath()
     //     global_path.poses.push_back(pt);
     // }
 }
-
-/*
-  参考路径点比较密集，大概每0.6米一个，在此基础上进行采样，每隔2米位移选取一个采样点
-  参考路径：planning_published_trajectory.trajectory_points
-  采样点：wx_、wy_
-*/
 void LatticePlannerNode::GetWayPoints() {
     const int refline_size = planning_published_trajectory.trajectory_points.size();
 
@@ -534,7 +514,7 @@ void LatticePlannerNode::GetWayPoints() {
         const double dy = trajectory_pt[i].y - trajectory_pt[i - 1].y;
         const double s = std::sqrt(dx * dx + dy * dy);
         sum_s += s;
-        // 每隔2米的距离进行采点
+        // 每隔10米的距离进行采点
         if (sum_s > 2.0) {
             wx_.push_back(trajectory_pt[i].x);
             wy_.push_back(trajectory_pt[i].y);
@@ -636,10 +616,10 @@ void LatticePlannerNode::IMUCallback(sensor_msgs::msg::Imu::SharedPtr msg)
 }
 void LatticePlannerNode::loadRoadmap(const std::string& roadmap_path)
 /*'''**************************************************************************************
-- FunctionName: 读取文件，加载参考路径
-- Function    : loadRoadmap
-- Inputs      : roadmap_path
-- Outputs     : trajectory_points_ 轨迹点集合，global_path 全局路径
+- FunctionName: None
+- Function    : None
+- Inputs      : None
+- Outputs     : None
 - Comments    : None
 **************************************************************************************'''*/
 {
@@ -671,8 +651,7 @@ void LatticePlannerNode::loadRoadmap(const std::string& roadmap_path)
     std::vector<double> accumulated_s;
     std::vector<double> kappas;
     std::vector<double> dkappas;
-    std::unique_ptr<shenlan::control::ReferenceLine> reference_line = 
-            std::make_unique<shenlan::control::ReferenceLine>(xy_points);
+    std::unique_ptr<shenlan::control::ReferenceLine> reference_line = std::make_unique<shenlan::control::ReferenceLine>(xy_points);
     reference_line->ComputePathProfile(&headings, &accumulated_s, &kappas, &dkappas);
 
     // for (size_t i = 0; i < headings.size(); i++) {
@@ -694,9 +673,7 @@ void LatticePlannerNode::loadRoadmap(const std::string& roadmap_path)
             _index_before_stop++;
         } else {
             if (trajectory_pt.v > 1.0) {
-                trajectory_pt.v = v_points[_index_before_stop] * (
-                    (double)i / ((double)_stop_begin_point - (double)_stop_point) 
-                    - (double)_stop_point / ((double)_stop_begin_point - (double)_stop_point));
+                trajectory_pt.v = v_points[_index_before_stop] * ((double)i / ((double)_stop_begin_point - (double)_stop_point) - (double)_stop_point / ((double)_stop_begin_point - (double)_stop_point));
             } else {
                 trajectory_pt.v = 0;
             }

@@ -1,5 +1,2 @@
 figures/
-run_log/
-build/
-log/
-install/
+.idea/

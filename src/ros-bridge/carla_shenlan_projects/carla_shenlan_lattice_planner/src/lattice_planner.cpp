@@ -1,4 +1,3 @@
-
 // ***Description***:
 // Many thanks to the author of the Frenet algorithm here, this paper may be
 // very helpful to you, "Optimal Trajectory Generation for Dynamic Street
@@ -44,7 +43,7 @@ float FrenetOptimalTrajectory::sum_of_power(std::vector<float> value_list) {
         sum += item * item;
     }
     return sum;
-}
+};
 
 // 01 获取采样轨迹
 Vec_Path FrenetOptimalTrajectory::calc_frenet_paths(float c_speed, float c_d, float c_d_d, float c_d_dd, float s0) {
@@ -52,14 +51,12 @@ Vec_Path FrenetOptimalTrajectory::calc_frenet_paths(float c_speed, float c_d, fl
     // 根据 当前车辆的速度，当前车辆在frenet坐标系中的s坐标，l坐标，l坐标的一阶导数和二阶导数来采样生成备选轨迹
     // 先遍历 d 方向，再遍历 t 方向，这样可以生成 d-t 曲线，每个d-t曲线下，再遍历备选速度，生成 s-t 曲线，这种方法其实只适用终点 s 自由的方式
     // 完成轨迹采样
-    for (float rs = -MAX_ROAD_WIDTH; rs <= MAX_ROAD_WIDTH; rs += D_ROAD_W) {
+    for (float di = 0; di <= 5; di += D_ROAD_W) {
         for (float ti = MINT; ti <= MAXT; ti += DT) {
-
-            //求解横向五次多项式，起点：c_d, c_d_d, c_d_dd，终点：rs, 0.0, 0.0，时刻：ti
-            QuinticPolynomial lateral_fp(c_d, c_d_d, c_d_dd, rs, 0.0, 0.0, ti);
-
-            // 这个 for 不涉及采样，是计算已经采样得到的d-t曲线在每个时刻点状态值，这里只计算一根轨迹，计算每隔0.2s的曲线中间点信息
             FrenetPath fp_without_s;
+            // std::cout << "采样过程中的c_d: " << c_d << std::endl;
+            QuinticPolynomial lateral_fp(c_d, c_d_d, c_d_dd, di, 0.0, 0.0, ti);
+            // 这个 for 不涉及采样，是计算已经采样得到的d-t曲线在每个时刻点状态值，这里只计算一根轨迹
             for (float _t = 0.0; _t <= ti; _t += DT) {
                 fp_without_s.t.push_back(_t);
                 fp_without_s.d.push_back(lateral_fp.calc_point(_t));
@@ -67,12 +64,9 @@ Vec_Path FrenetOptimalTrajectory::calc_frenet_paths(float c_speed, float c_d, fl
                 fp_without_s.d_dd.push_back(lateral_fp.calc_second_derivative(_t));
                 fp_without_s.d_ddd.push_back(lateral_fp.calc_third_derivative(_t));
             }
-
             // 当前遍历下，每一条s-t曲线复用上面刚刚生成的d-t曲线（只有一根），for循环每运行一次，生成一条完整的备选轨迹
-            //这里速度为什么在12/3.6，17/3.6之间选取？
             for (float vi = TARGET_SPEED - D_T_S * N_S_SAMPLE; vi < TARGET_SPEED + D_T_S * N_S_SAMPLE; vi += D_T_S) {
                 FrenetPath fp_with_s = fp_without_s;
-                //求解纵向四次多项式，起点:s0, c_speed, 0.0，终点：vi, 0.0，时刻：ti，这里为什么是四次多项式？
                 QuarticPolynomial longitudinal_qp(s0, c_speed, 0.0, vi, 0.0, ti);
                 for (float _t : fp_without_s.t) {
                     fp_with_s.s.push_back(longitudinal_qp.calc_point(_t));
@@ -83,20 +77,14 @@ Vec_Path FrenetOptimalTrajectory::calc_frenet_paths(float c_speed, float c_d, fl
                 fp_with_s.max_speed = *max_element(fp_with_s.s_d.begin(), fp_with_s.s_d.end());
                 fp_with_s.max_accel = *max_element(fp_with_s.s_dd.begin(), fp_with_s.s_dd.end());
 
-                //横向jerk代价
                 float Jp = sum_of_power(fp_with_s.d_ddd);
-                //纵向jerk代价
                 float Js = sum_of_power(fp_with_s.s_ddd);
 
                 // 计算每条备选轨迹的代价，参考的是论文 “Optimal trajectory generation for dynamic street scenarios in a Frenét Frame“ 里面的巡航控制的代价函数计算方式
                 fp_with_s.cd = KJ * Jp + KT * ti + KD * pow(fp_with_s.d.back(), 2);    // 横向代价
-                // # square of diff from target speed 速度误差平方
+                // # square of diff from target speed
                 float ds = pow(TARGET_SPEED - fp_with_s.s_d.back(), 2);
-
-                //纵向代价
                 fp_with_s.cv = KJ * Js + KT * ti + KD * ds;
-
-                //总代价，加权求和
                 fp_with_s.cf = KLAT * fp_with_s.cd + KLON * fp_with_s.cv;
 
                 fp_list.push_back(fp_with_s);
@@ -104,10 +92,10 @@ Vec_Path FrenetOptimalTrajectory::calc_frenet_paths(float c_speed, float c_d, fl
         }
     }
     return fp_list;
-}
+};
 
 // 02
-// 根据参考轨迹与采样的轨迹数组，计算frenet中的其他曲线参数，如航向角，曲率，ds等参数，frenet坐标转笛卡尔坐标
+// 根据参考轨迹与采样的轨迹数组，计算frenet中的其他曲线参数，如航向角，曲率，ds等参数
 void FrenetOptimalTrajectory::calc_global_paths(Vec_Path& path_list, Spline2D csp) {
     int iiii = 0;
     // 计算采样轨迹的其他参数
@@ -154,78 +142,62 @@ void FrenetOptimalTrajectory::calc_global_paths(Vec_Path& path_list, Spline2D cs
         _fpp->max_curvature = *max_element(_fpp->c.begin(), _fpp->c.end());
     }
 
-}
+};
 
-//碰撞检测
 bool FrenetOptimalTrajectory::check_collision(FrenetPath path, const Vec_Poi ob) {
     for (auto point : ob) {
         for (unsigned int i = 0; i < path.x.size(); i++) {
             float dist = std::pow((path.x[i] - point[0]), 2) + std::pow((path.y[i] - point[1]), 2);
-            if (dist <= (ROBOT_RADIUS + 0.5) * (ROBOT_RADIUS + 0.5)) {
+            if (dist <= ROBOT_RADIUS * ROBOT_RADIUS) {
                 return false;
             }
         }
     }
     return true;
-}
+};
 // 03
 // 检查路径，通过限制最大速度，最大加速度，最大曲率与避障，选取可使用的轨迹数组
 Vec_Path FrenetOptimalTrajectory::check_paths(Vec_Path path_list, const Vec_Poi ob) {
     Vec_Path output_fp_list;
-    //TODO: 补全代码
-    for(FrenetPath path: path_list){
-        //限制最大速度，最大加速度，最大曲率
-        if(path.max_speed > MAX_SPEED || path.max_accel > MAX_ACCEL || path.max_curvature > MAX_CURVATURE){
-            continue;
+    //补全代码
+    
+    for (FrenetPath fp : path_list){
+        // std::cout << "fp.max_speed: " << fp.max_speed << ", fp.max_accel: " << fp.max_accel << ", fp.max_curvature: "<< fp.max_curvature << ", this->check_collision(fp, ob): " << this->check_collision(fp, ob) << std::endl;
+        if (fp.max_speed <= MAX_SPEED && fp.max_accel <= MAX_ACCEL && fp.max_curvature <= MAX_CURVATURE && this->check_collision(fp, ob)){
+            // std::cout << "find sub-optimal trajectory" << std::endl;
+            output_fp_list.push_back(fp);
         }
-        //避障，check_collision
-        if(!check_collision(path, ob)){
-            continue;
-        }
-        output_fp_list.push_back(path);
     }
-
     return output_fp_list;
-}
+};
 
-// TODO: step 1 finish frenet_optimal_planning
-/*
-    找到最优路径
-    csp：在x和y上的样条曲线
-    s0：初始位置
-    c_speed：初始速度
-    c_d：初始横向位移
-    c_d_d：初始横向速度
-    ob：障碍物列表
-*/
-FrenetPath FrenetOptimalTrajectory::frenet_optimal_planning(Spline2D csp, float s0, float c_speed, float c_d, 
-    float c_d_d, float c_d_dd, Vec_Poi ob) {
-    //先根据初始点状态进行采样，获取采样后的路径集合
+// to-do step 1 finish frenet_optimal_planning
+FrenetPath FrenetOptimalTrajectory::frenet_optimal_planning(Spline2D csp, float s0, float c_speed, float c_d, float c_d_d, float c_d_dd, Vec_Poi ob) {
+    // 01 获取采样轨迹数组
     Vec_Path fp_list = calc_frenet_paths(c_speed, c_d, c_d_d, c_d_dd, s0);
-
-    //补全采样轨迹的曲线参数，calc_global_paths
+    // std::cout << "fp_list: " << fp_list.size() << std::endl;
+    // 02
+    // 根据参考轨迹与采样的轨迹数组，计算frenet中的其他曲线参数，如航向角，曲率，ds等参数
     calc_global_paths(fp_list, csp);
 
-    //路径合理性、安全性检测，过滤出有效路径，check_paths
+    // 03
+    // 检查路径，通过限制最大速度，最大加速度，最大曲率与避障，选取可使用的轨迹数组
     Vec_Path save_paths = check_paths(fp_list, ob);
 
-    //计算路径cost，保留最小cost的路径
+    // std::cout << "save_paths: " << save_paths.size() << std::endl;
+
     float min_cost = std::numeric_limits<float>::max();
     FrenetPath final_path;
-    for (FrenetPath path : save_paths) {
-        //cf、cd、cv分别是什么？
-        if (path.cf <= min_cost) {
+    for (auto path : save_paths) {
+        if (min_cost >= path.cf) {
             min_cost = path.cf;
             final_path = path;
         }
     }
     return final_path;
-}
+};
 
-
-//这个函数有什么用？
-FrenetPath FrenetOptimalTrajectory::frenet_optimal_planning(Spline2D csp, 
-            const FrenetInitialConditions& frenet_init_conditions, Vec_Poi ob) {
+FrenetPath FrenetOptimalTrajectory::frenet_optimal_planning(Spline2D csp, const FrenetInitialConditions& frenet_init_conditions, Vec_Poi ob) {
     float c_speed = frenet_init_conditions.c_speed;
     float c_d = frenet_init_conditions.c_d;
     float c_d_d = frenet_init_conditions.c_d_d;
@@ -234,12 +206,10 @@ FrenetPath FrenetOptimalTrajectory::frenet_optimal_planning(Spline2D csp,
 
     Vec_Path fp_list = calc_frenet_paths(c_speed, c_d, c_d_d, c_d_dd, s0);
     calc_global_paths(fp_list, csp);
-    //所有的路径集合
     Vec_Path save_paths = check_paths(fp_list, ob);
 
     float min_cost = std::numeric_limits<float>::max();
     FrenetPath final_path;
-    //cost最小
     for (auto path : save_paths) {
         if (min_cost >= path.cf) {
             min_cost = path.cf;

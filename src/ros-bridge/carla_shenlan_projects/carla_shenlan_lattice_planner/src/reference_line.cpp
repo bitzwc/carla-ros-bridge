@@ -5,8 +5,7 @@ namespace control {
 
 ReferenceLine::ReferenceLine(const std::vector<std::pair<double, double>>& xy_points) { xy_points_ = xy_points; }
 
-bool ReferenceLine::ComputePathProfile(std::vector<double>* headings, std::vector<double>* accumulated_s, 
-        std::vector<double>* kappas, std::vector<double>* dkappas) {
+bool ReferenceLine::ComputePathProfile(std::vector<double>* headings, std::vector<double>* accumulated_s, std::vector<double>* kappas, std::vector<double>* dkappas) {
     headings->clear();
     kappas->clear();
     dkappas->clear();

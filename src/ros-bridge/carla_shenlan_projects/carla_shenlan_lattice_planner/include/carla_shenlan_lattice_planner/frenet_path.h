@@ -21,7 +21,6 @@
 
 class FrenetPath {
   public:
-    //cost
     float cd = 0.0;
     float cv = 0.0;
     float cf = 0.0;

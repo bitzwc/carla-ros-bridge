@@ -16,7 +16,7 @@
 #include <vector>
 
 // namespace shenlan {
-//四次多项式
+
 class QuarticPolynomial {
  public:
   // current parameter at t=0
