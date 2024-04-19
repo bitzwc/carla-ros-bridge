@@ -29,22 +29,27 @@ RandomMapGenerator::RandomMapGenerator() : Node("random_map_generator"){
 RandomMapGenerator::~RandomMapGenerator() {}
 
 void RandomMapGenerator::RandomMapGenerate() {
+    //随机数生成器，种子10
     default_random_engine eng(10);
 
+    //0-10实数范围内，均匀分布
     uniform_real_distribution<double> rand_xy = uniform_real_distribution<double>(0, 10);
 
     pcl::PointXYZ pt_random;
 
     std::vector<std::pair<int, int>> free_lists;
 
+    //x在-20，20，y在-20，20之间取随机点构成点云
     for (int i = _x_l; i <= _x_h; i++) {
         for (int j = _y_l; j <= _y_h; j++) {
+            //边界
             if (i == _x_l || i == _x_h || j == _y_l || j == _y_h) {
                 pt_random.x = i;
                 pt_random.y = j;
                 pt_random.z = 0;
                 cloudMap.points.push_back(pt_random);
             } else {
+                //随机数小于2
                 if (rand_xy(eng) < 2) {
                     pt_random.x = i;
                     pt_random.y = j;
@@ -56,8 +61,8 @@ void RandomMapGenerator::RandomMapGenerate() {
     }
 
     cloudMap.width = cloudMap.points.size();
-    cloudMap.height = 1;
-    cloudMap.is_dense = true;
+    cloudMap.height = 1; //表示无结构点云，即只有一行
+    cloudMap.is_dense = true; //数据有限
 
     _has_map = true;
 
