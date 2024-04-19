@@ -1,0 +1,835 @@
+[0.083s] Invoking command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_msgs -DCMAKE_INSTALL_PREFIX=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs
+[1.193s] -- The C compiler identification is GNU 9.4.0
+[1.194s] -- The CXX compiler identification is GNU 9.4.0
+[1.195s] -- Check for working C compiler: /usr/bin/cc
+[1.195s] -- Check for working C compiler: /usr/bin/cc -- works
+[1.195s] -- Detecting C compiler ABI info
+[1.195s] -- Detecting C compiler ABI info - done
+[1.195s] -- Detecting C compile features
+[1.195s] -- Detecting C compile features - done
+[1.195s] -- Check for working CXX compiler: /usr/bin/c++
+[1.195s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.196s] -- Detecting CXX compiler ABI info
+[1.196s] -- Detecting CXX compiler ABI info - done
+[1.196s] -- Detecting CXX compile features
+[1.196s] -- Detecting CXX compile features - done
+[1.196s] -- Found ros_environment: 2.5.1 (/opt/ros/foxy/share/ros_environment/cmake)
+[1.196s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.196s] -- Found PythonInterp: /home/zhangwencheng/miniconda3/bin/python3 (found suitable version "3.8.17", minimum required is "3") 
+[1.196s] -- Using PYTHON_EXECUTABLE: /home/zhangwencheng/miniconda3/bin/python3
+[1.196s] -- Found builtin_interfaces: 1.0.0 (/opt/ros/foxy/share/builtin_interfaces/cmake)
+[1.196s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.196s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.216s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.280s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.402s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.457s] -- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)
+[1.487s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[1.534s] -- Found diagnostic_msgs: 2.0.5 (/opt/ros/foxy/share/diagnostic_msgs/cmake)
+[1.582s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[1.642s] -- Found PythonInterp: /home/zhangwencheng/miniconda3/bin/python3 (found version "3.8.17") 
+[2.087s] -- Found ament_cmake_cppcheck: 0.9.8 (/opt/ros/foxy/share/ament_cmake_cppcheck/cmake)
+[2.090s] -- Found ament_cmake_cpplint: 0.9.8 (/opt/ros/foxy/share/ament_cmake_cpplint/cmake)
+[2.092s] -- Found ament_cmake_uncrustify: 0.9.8 (/opt/ros/foxy/share/ament_cmake_uncrustify/cmake)
+[2.095s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[2.425s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.574s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.604s] -- Found PythonInterp: /home/zhangwencheng/miniconda3/bin/python3 (found suitable version "3.8.17", minimum required is "3.5") 
+[2.605s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[2.628s] -- Found PythonLibs: /home/zhangwencheng/miniconda3/lib/libpython3.8.so (found suitable version "3.8.17", minimum required is "3.5") 
+[2.629s] -- Using PYTHON_EXECUTABLE: /home/zhangwencheng/miniconda3/bin/python3
+[2.629s] -- Using PYTHON_INCLUDE_DIRS: /home/zhangwencheng/miniconda3/include/python3.8
+[2.629s] -- Using PYTHON_LIBRARIES: /home/zhangwencheng/miniconda3/lib/libpython3.8.so
+[2.652s] -- Found PythonExtra: .so  
+[3.027s] -- Using numpy include directory: /home/zhangwencheng/miniconda3/lib/python3.8/site-packages/numpy/core/include
+[3.043s] -- Found ament_cmake_flake8: 0.9.8 (/opt/ros/foxy/share/ament_cmake_flake8/cmake)
+[3.046s] -- Found ament_cmake_pep257: 0.9.8 (/opt/ros/foxy/share/ament_cmake_pep257/cmake)
+[3.050s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[3.070s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.070s] -- Added test 'lint_cmake' to check CMake code style
+[3.071s] -- Added test 'xmllint' to check XML markup files
+[3.075s] -- Configuring done
+[3.182s] -- Generating done
+[3.189s] -- Build files have been written to: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_msgs
+[3.199s] Invoked command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_msgs -DCMAKE_INSTALL_PREFIX=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs
+[3.202s] Invoking command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake --build /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_msgs -- -j12 -l12
+[3.249s] [35m[1mScanning dependencies of target carla_msgs__cpp[0m
+[3.251s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[3.266s] [  1%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[7.110s] [35m[1mScanning dependencies of target carla_msgs__rosidl_generator_c[0m
+[7.194s] [  1%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_bounding_box__functions.c.o[0m
+[7.194s] [  2%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_ego_vehicle_control__functions.c.o[0m
+[7.198s] [  2%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_ego_vehicle_status__functions.c.o[0m
+[7.217s] [  2%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_ego_vehicle_info__functions.c.o[0m
+[7.232s] [  3%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__functions.c.o[0m
+[7.252s] [  3%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_lane_invasion_event__functions.c.o[0m
+[7.255s] [  4%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_collision_event__functions.c.o[0m
+[7.337s] [  4%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_actor_info__functions.c.o[0m
+[7.340s] [  5%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_actor_list__functions.c.o[0m
+[7.344s] [  6%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_world_info__functions.c.o[0m
+[7.347s] [  6%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_control__functions.c.o[0m
+[7.350s] [  7%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_status__functions.c.o[0m
+[7.364s] [  7%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_traffic_light_info__functions.c.o[0m
+[7.397s] [  7%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_traffic_light_status__functions.c.o[0m
+[7.409s] [  8%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_traffic_light_info_list__functions.c.o[0m
+[7.410s] [  8%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_walker_control__functions.c.o[0m
+[7.415s] [  9%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_traffic_light_status_list__functions.c.o[0m
+[7.421s] [ 10%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_weather_parameters__functions.c.o[0m
+[7.451s] [ 10%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/msg/detail/carla_vehicle_target_velocity__functions.c.o[0m
+[7.484s] [ 11%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/srv/detail/spawn_object__functions.c.o[0m
+[7.484s] [ 11%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/srv/detail/destroy_object__functions.c.o[0m
+[7.509s] [ 12%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_generator_c.dir/rosidl_generator_c/carla_msgs/srv/detail/get_blueprints__functions.c.o[0m
+[7.620s] [ 12%] [32m[1mLinking C shared library libcarla_msgs__rosidl_generator_c.so[0m
+[7.693s] [ 12%] Built target carla_msgs__rosidl_generator_c
+[7.710s] [ 13%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[7.719s] [ 14%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[7.741s] [ 14%] Built target carla_msgs__cpp
+[7.755s] [ 15%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[7.759s] [ 16%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[7.776s] [ 17%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[9.796s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_c[0m
+[9.832s] [ 17%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_bounding_box__type_support.cpp.o[0m
+[9.836s] [ 18%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_ego_vehicle_control__type_support.cpp.o[0m
+[9.842s] [ 19%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_ego_vehicle_info_wheel__type_support.cpp.o[0m
+[9.851s] [ 19%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_ego_vehicle_info__type_support.cpp.o[0m
+[9.852s] [ 19%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_ego_vehicle_status__type_support.cpp.o[0m
+[9.890s] [ 20%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_collision_event__type_support.cpp.o[0m
+[9.915s] [ 21%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_world_info__type_support.cpp.o[0m
+[9.916s] [ 21%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_actor_info__type_support.cpp.o[0m
+[9.917s] [ 21%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_lane_invasion_event__type_support.cpp.o[0m
+[9.920s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_cpp[0m
+[9.940s] [ 22%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_actor_list__type_support.cpp.o[0m
+[9.940s] [ 22%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_control__type_support.cpp.o[0m
+[9.973s] [ 23%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_status__type_support.cpp.o[0m
+[10.006s] [ 23%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_bounding_box__type_support.cpp.o[0m
+[10.007s] [ 24%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_ego_vehicle_status__type_support.cpp.o[0m
+[10.008s] [ 24%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_traffic_light_info_list__type_support.cpp.o[0m
+[10.019s] [ 25%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_ego_vehicle_control__type_support.cpp.o[0m
+[10.042s] [ 25%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_traffic_light_info__type_support.cpp.o[0m
+[10.046s] [ 25%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_traffic_light_status__type_support.cpp.o[0m
+[10.059s] [ 26%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_traffic_light_status_list__type_support.cpp.o[0m
+[10.126s] [ 27%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_ego_vehicle_info_wheel__type_support.cpp.o[0m
+[10.141s] [ 27%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_ego_vehicle_info__type_support.cpp.o[0m
+[10.172s] [ 28%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_collision_event__type_support.cpp.o[0m
+[10.173s] [ 28%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_walker_control__type_support.cpp.o[0m
+[10.185s] [ 29%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_weather_parameters__type_support.cpp.o[0m
+[10.209s] [ 29%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/msg/carla_vehicle_target_velocity__type_support.cpp.o[0m
+[10.308s] [ 29%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_lane_invasion_event__type_support.cpp.o[0m
+[10.328s] [ 30%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/srv/spawn_object__type_support.cpp.o[0m
+[10.391s] [ 30%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/srv/destroy_object__type_support.cpp.o[0m
+[10.462s] [ 31%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_msgs/srv/get_blueprints__type_support.cpp.o[0m
+[10.529s] [ 32%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_world_info__type_support.cpp.o[0m
+[10.540s] [ 32%] [32m[1mLinking CXX shared library libcarla_msgs__rosidl_typesupport_c.so[0m
+[10.602s] [ 32%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_actor_info__type_support.cpp.o[0m
+[10.641s] [ 32%] Built target carla_msgs__rosidl_typesupport_c
+[10.653s] [ 33%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_actor_list__type_support.cpp.o[0m
+[10.657s] [ 33%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_control__type_support.cpp.o[0m
+[10.661s] [ 34%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_status__type_support.cpp.o[0m
+[10.704s] [ 34%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_traffic_light_info__type_support.cpp.o[0m
+[10.884s] [ 35%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_traffic_light_info_list__type_support.cpp.o[0m
+[10.943s] [ 35%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_traffic_light_status__type_support.cpp.o[0m
+[10.966s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_introspection_c[0m
+[10.978s] [ 36%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_traffic_light_status_list__type_support.cpp.o[0m
+[10.993s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_introspection_cpp[0m
+[11.048s] [ 36%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_bounding_box__type_support.cpp.o[0m
+[11.055s] [ 36%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_walker_control__type_support.cpp.o[0m
+[11.115s] [ 36%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_bounding_box__type_support.c.o[0m
+[11.198s] [ 37%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_ego_vehicle_control__type_support.c.o[0m
+[11.199s] [ 37%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_vehicle_target_velocity__type_support.cpp.o[0m
+[11.215s] [ 38%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/msg/carla_weather_parameters__type_support.cpp.o[0m
+[11.238s] [ 39%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/srv/spawn_object__type_support.cpp.o[0m
+[11.296s] [ 40%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/srv/get_blueprints__type_support.cpp.o[0m
+[11.306s] [ 40%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_msgs/srv/destroy_object__type_support.cpp.o[0m
+[11.339s] [ 40%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_ego_vehicle_status__type_support.c.o[0m
+[11.415s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[11.458s] [ 41%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__type_support.c.o[0m
+[11.500s] [ 41%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_bounding_box__type_support.cpp.o[0m
+[11.586s] [ 41%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_ego_vehicle_info__type_support.c.o[0m
+[11.674s] [ 42%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_ego_vehicle_control__type_support.cpp.o[0m
+[11.707s] [ 42%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_ego_vehicle_status__type_support.cpp.o[0m
+[11.732s] [ 43%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_collision_event__type_support.c.o[0m
+[11.753s] [ 44%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_ego_vehicle_control__type_support.cpp.o[0m
+[11.755s] [ 44%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_lane_invasion_event__type_support.c.o[0m
+[11.780s] [ 45%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_ego_vehicle_info_wheel__type_support.cpp.o[0m
+[11.814s] [ 45%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_ego_vehicle_info__type_support.cpp.o[0m
+[11.835s] [ 45%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_ego_vehicle_status__type_support.cpp.o[0m
+[11.844s] [ 46%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_world_info__type_support.c.o[0m
+[11.876s] [ 46%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_actor_info__type_support.c.o[0m
+[11.923s] [ 47%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__type_support.cpp.o[0m
+[11.927s] [ 47%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_ego_vehicle_info__type_support.cpp.o[0m
+[11.927s] [ 48%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_actor_list__type_support.c.o[0m
+[11.953s] [ 48%] [32m[1mLinking CXX shared library libcarla_msgs__rosidl_typesupport_cpp.so[0m
+[11.980s] [ 48%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_control__type_support.c.o[0m
+[12.054s] [ 49%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_collision_event__type_support.cpp.o[0m
+[12.054s] [ 50%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_status__type_support.c.o[0m
+[12.132s] [ 50%] Built target carla_msgs__rosidl_typesupport_cpp
+[12.166s] [ 50%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_lane_invasion_event__type_support.cpp.o[0m
+[12.167s] [ 50%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_traffic_light_info__type_support.c.o[0m
+[12.234s] [ 51%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_traffic_light_info_list__type_support.c.o[0m
+[12.309s] [ 52%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_world_info__type_support.cpp.o[0m
+[12.377s] [ 52%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_actor_info__type_support.cpp.o[0m
+[12.388s] [ 52%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_traffic_light_status__type_support.c.o[0m
+[12.441s] [ 53%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_traffic_light_status_list__type_support.c.o[0m
+[12.462s] [ 54%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_actor_list__type_support.cpp.o[0m
+[12.473s] [ 55%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_collision_event__type_support.cpp.o[0m
+[12.513s] [ 55%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_control__type_support.cpp.o[0m
+[12.525s] [ 55%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_walker_control__type_support.c.o[0m
+[12.525s] [ 55%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_lane_invasion_event__type_support.cpp.o[0m
+[12.586s] [ 56%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_weather_parameters__type_support.c.o[0m
+[12.599s] [ 57%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_world_info__type_support.cpp.o[0m
+[12.614s] [ 58%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_status__type_support.cpp.o[0m
+[12.642s] [ 58%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_traffic_light_info__type_support.cpp.o[0m
+[12.741s] [ 59%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_traffic_light_info_list__type_support.cpp.o[0m
+[12.747s] [ 59%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/msg/detail/carla_vehicle_target_velocity__type_support.c.o[0m
+[12.879s] [ 60%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/srv/detail/spawn_object__type_support.c.o[0m
+[12.924s] [ 60%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_traffic_light_status__type_support.cpp.o[0m
+[12.956s] [ 61%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_traffic_light_status_list__type_support.cpp.o[0m
+[13.017s] [ 61%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_walker_control__type_support.cpp.o[0m
+[13.024s] [ 61%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_actor_info__type_support.cpp.o[0m
+[13.040s] [ 61%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/srv/detail/destroy_object__type_support.c.o[0m
+[13.090s] [ 62%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_weather_parameters__type_support.cpp.o[0m
+[13.092s] [ 63%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_msgs/srv/detail/get_blueprints__type_support.c.o[0m
+[13.150s] [ 63%] [32m[1mLinking C shared library libcarla_msgs__rosidl_typesupport_introspection_c.so[0m
+[13.162s] [ 63%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/msg/detail/carla_vehicle_target_velocity__type_support.cpp.o[0m
+[13.220s] [ 64%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/srv/detail/spawn_object__type_support.cpp.o[0m
+[13.247s] [ 64%] Built target carla_msgs__rosidl_typesupport_introspection_c
+[13.256s] [ 65%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_actor_list__type_support.cpp.o[0m
+[13.269s] [ 65%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_control__type_support.cpp.o[0m
+[13.324s] [ 65%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/srv/detail/destroy_object__type_support.cpp.o[0m
+[13.455s] [ 65%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_traffic_light_info__type_support.cpp.o[0m
+[13.478s] [ 66%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_status__type_support.cpp.o[0m
+[13.484s] [ 67%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_msgs/srv/detail/get_blueprints__type_support.cpp.o[0m
+[13.497s] [ 68%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_traffic_light_info_list__type_support.cpp.o[0m
+[13.610s] [ 68%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_traffic_light_status__type_support.cpp.o[0m
+[13.698s] [ 69%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_traffic_light_status_list__type_support.cpp.o[0m
+[13.703s] [ 69%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_walker_control__type_support.cpp.o[0m
+[13.911s] [ 70%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_weather_parameters__type_support.cpp.o[0m
+[13.970s] [ 70%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/msg/detail/dds_fastrtps/carla_vehicle_target_velocity__type_support.cpp.o[0m
+[14.025s] [ 71%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.o[0m
+[14.077s] [ 71%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/srv/detail/dds_fastrtps/destroy_object__type_support.cpp.o[0m
+[14.107s] [ 72%] [32m[1mLinking CXX shared library libcarla_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[14.140s] [ 73%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_msgs/srv/detail/dds_fastrtps/get_blueprints__type_support.cpp.o[0m
+[14.306s] [ 73%] Built target carla_msgs__rosidl_typesupport_introspection_cpp
+[14.784s] [ 73%] [32m[1mLinking CXX shared library libcarla_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[14.981s] [ 73%] Built target carla_msgs__rosidl_typesupport_fastrtps_cpp
+[14.994s] [ 74%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[16.716s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_fastrtps_c[0m
+[16.758s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_collision_event__type_support_c.cpp.o[0m
+[16.758s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_ego_vehicle_status__type_support_c.cpp.o[0m
+[16.758s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__type_support_c.cpp.o[0m
+[16.758s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_bounding_box__type_support_c.cpp.o[0m
+[16.759s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_ego_vehicle_info__type_support_c.cpp.o[0m
+[16.759s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_lane_invasion_event__type_support_c.cpp.o[0m
+[16.761s] [ 77%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_ego_vehicle_control__type_support_c.cpp.o[0m
+[16.762s] [ 78%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_actor_list__type_support_c.cpp.o[0m
+[16.763s] [ 79%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_world_info__type_support_c.cpp.o[0m
+[16.766s] [ 79%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_actor_info__type_support_c.cpp.o[0m
+[16.767s] [ 79%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_control__type_support_c.cpp.o[0m
+[16.846s] [ 80%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_status__type_support_c.cpp.o[0m
+[17.254s] [ 80%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_traffic_light_info__type_support_c.cpp.o[0m
+[17.269s] [ 81%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_traffic_light_info_list__type_support_c.cpp.o[0m
+[17.368s] [ 81%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_traffic_light_status__type_support_c.cpp.o[0m
+[17.405s] [ 82%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_traffic_light_status_list__type_support_c.cpp.o[0m
+[17.415s] [ 83%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_weather_parameters__type_support_c.cpp.o[0m
+[17.417s] [ 83%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_walker_control__type_support_c.cpp.o[0m
+[17.455s] [ 83%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/msg/detail/carla_vehicle_target_velocity__type_support_c.cpp.o[0m
+[17.512s] [ 84%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/srv/detail/spawn_object__type_support_c.cpp.o[0m
+[17.619s] [ 84%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/srv/detail/destroy_object__type_support_c.cpp.o[0m
+[17.702s] [ 85%] [32mBuilding CXX object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_msgs/srv/detail/get_blueprints__type_support_c.cpp.o[0m
+[18.325s] [ 85%] [32m[1mLinking CXX shared library libcarla_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[18.466s] [ 85%] Built target carla_msgs__rosidl_typesupport_fastrtps_c
+[18.478s] [35m[1mScanning dependencies of target carla_msgs[0m
+[18.491s] [ 85%] Built target carla_msgs
+[18.503s] [35m[1mScanning dependencies of target carla_msgs__py[0m
+[18.519s] [ 86%] [34m[1mGenerating Python code for ROS interfaces[0m
+[21.638s] [ 86%] Built target carla_msgs__py
+[21.646s] [35m[1mScanning dependencies of target carla_msgs__python[0m
+[21.704s] [ 86%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_ego_vehicle_status_s.c.o[0m
+[21.704s] [ 86%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_bounding_box_s.c.o[0m
+[21.704s] [ 87%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_ego_vehicle_info_s.c.o[0m
+[21.705s] [ 87%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_ego_vehicle_info_wheel_s.c.o[0m
+[21.705s] [ 87%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_lane_invasion_event_s.c.o[0m
+[21.705s] [ 88%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_collision_event_s.c.o[0m
+[21.705s] [ 89%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_world_info_s.c.o[0m
+[21.705s] [ 89%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_actor_info_s.c.o[0m
+[21.707s] [ 90%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_ego_vehicle_control_s.c.o[0m
+[21.714s] [ 91%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_actor_list_s.c.o[0m
+[21.714s] [ 91%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_control_s.c.o[0m
+[21.727s] [ 92%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_status_s.c.o[0m
+[21.836s] [ 92%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_traffic_light_info_s.c.o[0m
+[21.840s] [ 93%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_traffic_light_info_list_s.c.o[0m
+[21.841s] [ 93%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_traffic_light_status_s.c.o[0m
+[21.850s] [ 94%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_traffic_light_status_list_s.c.o[0m
+[21.862s] [ 94%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_walker_control_s.c.o[0m
+[21.864s] [ 94%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_vehicle_target_velocity_s.c.o[0m
+[21.867s] [ 95%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/msg/_carla_weather_parameters_s.c.o[0m
+[21.873s] [ 96%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/srv/_spawn_object_s.c.o[0m
+[21.875s] [ 96%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/srv/_destroy_object_s.c.o[0m
+[21.907s] [ 97%] [32mBuilding C object CMakeFiles/carla_msgs__python.dir/rosidl_generator_py/carla_msgs/srv/_get_blueprints_s.c.o[0m
+[22.020s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/carla_msgs/libcarla_msgs__python.so[0m
+[22.059s] [ 97%] Built target carla_msgs__python
+[22.068s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_c__pyext[0m
+[22.068s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[22.068s] [35m[1mScanning dependencies of target carla_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[22.085s] [ 99%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/carla_msgs/_carla_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[22.085s] [ 99%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/carla_msgs/_carla_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[22.088s] [100%] [32mBuilding C object CMakeFiles/carla_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/carla_msgs/_carla_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[22.209s] [100%] [32m[1mLinking C shared library rosidl_generator_py/carla_msgs/carla_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[22.214s] [100%] [32m[1mLinking CXX shared library rosidl_generator_py/carla_msgs/carla_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[22.231s] [100%] [32m[1mLinking C shared library rosidl_generator_py/carla_msgs/carla_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[22.242s] [100%] Built target carla_msgs__rosidl_typesupport_introspection_c__pyext
+[22.269s] [100%] Built target carla_msgs__rosidl_typesupport_c__pyext
+[22.274s] [100%] Built target carla_msgs__rosidl_typesupport_fastrtps_c__pyext
+[22.283s] Invoked command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake --build /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_msgs -- -j12 -l12
+[22.493s] Invoking command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake --install /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_msgs
+[22.500s] -- Install configuration: ""
+[22.500s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/ament_index/resource_index/rosidl_interfaces/carla_msgs
+[22.500s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs
+[22.500s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg
+[22.500s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_status.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_control.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_collision_event.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_actor_info.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_control.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_vehicle_target_velocity.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_bounding_box.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_info_list.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/rosidl_generator_c__visibility_control.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_status.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_lane_invasion_event.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__type_support.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__functions.c
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__type_support.h
+[22.501s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__type_support.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__struct.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__functions.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__type_support.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__functions.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__type_support.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__functions.c
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__functions.c
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__type_support.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__functions.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__functions.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__functions.c
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__functions.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__struct.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__functions.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__functions.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__struct.h
+[22.502s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__functions.c
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__type_support.h
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__struct.h
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__functions.h
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__type_support.h
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__functions.c
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__functions.c
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__struct.h
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__struct.h
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__functions.h
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__type_support.h
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__functions.c
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__type_support.h
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__functions.c
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__type_support.h
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__struct.h
+[22.503s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__functions.c
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__functions.h
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__functions.h
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__functions.c
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__functions.c
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__struct.h
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__functions.h
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__struct.h
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__struct.h
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__functions.c
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__struct.h
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__type_support.h
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__struct.h
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__type_support.h
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__type_support.h
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__functions.h
+[22.504s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__functions.h
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__struct.h
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__type_support.h
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__struct.h
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__type_support.h
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__struct.h
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__type_support.h
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__functions.h
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__functions.c
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__functions.h
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__functions.c
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__functions.c
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__functions.h
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__struct.h
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__functions.c
+[22.505s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__type_support.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__functions.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__functions.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__functions.c
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__struct.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__struct.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__functions.c
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__struct.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__type_support.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_walker_control.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_world_info.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_info.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_info_wheel.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_status.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_info.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_weather_parameters.h
+[22.506s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_status_list.h
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_actor_list.h
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/spawn_object.h
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/get_blueprints.h
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__functions.h
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__functions.c
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__functions.h
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__functions.c
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__struct.h
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__type_support.h
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__struct.h
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__type_support.h
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__struct.h
+[22.507s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__functions.c
+[22.508s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__functions.h
+[22.508s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__type_support.h
+[22.508s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/destroy_object.h
+[22.508s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/environment/library_path.sh
+[22.508s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/environment/library_path.dsv
+[22.508s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_generator_c.so
+[22.508s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_generator_c.so" to ""
+[22.508s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs
+[22.508s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg
+[22.508s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail
+[22.508s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__rosidl_typesupport_fastrtps_c.h
+[22.508s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__rosidl_typesupport_fastrtps_c.h
+[22.508s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__rosidl_typesupport_fastrtps_c.h
+[22.509s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__rosidl_typesupport_fastrtps_c.h
+[22.510s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__rosidl_typesupport_fastrtps_c.h
+[22.510s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[22.510s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv
+[22.510s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail
+[22.510s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__rosidl_typesupport_fastrtps_c.h
+[22.510s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__rosidl_typesupport_fastrtps_c.h
+[22.510s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__rosidl_typesupport_fastrtps_c.h
+[22.510s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_fastrtps_c.so
+[22.510s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[22.510s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs
+[22.510s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg
+[22.510s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[22.511s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__rosidl_typesupport_fastrtps_cpp.hpp
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__rosidl_typesupport_fastrtps_cpp.hpp
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__rosidl_typesupport_fastrtps_cpp.hpp
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__rosidl_typesupport_fastrtps_cpp.hpp
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__rosidl_typesupport_fastrtps_cpp.hpp
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__rosidl_typesupport_fastrtps_cpp.hpp
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__rosidl_typesupport_fastrtps_cpp.hpp
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__rosidl_typesupport_fastrtps_cpp.hpp
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/dds_fastrtps
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__rosidl_typesupport_fastrtps_cpp.hpp
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__rosidl_typesupport_fastrtps_cpp.hpp
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__rosidl_typesupport_fastrtps_cpp.hpp
+[22.511s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__rosidl_typesupport_fastrtps_cpp.hpp
+[22.512s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__rosidl_typesupport_fastrtps_cpp.hpp
+[22.512s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__rosidl_typesupport_fastrtps_cpp.hpp
+[22.512s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__rosidl_typesupport_fastrtps_cpp.hpp
+[22.512s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__rosidl_typesupport_fastrtps_cpp.hpp
+[22.512s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__rosidl_typesupport_fastrtps_cpp.hpp
+[22.512s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__rosidl_typesupport_fastrtps_cpp.hpp
+[22.512s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__rosidl_typesupport_fastrtps_cpp.hpp
+[22.512s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv
+[22.512s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail
+[22.512s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__rosidl_typesupport_fastrtps_cpp.hpp
+[22.512s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__rosidl_typesupport_fastrtps_cpp.hpp
+[22.512s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/dds_fastrtps
+[22.513s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__rosidl_typesupport_fastrtps_cpp.hpp
+[22.513s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_fastrtps_cpp.so
+[22.513s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[22.513s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs
+[22.513s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg
+[22.513s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[22.513s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail
+[22.513s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__type_support.c
+[22.513s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__rosidl_typesupport_introspection_c.h
+[22.513s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__rosidl_typesupport_introspection_c.h
+[22.513s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__rosidl_typesupport_introspection_c.h
+[22.513s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__type_support.c
+[22.513s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__type_support.c
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__rosidl_typesupport_introspection_c.h
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__rosidl_typesupport_introspection_c.h
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__rosidl_typesupport_introspection_c.h
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__rosidl_typesupport_introspection_c.h
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__type_support.c
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__type_support.c
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__type_support.c
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__type_support.c
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__type_support.c
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__type_support.c
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__type_support.c
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__rosidl_typesupport_introspection_c.h
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__rosidl_typesupport_introspection_c.h
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__type_support.c
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__type_support.c
+[22.514s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__type_support.c
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__type_support.c
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__rosidl_typesupport_introspection_c.h
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__rosidl_typesupport_introspection_c.h
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__type_support.c
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__rosidl_typesupport_introspection_c.h
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__type_support.c
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__rosidl_typesupport_introspection_c.h
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__rosidl_typesupport_introspection_c.h
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__rosidl_typesupport_introspection_c.h
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__type_support.c
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__rosidl_typesupport_introspection_c.h
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__type_support.c
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__rosidl_typesupport_introspection_c.h
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__rosidl_typesupport_introspection_c.h
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__rosidl_typesupport_introspection_c.h
+[22.515s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__type_support.c
+[22.515s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv
+[22.516s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail
+[22.516s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__type_support.c
+[22.516s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__rosidl_typesupport_introspection_c.h
+[22.516s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__rosidl_typesupport_introspection_c.h
+[22.516s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__type_support.c
+[22.516s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__rosidl_typesupport_introspection_c.h
+[22.516s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__type_support.c
+[22.516s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_introspection_c.so
+[22.516s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_introspection_c.so" to ""
+[22.516s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_c.so
+[22.516s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_c.so" to ""
+[22.516s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs
+[22.516s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg
+[22.516s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_info_wheel.hpp
+[22.516s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_weather_parameters.hpp
+[22.516s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_world_info.hpp
+[22.516s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_collision_event.hpp
+[22.517s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_info_list.hpp
+[22.517s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_status.hpp
+[22.517s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_bounding_box.hpp
+[22.517s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_vehicle_target_velocity.hpp
+[22.517s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_info.hpp
+[22.517s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_actor_info.hpp
+[22.517s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail
+[22.517s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__type_support.hpp
+[22.517s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__struct.hpp
+[22.517s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__type_support.hpp
+[22.517s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__type_support.hpp
+[22.517s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__builder.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__traits.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__traits.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__builder.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__builder.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__type_support.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__struct.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__traits.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__type_support.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__traits.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__struct.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__type_support.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__traits.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__struct.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__struct.hpp
+[22.518s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__traits.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__type_support.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__traits.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__struct.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__type_support.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__struct.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__struct.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__builder.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__type_support.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__traits.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__struct.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__builder.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__type_support.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__struct.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__struct.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__type_support.hpp
+[22.519s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__struct.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__struct.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__traits.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__type_support.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__traits.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__struct.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__builder.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__traits.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__struct.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__builder.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__struct.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__type_support.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__builder.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__type_support.hpp
+[22.520s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__builder.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__builder.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__struct.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__builder.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__builder.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__type_support.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__traits.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__builder.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__traits.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__struct.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__builder.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__traits.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__traits.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__builder.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__type_support.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__builder.hpp
+[22.521s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__traits.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__builder.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__traits.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__traits.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__builder.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__traits.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__type_support.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__struct.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__builder.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__type_support.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__type_support.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_info.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_lane_invasion_event.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_walker_control.hpp
+[22.522s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[22.523s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_control.hpp
+[22.523s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_ego_vehicle_status.hpp
+[22.523s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_control.hpp
+[22.523s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_actor_list.hpp
+[22.523s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_status.hpp
+[22.523s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/carla_traffic_light_status_list.hpp
+[22.523s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv
+[22.523s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/destroy_object.hpp
+[22.523s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail
+[22.523s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__builder.hpp
+[22.523s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__traits.hpp
+[22.523s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__struct.hpp
+[22.523s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__type_support.hpp
+[22.524s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__builder.hpp
+[22.524s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__struct.hpp
+[22.524s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__traits.hpp
+[22.524s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__type_support.hpp
+[22.524s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__traits.hpp
+[22.524s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__type_support.hpp
+[22.524s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__builder.hpp
+[22.524s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__struct.hpp
+[22.524s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/spawn_object.hpp
+[22.524s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/get_blueprints.hpp
+[22.524s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs
+[22.524s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg
+[22.524s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail
+[22.524s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__type_support.cpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__rosidl_typesupport_introspection_cpp.hpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__rosidl_typesupport_introspection_cpp.hpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__rosidl_typesupport_introspection_cpp.hpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__rosidl_typesupport_introspection_cpp.hpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__type_support.cpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__type_support.cpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_status__rosidl_typesupport_introspection_cpp.hpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_control__type_support.cpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__rosidl_typesupport_introspection_cpp.hpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__type_support.cpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info__type_support.cpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_weather_parameters__type_support.cpp
+[22.525s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__type_support.cpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__rosidl_typesupport_introspection_cpp.hpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__type_support.cpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__rosidl_typesupport_introspection_cpp.hpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_info_list__type_support.cpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__type_support.cpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__type_support.cpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info__rosidl_typesupport_introspection_cpp.hpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__rosidl_typesupport_introspection_cpp.hpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_walker_control__type_support.cpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_world_info__rosidl_typesupport_introspection_cpp.hpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_control__rosidl_typesupport_introspection_cpp.hpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_info_wheel__type_support.cpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__rosidl_typesupport_introspection_cpp.hpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_vehicle_target_velocity__rosidl_typesupport_introspection_cpp.hpp
+[22.526s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_info__type_support.cpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status_list__rosidl_typesupport_introspection_cpp.hpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_lane_invasion_event__type_support.cpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_bounding_box__rosidl_typesupport_introspection_cpp.hpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__rosidl_typesupport_introspection_cpp.hpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_collision_event__type_support.cpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_ego_vehicle_status__rosidl_typesupport_introspection_cpp.hpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_actor_list__type_support.cpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__rosidl_typesupport_introspection_cpp.hpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/msg/detail/carla_traffic_light_status__type_support.cpp
+[22.527s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv
+[22.527s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__rosidl_typesupport_introspection_cpp.hpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/spawn_object__type_support.cpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__rosidl_typesupport_introspection_cpp.hpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__rosidl_typesupport_introspection_cpp.hpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/get_blueprints__type_support.cpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/include/carla_msgs/srv/detail/destroy_object__type_support.cpp
+[22.527s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_introspection_cpp.so
+[22.527s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[22.528s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_cpp.so
+[22.528s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__rosidl_typesupport_cpp.so" to ""
+[22.528s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/environment/pythonpath.sh
+[22.528s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/environment/pythonpath.dsv
+[22.528s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/__init__.py
+[22.551s] Compiling '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/__init__.py'...
+[22.554s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg
+[22.555s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_ego_vehicle_status_s.c
+[22.555s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_ego_vehicle_control_s.c
+[22.555s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_vehicle_target_velocity.py
+[22.555s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_world_info.py
+[22.555s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_ego_vehicle_info_wheel_s.c
+[22.555s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_collision_event.py
+[22.555s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_traffic_light_info_s.c
+[22.555s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_bounding_box_s.c
+[22.555s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_traffic_light_info_list_s.c
+[22.556s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_actor_list.py
+[22.556s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_ego_vehicle_info_wheel.py
+[22.556s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_ego_vehicle_status.py
+[22.556s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_weather_parameters.py
+[22.556s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_bounding_box.py
+[22.556s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_world_info_s.c
+[22.556s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_control_s.c
+[22.556s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_actor_list_s.c
+[22.556s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_actor_info.py
+[22.556s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_ego_vehicle_info_s.c
+[22.556s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_control.py
+[22.556s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_walker_control.py
+[22.557s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_traffic_light_info_list.py
+[22.557s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_status.py
+[22.557s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_lane_invasion_event.py
+[22.557s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_lane_invasion_event_s.c
+[22.557s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_actor_info_s.c
+[22.557s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_collision_event_s.c
+[22.557s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_traffic_light_status_list_s.c
+[22.557s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_traffic_light_status_s.c
+[22.557s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_ego_vehicle_control.py
+[22.557s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/__init__.py
+[22.557s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_walker_control_s.c
+[22.557s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_traffic_light_status_list.py
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_traffic_light_status.py
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_status_s.c
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_weather_parameters_s.c
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_vehicle_target_velocity_s.c
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_traffic_light_info.py
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/msg/_carla_ego_vehicle_info.py
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/srv
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/srv/_spawn_object_s.c
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/srv/_get_blueprints_s.c
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/srv/_spawn_object.py
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/srv/_destroy_object.py
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/srv/__init__.py
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/srv/_destroy_object_s.c
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/srv/_get_blueprints.py
+[22.558s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/carla_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[22.559s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/carla_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so" to ""
+[22.559s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/carla_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[22.559s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/carla_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so" to ""
+[22.559s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/carla_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[22.560s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages/carla_msgs/carla_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so" to ""
+[22.560s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__python.so
+[22.560s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/libcarla_msgs__python.so" to ""
+[22.560s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaBoundingBox.idl
+[22.560s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleControl.idl
+[22.561s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleStatus.idl
+[22.561s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleInfoWheel.idl
+[22.561s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleInfo.idl
+[22.561s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaCollisionEvent.idl
+[22.561s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaLaneInvasionEvent.idl
+[22.561s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaWorldInfo.idl
+[22.561s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaActorInfo.idl
+[22.562s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaActorList.idl
+[22.562s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaControl.idl
+[22.562s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaStatus.idl
+[22.562s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightInfo.idl
+[22.562s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightInfoList.idl
+[22.562s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightStatus.idl
+[22.562s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightStatusList.idl
+[22.562s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaWalkerControl.idl
+[22.562s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaWeatherParameters.idl
+[22.563s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaVehicleTargetVelocity.idl
+[22.563s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/srv/SpawnObject.idl
+[22.563s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/srv/DestroyObject.idl
+[22.563s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/srv/GetBlueprints.idl
+[22.563s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaBoundingBox.msg
+[22.563s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleControl.msg
+[22.563s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleStatus.msg
+[22.563s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleInfoWheel.msg
+[22.564s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaEgoVehicleInfo.msg
+[22.564s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaCollisionEvent.msg
+[22.564s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaLaneInvasionEvent.msg
+[22.564s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaWorldInfo.msg
+[22.564s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaActorInfo.msg
+[22.564s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaActorList.msg
+[22.564s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaControl.msg
+[22.564s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaStatus.msg
+[22.564s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightInfo.msg
+[22.565s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightInfoList.msg
+[22.565s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightStatus.msg
+[22.565s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaTrafficLightStatusList.msg
+[22.565s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaWalkerControl.msg
+[22.565s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaWeatherParameters.msg
+[22.565s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/msg/CarlaVehicleTargetVelocity.msg
+[22.565s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/srv/SpawnObject.srv
+[22.565s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/srv/SpawnObject_Request.msg
+[22.565s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/srv/SpawnObject_Response.msg
+[22.566s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/srv/DestroyObject.srv
+[22.566s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/srv/DestroyObject_Request.msg
+[22.566s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/srv/DestroyObject_Response.msg
+[22.566s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/srv/GetBlueprints.srv
+[22.566s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/srv/GetBlueprints_Request.msg
+[22.566s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/srv/GetBlueprints_Response.msg
+[22.566s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/ament_index/resource_index/package_run_dependencies/carla_msgs
+[22.567s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/ament_index/resource_index/parent_prefix_path/carla_msgs
+[22.567s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/environment/ament_prefix_path.sh
+[22.567s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/environment/ament_prefix_path.dsv
+[22.567s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/environment/path.sh
+[22.567s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/environment/path.dsv
+[22.567s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/local_setup.bash
+[22.567s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/local_setup.sh
+[22.567s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/local_setup.zsh
+[22.567s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/local_setup.dsv
+[22.568s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/package.dsv
+[22.568s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/ament_index/resource_index/packages/carla_msgs
+[22.568s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_generator_cExport.cmake
+[22.568s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_generator_cExport-noconfig.cmake
+[22.568s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_introspection_cExport.cmake
+[22.568s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[22.569s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_cExport.cmake
+[22.569s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[22.569s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_generator_cppExport.cmake
+[22.569s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[22.569s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[22.569s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_cppExport.cmake
+[22.569s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[22.569s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/rosidl_cmake-extras.cmake
+[22.570s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[22.570s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[22.570s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[22.570s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[22.570s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[22.570s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[22.570s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgsConfig.cmake
+[22.570s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake/carla_msgsConfig-version.cmake
+[22.570s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/package.xml
+[22.575s] Invoked command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake --install /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_msgs

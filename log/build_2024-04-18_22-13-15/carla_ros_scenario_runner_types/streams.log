@@ -1,0 +1,325 @@
+[0.516s] Invoking command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ros_scenario_runner_types': CMAKE_PREFIX_PATH=/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_ros_scenario_runner_types -DCMAKE_INSTALL_PREFIX=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types
+[1.164s] -- The C compiler identification is GNU 9.4.0
+[1.164s] -- The CXX compiler identification is GNU 9.4.0
+[1.165s] -- Check for working C compiler: /usr/bin/cc
+[1.165s] -- Check for working C compiler: /usr/bin/cc -- works
+[1.165s] -- Detecting C compiler ABI info
+[1.165s] -- Detecting C compiler ABI info - done
+[1.165s] -- Detecting C compile features
+[1.165s] -- Detecting C compile features - done
+[1.165s] -- Check for working CXX compiler: /usr/bin/c++
+[1.165s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.165s] -- Detecting CXX compiler ABI info
+[1.165s] -- Detecting CXX compiler ABI info - done
+[1.165s] -- Detecting CXX compile features
+[1.165s] -- Detecting CXX compile features - done
+[1.166s] -- Found ros_environment: 2.5.1 (/opt/ros/foxy/share/ros_environment/cmake)
+[1.166s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.166s] -- Found PythonInterp: /home/zhangwencheng/miniconda3/bin/python3 (found suitable version "3.8.17", minimum required is "3") 
+[1.166s] -- Using PYTHON_EXECUTABLE: /home/zhangwencheng/miniconda3/bin/python3
+[1.259s] -- Found builtin_interfaces: 1.0.0 (/opt/ros/foxy/share/builtin_interfaces/cmake)
+[1.291s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.302s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.447s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.496s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.626s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.671s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[1.757s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[1.798s] -- Found PythonInterp: /home/zhangwencheng/miniconda3/bin/python3 (found version "3.8.17") 
+[2.040s] -- Found ament_cmake_cppcheck: 0.9.8 (/opt/ros/foxy/share/ament_cmake_cppcheck/cmake)
+[2.042s] -- Found ament_cmake_cpplint: 0.9.8 (/opt/ros/foxy/share/ament_cmake_cpplint/cmake)
+[2.045s] -- Found ament_cmake_uncrustify: 0.9.8 (/opt/ros/foxy/share/ament_cmake_uncrustify/cmake)
+[2.047s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[2.363s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.467s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.489s] -- Found PythonInterp: /home/zhangwencheng/miniconda3/bin/python3 (found suitable version "3.8.17", minimum required is "3.5") 
+[2.491s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[2.514s] -- Found PythonLibs: /home/zhangwencheng/miniconda3/lib/libpython3.8.so (found suitable version "3.8.17", minimum required is "3.5") 
+[2.514s] -- Using PYTHON_EXECUTABLE: /home/zhangwencheng/miniconda3/bin/python3
+[2.514s] -- Using PYTHON_INCLUDE_DIRS: /home/zhangwencheng/miniconda3/include/python3.8
+[2.514s] -- Using PYTHON_LIBRARIES: /home/zhangwencheng/miniconda3/lib/libpython3.8.so
+[2.538s] -- Found PythonExtra: .so  
+[2.993s] -- Using numpy include directory: /home/zhangwencheng/miniconda3/lib/python3.8/site-packages/numpy/core/include
+[3.016s] -- Found ament_cmake_flake8: 0.9.8 (/opt/ros/foxy/share/ament_cmake_flake8/cmake)
+[3.019s] -- Found ament_cmake_pep257: 0.9.8 (/opt/ros/foxy/share/ament_cmake_pep257/cmake)
+[3.022s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[3.039s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.040s] -- Added test 'lint_cmake' to check CMake code style
+[3.040s] -- Added test 'xmllint' to check XML markup files
+[3.046s] -- Configuring done
+[3.133s] -- Generating done
+[3.137s] -- Build files have been written to: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ros_scenario_runner_types
+[3.150s] Invoked command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ros_scenario_runner_types' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_ros_scenario_runner_types -DCMAKE_INSTALL_PREFIX=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types
+[3.155s] Invoking command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ros_scenario_runner_types': CMAKE_PREFIX_PATH=/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake --build /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ros_scenario_runner_types -- -j12 -l12
+[3.193s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__cpp[0m
+[3.193s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[3.201s] [  3%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[3.895s] [  3%] Built target carla_ros_scenario_runner_types__cpp
+[3.921s] [  5%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[3.923s] [  7%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[3.934s] [  9%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[4.153s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_generator_c[0m
+[4.179s] [ 10%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_generator_c.dir/rosidl_generator_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario__functions.c.o[0m
+[4.180s] [ 12%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_generator_c.dir/rosidl_generator_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__functions.c.o[0m
+[4.193s] [ 14%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_generator_c.dir/rosidl_generator_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__functions.c.o[0m
+[4.195s] [ 16%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_generator_c.dir/rosidl_generator_c/carla_ros_scenario_runner_types/srv/detail/execute_scenario__functions.c.o[0m
+[4.351s] [ 18%] [32m[1mLinking C shared library libcarla_ros_scenario_runner_types__rosidl_generator_c.so[0m
+[4.501s] [ 18%] Built target carla_ros_scenario_runner_types__rosidl_generator_c
+[4.564s] [ 20%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[4.584s] [ 21%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[4.743s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_cpp[0m
+[4.837s] [ 23%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ros_scenario_runner_types/msg/carla_scenario__type_support.cpp.o[0m
+[4.854s] [ 25%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ros_scenario_runner_types/msg/carla_scenario_list__type_support.cpp.o[0m
+[4.872s] [ 27%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ros_scenario_runner_types/msg/carla_scenario_runner_status__type_support.cpp.o[0m
+[4.876s] [ 29%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carla_ros_scenario_runner_types/srv/execute_scenario__type_support.cpp.o[0m
+[4.961s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp[0m
+[5.065s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp[0m
+[5.092s] [ 30%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ros_scenario_runner_types/msg/detail/dds_fastrtps/carla_scenario__type_support.cpp.o[0m
+[5.112s] [ 32%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ros_scenario_runner_types/msg/detail/dds_fastrtps/carla_scenario_runner_status__type_support.cpp.o[0m
+[5.112s] [ 34%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ros_scenario_runner_types/msg/detail/dds_fastrtps/carla_scenario_list__type_support.cpp.o[0m
+[5.125s] [ 36%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carla_ros_scenario_runner_types/srv/detail/dds_fastrtps/execute_scenario__type_support.cpp.o[0m
+[5.153s] [ 38%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ros_scenario_runner_types/msg/detail/carla_scenario__type_support.cpp.o[0m
+[5.159s] [ 40%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__type_support.cpp.o[0m
+[5.476s] [ 41%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__type_support.cpp.o[0m
+[5.797s] [ 43%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carla_ros_scenario_runner_types/srv/detail/execute_scenario__type_support.cpp.o[0m
+[5.804s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_c[0m
+[5.866s] [ 45%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ros_scenario_runner_types/msg/carla_scenario__type_support.cpp.o[0m
+[5.988s] [ 47%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ros_scenario_runner_types/msg/carla_scenario_list__type_support.cpp.o[0m
+[6.006s] [ 49%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ros_scenario_runner_types/msg/carla_scenario_runner_status__type_support.cpp.o[0m
+[6.023s] [ 50%] [32m[1mLinking CXX shared library libcarla_ros_scenario_runner_types__rosidl_typesupport_cpp.so[0m
+[6.028s] [ 52%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_c.dir/rosidl_typesupport_c/carla_ros_scenario_runner_types/srv/execute_scenario__type_support.cpp.o[0m
+[6.103s] [ 52%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_cpp
+[6.126s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c[0m
+[6.132s] [ 54%] [32m[1mLinking CXX shared library libcarla_ros_scenario_runner_types__rosidl_typesupport_c.so[0m
+[6.160s] [ 56%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario__type_support.c.o[0m
+[6.167s] [ 58%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ros_scenario_runner_types/srv/detail/execute_scenario__type_support.c.o[0m
+[6.170s] [ 60%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__type_support.c.o[0m
+[6.197s] [ 61%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__type_support.c.o[0m
+[6.230s] [ 61%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_c
+[6.261s] [ 63%] [32m[1mLinking C shared library libcarla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.so[0m
+[6.305s] [ 63%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c
+[6.323s] [ 65%] [32m[1mLinking CXX shared library libcarla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.so[0m
+[6.404s] [ 67%] [32m[1mLinking CXX shared library libcarla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.so[0m
+[6.404s] [ 67%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp
+[6.418s] [ 69%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[6.517s] [ 69%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp
+[7.037s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c[0m
+[7.074s] [ 70%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario__type_support_c.cpp.o[0m
+[7.085s] [ 72%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__type_support_c.cpp.o[0m
+[7.085s] [ 74%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__type_support_c.cpp.o[0m
+[7.103s] [ 76%] [32mBuilding CXX object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carla_ros_scenario_runner_types/srv/detail/execute_scenario__type_support_c.cpp.o[0m
+[7.737s] [ 78%] [32m[1mLinking CXX shared library libcarla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.so[0m
+[7.884s] [ 78%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c
+[7.897s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types[0m
+[7.913s] [ 78%] Built target carla_ros_scenario_runner_types
+[7.927s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__py[0m
+[7.974s] [ 80%] [34m[1mGenerating Python code for ROS interfaces[0m
+[9.473s] [ 80%] Built target carla_ros_scenario_runner_types__py
+[9.508s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__python[0m
+[9.560s] [ 81%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__python.dir/rosidl_generator_py/carla_ros_scenario_runner_types/msg/_carla_scenario_list_s.c.o[0m
+[9.579s] [ 83%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__python.dir/rosidl_generator_py/carla_ros_scenario_runner_types/srv/_execute_scenario_s.c.o[0m
+[9.580s] [ 85%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__python.dir/rosidl_generator_py/carla_ros_scenario_runner_types/msg/_carla_scenario_runner_status_s.c.o[0m
+[9.587s] [ 87%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__python.dir/rosidl_generator_py/carla_ros_scenario_runner_types/msg/_carla_scenario_s.c.o[0m
+[9.776s] [ 89%] [32m[1mLinking C shared library rosidl_generator_py/carla_ros_scenario_runner_types/libcarla_ros_scenario_runner_types__python.so[0m
+[9.870s] [ 89%] Built target carla_ros_scenario_runner_types__python
+[9.898s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_c__pyext[0m
+[9.911s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c__pyext[0m
+[9.939s] [35m[1mScanning dependencies of target carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c__pyext[0m
+[9.946s] [ 90%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/carla_ros_scenario_runner_types/_carla_ros_scenario_runner_types_s.ep.rosidl_typesupport_c.c.o[0m
+[9.966s] [ 92%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/carla_ros_scenario_runner_types/_carla_ros_scenario_runner_types_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[9.997s] [ 94%] [32mBuilding C object CMakeFiles/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/carla_ros_scenario_runner_types/_carla_ros_scenario_runner_types_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[10.151s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[10.182s] [ 98%] [32m[1mLinking CXX shared library rosidl_generator_py/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[10.261s] [100%] [32m[1mLinking C shared library rosidl_generator_py/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[10.353s] [100%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_c__pyext
+[10.354s] [100%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c__pyext
+[10.417s] [100%] Built target carla_ros_scenario_runner_types__rosidl_typesupport_introspection_c__pyext
+[10.445s] Invoked command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ros_scenario_runner_types' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake --build /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ros_scenario_runner_types -- -j12 -l12
+[11.256s] Invoking command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ros_scenario_runner_types': CMAKE_PREFIX_PATH=/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake --install /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ros_scenario_runner_types
+[11.271s] -- Install configuration: ""
+[11.271s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/ament_index/resource_index/rosidl_interfaces/carla_ros_scenario_runner_types
+[11.271s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types
+[11.272s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg
+[11.272s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/carla_scenario_list.h
+[11.272s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/carla_scenario.h
+[11.273s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/rosidl_generator_c__visibility_control.h
+[11.273s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail
+[11.273s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__type_support.h
+[11.275s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__struct.h
+[11.276s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__functions.c
+[11.276s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__functions.h
+[11.276s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__struct.h
+[11.277s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__type_support.h
+[11.277s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__type_support.h
+[11.277s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__functions.h
+[11.277s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__functions.h
+[11.278s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__struct.h
+[11.278s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__functions.c
+[11.278s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__functions.c
+[11.278s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/carla_scenario_runner_status.h
+[11.279s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv
+[11.279s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail
+[11.279s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__type_support.h
+[11.279s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__functions.c
+[11.280s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__functions.h
+[11.280s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__struct.h
+[11.280s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/execute_scenario.h
+[11.281s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/library_path.sh
+[11.281s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/library_path.dsv
+[11.281s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_generator_c.so
+[11.282s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_generator_c.so" to ""
+[11.282s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types
+[11.282s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg
+[11.282s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail
+[11.283s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__rosidl_typesupport_fastrtps_c.h
+[11.283s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__rosidl_typesupport_fastrtps_c.h
+[11.283s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__rosidl_typesupport_fastrtps_c.h
+[11.283s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[11.284s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv
+[11.284s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail
+[11.284s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__rosidl_typesupport_fastrtps_c.h
+[11.284s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.so
+[11.285s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_c.so" to ""
+[11.285s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types
+[11.285s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg
+[11.286s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[11.286s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail
+[11.286s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__rosidl_typesupport_fastrtps_cpp.hpp
+[11.286s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/dds_fastrtps
+[11.287s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__rosidl_typesupport_fastrtps_cpp.hpp
+[11.287s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__rosidl_typesupport_fastrtps_cpp.hpp
+[11.287s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv
+[11.287s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail
+[11.287s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/dds_fastrtps
+[11.288s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__rosidl_typesupport_fastrtps_cpp.hpp
+[11.288s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.so
+[11.289s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_fastrtps_cpp.so" to ""
+[11.289s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types
+[11.289s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg
+[11.289s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[11.290s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail
+[11.290s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__rosidl_typesupport_introspection_c.h
+[11.291s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__rosidl_typesupport_introspection_c.h
+[11.291s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__rosidl_typesupport_introspection_c.h
+[11.291s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__type_support.c
+[11.291s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__type_support.c
+[11.292s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__type_support.c
+[11.292s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv
+[11.292s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail
+[11.292s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__type_support.c
+[11.293s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__rosidl_typesupport_introspection_c.h
+[11.293s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.so
+[11.294s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_introspection_c.so" to ""
+[11.295s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_c.so
+[11.295s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_c.so" to ""
+[11.295s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types
+[11.296s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg
+[11.296s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/carla_scenario_list.hpp
+[11.296s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail
+[11.296s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__builder.hpp
+[11.296s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__struct.hpp
+[11.297s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__builder.hpp
+[11.297s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__type_support.hpp
+[11.297s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__struct.hpp
+[11.297s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__type_support.hpp
+[11.298s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__traits.hpp
+[11.298s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__traits.hpp
+[11.298s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__type_support.hpp
+[11.299s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__struct.hpp
+[11.299s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__builder.hpp
+[11.299s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__traits.hpp
+[11.299s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/carla_scenario.hpp
+[11.300s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/rosidl_generator_cpp__visibility_control.hpp
+[11.300s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/carla_scenario_runner_status.hpp
+[11.300s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv
+[11.300s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/execute_scenario.hpp
+[11.303s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail
+[11.304s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__builder.hpp
+[11.304s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__struct.hpp
+[11.304s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__type_support.hpp
+[11.305s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__traits.hpp
+[11.305s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types
+[11.305s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg
+[11.305s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail
+[11.306s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__rosidl_typesupport_introspection_cpp.hpp
+[11.306s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__type_support.cpp
+[11.306s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__rosidl_typesupport_introspection_cpp.hpp
+[11.306s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_list__type_support.cpp
+[11.307s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario_runner_status__type_support.cpp
+[11.307s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/msg/detail/carla_scenario__rosidl_typesupport_introspection_cpp.hpp
+[11.307s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv
+[11.307s] -- Up-to-date: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail
+[11.308s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__rosidl_typesupport_introspection_cpp.hpp
+[11.308s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/include/carla_ros_scenario_runner_types/srv/detail/execute_scenario__type_support.cpp
+[11.308s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.so
+[11.309s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_introspection_cpp.so" to ""
+[11.313s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_cpp.so
+[11.313s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__rosidl_typesupport_cpp.so" to ""
+[11.314s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/pythonpath.sh
+[11.314s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/pythonpath.dsv
+[11.315s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/__init__.py
+[11.357s] Compiling '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/__init__.py'...
+[11.363s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/msg
+[11.364s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/msg/_carla_scenario_list_s.c
+[11.364s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/msg/_carla_scenario_runner_status.py
+[11.364s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/msg/_carla_scenario_runner_status_s.c
+[11.365s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/msg/_carla_scenario_s.c
+[11.365s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/msg/_carla_scenario.py
+[11.365s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/msg/__init__.py
+[11.366s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/msg/_carla_scenario_list.py
+[11.366s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/srv
+[11.366s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/srv/_execute_scenario_s.c
+[11.367s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/srv/__init__.py
+[11.367s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/srv/_execute_scenario.py
+[11.367s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[11.368s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so" to ""
+[11.369s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[11.369s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so" to ""
+[11.370s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[11.371s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/python3.8/site-packages/carla_ros_scenario_runner_types/carla_ros_scenario_runner_types_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so" to ""
+[11.371s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__python.so
+[11.371s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/lib/libcarla_ros_scenario_runner_types__python.so" to ""
+[11.372s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/msg/CarlaScenario.idl
+[11.372s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/msg/CarlaScenarioList.idl
+[11.372s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/msg/CarlaScenarioRunnerStatus.idl
+[11.373s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/srv/ExecuteScenario.idl
+[11.373s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/msg/CarlaScenario.msg
+[11.373s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/msg/CarlaScenarioList.msg
+[11.374s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/msg/CarlaScenarioRunnerStatus.msg
+[11.374s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/srv/ExecuteScenario.srv
+[11.374s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/srv/ExecuteScenario_Request.msg
+[11.375s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/srv/ExecuteScenario_Response.msg
+[11.375s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/ament_index/resource_index/package_run_dependencies/carla_ros_scenario_runner_types
+[11.376s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/ament_index/resource_index/parent_prefix_path/carla_ros_scenario_runner_types
+[11.376s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/ament_prefix_path.sh
+[11.376s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/ament_prefix_path.dsv
+[11.377s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/path.sh
+[11.377s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/environment/path.dsv
+[11.377s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/local_setup.bash
+[11.378s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/local_setup.sh
+[11.378s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/local_setup.zsh
+[11.378s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/local_setup.dsv
+[11.379s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/package.dsv
+[11.379s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/ament_index/resource_index/packages/carla_ros_scenario_runner_types
+[11.380s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_generator_cExport.cmake
+[11.380s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_generator_cExport-noconfig.cmake
+[11.381s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cExport.cmake
+[11.381s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[11.381s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_cExport.cmake
+[11.382s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_cExport-noconfig.cmake
+[11.382s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_generator_cppExport.cmake
+[11.383s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cppExport.cmake
+[11.383s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[11.383s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_cppExport.cmake
+[11.384s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_types__rosidl_typesupport_cppExport-noconfig.cmake
+[11.384s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/rosidl_cmake-extras.cmake
+[11.385s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/ament_cmake_export_dependencies-extras.cmake
+[11.386s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/ament_cmake_export_libraries-extras.cmake
+[11.386s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/ament_cmake_export_targets-extras.cmake
+[11.392s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/ament_cmake_export_include_directories-extras.cmake
+[11.393s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[11.393s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[11.394s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_typesConfig.cmake
+[11.394s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/cmake/carla_ros_scenario_runner_typesConfig-version.cmake
+[11.394s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_ros_scenario_runner_types/share/carla_ros_scenario_runner_types/package.xml
+[11.421s] Invoked command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ros_scenario_runner_types' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake --install /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ros_scenario_runner_types

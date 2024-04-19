@@ -6,12 +6,12 @@
         "limitSymbolsToIncludedHeaders": false
       },
       "includePath": [
+        "/usr/local/include/**",
         "${workspaceFolder}/install/**",
         "${workspaceFolder}/install/**/include/**",
         "${workspaceFolder}/src/ros-bridge/carla_shenlan_projects/**/include/**",
         "${workspaceFolder}/src/ros-bridge/**/include/**",
-        "/opt/ros/foxy/include/**",
-        "/usr/include/**"
+        "/opt/ros/foxy/include/**"
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",

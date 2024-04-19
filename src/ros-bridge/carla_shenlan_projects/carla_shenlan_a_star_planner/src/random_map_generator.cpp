@@ -24,6 +24,7 @@ RandomMapGenerator::RandomMapGenerator() : Node("random_map_generator"){
 
     _all_map_pub = this->create_publisher<sensor_msgs::msg::PointCloud2>("global_map", 10);
 
+    //每500ms发布一次点云地图
     global_map_publish_timer = this->create_wall_timer(500ms, std::bind(&RandomMapGenerator::pubSensedPoints, this));
 }
 RandomMapGenerator::~RandomMapGenerator() {}
@@ -32,17 +33,17 @@ void RandomMapGenerator::RandomMapGenerate() {
     //随机数生成器，种子10
     default_random_engine eng(10);
 
-    //0-10实数范围内，均匀分布
+    //均匀分布，0-10实数
     uniform_real_distribution<double> rand_xy = uniform_real_distribution<double>(0, 10);
 
     pcl::PointXYZ pt_random;
 
     std::vector<std::pair<int, int>> free_lists;
 
-    //x在-20，20，y在-20，20之间取随机点构成点云
+    //x -20~20,y -20~20,随机取点
     for (int i = _x_l; i <= _x_h; i++) {
         for (int j = _y_l; j <= _y_h; j++) {
-            //边界
+            //边界点
             if (i == _x_l || i == _x_h || j == _y_l || j == _y_h) {
                 pt_random.x = i;
                 pt_random.y = j;
@@ -59,13 +60,15 @@ void RandomMapGenerator::RandomMapGenerate() {
             }
         }
     }
-
+    
+    //无结构的点云，仅1行
     cloudMap.width = cloudMap.points.size();
     cloudMap.height = 1; //表示无结构点云，即只有一行
     cloudMap.is_dense = true; //数据有限
 
     _has_map = true;
 
+    //PointCloud 转化成PointCloud2
     pcl::toROSMsg(cloudMap, globalMap_pcd);
     globalMap_pcd.header.frame_id = "world";
 }

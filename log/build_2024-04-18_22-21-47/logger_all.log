@@ -1,0 +1,549 @@
+[0.322s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'carla_shenlan_a_star_planner']
+[0.322s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f420f2e1220>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=['carla_shenlan_a_star_planner'], packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=12, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f420f2e1220>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f420f2e1760>)
+[0.351s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.352s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.352s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.352s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.352s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.352s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.352s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.377s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.377s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.377s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.377s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.377s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.377s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.377s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.377s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.377s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['ignore', 'ignore_ament_install']
+[0.377s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'ignore'
+[0.377s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'ignore_ament_install'
+[0.377s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['colcon_pkg']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'colcon_pkg'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['colcon_meta']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'colcon_meta'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['ros']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'ros'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['cmake', 'python']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'cmake'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'python'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['python_setup_py']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'python_setup_py'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extensions ['ignore', 'ignore_ament_install']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extension 'ignore'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extension 'ignore_ament_install'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extensions ['colcon_pkg']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extension 'colcon_pkg'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extensions ['colcon_meta']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extension 'colcon_meta'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extensions ['ros']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extension 'ros'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extensions ['cmake', 'python']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extension 'cmake'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extension 'python'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extensions ['python_setup_py']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(figures) by extension 'python_setup_py'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extensions ['ignore', 'ignore_ament_install']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extension 'ignore'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extension 'ignore_ament_install'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extensions ['colcon_pkg']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extension 'colcon_pkg'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extensions ['colcon_meta']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extension 'colcon_meta'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extensions ['ros']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extension 'ros'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extensions ['cmake', 'python']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extension 'cmake'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extension 'python'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extensions ['python_setup_py']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge) by extension 'python_setup_py'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_control) by extensions ['ignore', 'ignore_ament_install']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_control) by extension 'ignore'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_control) by extension 'ignore_ament_install'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_control) by extensions ['colcon_pkg']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_control) by extension 'colcon_pkg'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_control) by extensions ['colcon_meta']
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_control) by extension 'colcon_meta'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_control) by extensions ['ros']
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_control) by extension 'ros'
+[0.388s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_ackermann_control' with type 'ros.ament_python' and name 'carla_ackermann_control'
+[0.388s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.388s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_msgs) by extension 'ignore'
+[0.388s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_msgs) by extension 'ignore_ament_install'
+[0.389s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_msgs) by extensions ['colcon_pkg']
+[0.389s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_msgs) by extension 'colcon_pkg'
+[0.389s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_msgs) by extensions ['colcon_meta']
+[0.389s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_msgs) by extension 'colcon_meta'
+[0.389s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_msgs) by extensions ['ros']
+[0.389s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ackermann_msgs) by extension 'ros'
+[0.394s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_ackermann_msgs' with type 'ros.ament_cmake' and name 'carla_ackermann_msgs'
+[0.394s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_agent) by extensions ['ignore', 'ignore_ament_install']
+[0.394s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_agent) by extension 'ignore'
+[0.394s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_agent) by extension 'ignore_ament_install'
+[0.394s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_agent) by extensions ['colcon_pkg']
+[0.394s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_agent) by extension 'colcon_pkg'
+[0.394s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_agent) by extensions ['colcon_meta']
+[0.394s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_agent) by extension 'colcon_meta'
+[0.395s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_agent) by extensions ['ros']
+[0.395s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_agent) by extension 'ros'
+[0.398s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_ad_agent' with type 'ros.ament_python' and name 'carla_ad_agent'
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_demo) by extensions ['ignore', 'ignore_ament_install']
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_demo) by extension 'ignore'
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_demo) by extension 'ignore_ament_install'
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_demo) by extensions ['colcon_pkg']
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_demo) by extension 'colcon_pkg'
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_demo) by extensions ['colcon_meta']
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_demo) by extension 'colcon_meta'
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_demo) by extensions ['ros']
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ad_demo) by extension 'ros'
+[0.401s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_ad_demo' with type 'ros.ament_cmake' and name 'carla_ad_demo'
+[0.401s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_common) by extensions ['ignore', 'ignore_ament_install']
+[0.401s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_common) by extension 'ignore'
+[0.401s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_common) by extension 'ignore_ament_install'
+[0.401s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_common) by extensions ['colcon_pkg']
+[0.401s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_common) by extension 'colcon_pkg'
+[0.401s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_common) by extensions ['colcon_meta']
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_common) by extension 'colcon_meta'
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_common) by extensions ['ros']
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_common) by extension 'ros'
+[0.404s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_common' with type 'ros.ament_python' and name 'carla_common'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_manual_control) by extensions ['ignore', 'ignore_ament_install']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_manual_control) by extension 'ignore'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_manual_control) by extension 'ignore_ament_install'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_manual_control) by extensions ['colcon_pkg']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_manual_control) by extension 'colcon_pkg'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_manual_control) by extensions ['colcon_meta']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_manual_control) by extension 'colcon_meta'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_manual_control) by extensions ['ros']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_manual_control) by extension 'ros'
+[0.407s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_manual_control' with type 'ros.ament_python' and name 'carla_manual_control'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_msgs) by extension 'ignore'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_msgs) by extension 'ignore_ament_install'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_msgs) by extensions ['colcon_pkg']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_msgs) by extension 'colcon_pkg'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_msgs) by extensions ['colcon_meta']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_msgs) by extension 'colcon_meta'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_msgs) by extensions ['ros']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_msgs) by extension 'ros'
+[0.413s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_msgs' with type 'ros.ament_cmake' and name 'carla_msgs'
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_bridge) by extensions ['ignore', 'ignore_ament_install']
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_bridge) by extension 'ignore'
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_bridge) by extension 'ignore_ament_install'
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_bridge) by extensions ['colcon_pkg']
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_bridge) by extension 'colcon_pkg'
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_bridge) by extensions ['colcon_meta']
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_bridge) by extension 'colcon_meta'
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_bridge) by extensions ['ros']
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_bridge) by extension 'ros'
+[0.418s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_ros_bridge' with type 'ros.ament_python' and name 'carla_ros_bridge'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner) by extensions ['ignore', 'ignore_ament_install']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner) by extension 'ignore'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner) by extension 'ignore_ament_install'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner) by extensions ['colcon_pkg']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner) by extension 'colcon_pkg'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner) by extensions ['colcon_meta']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner) by extension 'colcon_meta'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner) by extensions ['ros']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner) by extension 'ros'
+[0.422s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_ros_scenario_runner' with type 'ros.ament_python' and name 'carla_ros_scenario_runner'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner_types) by extensions ['ignore', 'ignore_ament_install']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner_types) by extension 'ignore'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner_types) by extension 'ignore_ament_install'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner_types) by extensions ['colcon_pkg']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner_types) by extension 'colcon_pkg'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner_types) by extensions ['colcon_meta']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner_types) by extension 'colcon_meta'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner_types) by extensions ['ros']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_ros_scenario_runner_types) by extension 'ros'
+[0.427s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_ros_scenario_runner_types' with type 'ros.ament_cmake' and name 'carla_ros_scenario_runner_types'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extensions ['ignore', 'ignore_ament_install']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extension 'ignore'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extension 'ignore_ament_install'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extensions ['colcon_pkg']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extension 'colcon_pkg'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extensions ['colcon_meta']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extension 'colcon_meta'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extensions ['ros']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extension 'ros'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extensions ['cmake', 'python']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extension 'cmake'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extension 'python'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extensions ['python_setup_py']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects) by extension 'python_setup_py'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner) by extension 'ignore'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner) by extension 'ignore_ament_install'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner) by extensions ['colcon_pkg']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner) by extension 'colcon_pkg'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner) by extensions ['colcon_meta']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner) by extension 'colcon_meta'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner) by extensions ['ros']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner) by extension 'ros'
+[0.429s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner' with type 'ros.ament_cmake' and name 'carla_shenlan_a_star_planner'
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_bridge_ego_vis) by extensions ['ignore', 'ignore_ament_install']
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_bridge_ego_vis) by extension 'ignore'
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_bridge_ego_vis) by extension 'ignore_ament_install'
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_bridge_ego_vis) by extensions ['colcon_pkg']
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_bridge_ego_vis) by extension 'colcon_pkg'
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_bridge_ego_vis) by extensions ['colcon_meta']
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_bridge_ego_vis) by extension 'colcon_meta'
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_bridge_ego_vis) by extensions ['ros']
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_bridge_ego_vis) by extension 'ros'
+[0.433s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_bridge_ego_vis' with type 'ros.ament_python' and name 'carla_shenlan_bridge_ego_vis'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner) by extension 'ignore'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner) by extension 'ignore_ament_install'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner) by extensions ['colcon_pkg']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner) by extension 'colcon_pkg'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner) by extensions ['colcon_meta']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner) by extension 'colcon_meta'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner) by extensions ['ros']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner) by extension 'ros'
+[0.434s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner' with type 'ros.ament_cmake' and name 'carla_shenlan_lattice_planner'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lqr_pid_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lqr_pid_controller) by extension 'ignore'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lqr_pid_controller) by extension 'ignore_ament_install'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lqr_pid_controller) by extensions ['colcon_pkg']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lqr_pid_controller) by extension 'colcon_pkg'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lqr_pid_controller) by extensions ['colcon_meta']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lqr_pid_controller) by extension 'colcon_meta'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lqr_pid_controller) by extensions ['ros']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_lqr_pid_controller) by extension 'ros'
+[0.435s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_lqr_pid_controller' with type 'ros.ament_cmake' and name 'carla_shenlan_lqr_pid_controller'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller) by extension 'ignore'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller) by extension 'ignore_ament_install'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller) by extensions ['colcon_pkg']
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller) by extension 'colcon_pkg'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller) by extensions ['colcon_meta']
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller) by extension 'colcon_meta'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller) by extensions ['ros']
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller) by extension 'ros'
+[0.437s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller' with type 'ros.ament_cmake' and name 'carla_shenlan_mpc_controller'
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller) by extension 'ignore'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller) by extension 'ignore_ament_install'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller) by extensions ['colcon_pkg']
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller) by extension 'colcon_pkg'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller) by extensions ['colcon_meta']
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller) by extension 'colcon_meta'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller) by extensions ['ros']
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller) by extension 'ros'
+[0.439s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller' with type 'ros.ament_cmake' and name 'carla_shenlan_pid_controller'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_stanley_pid_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_stanley_pid_controller) by extension 'ignore'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_stanley_pid_controller) by extension 'ignore_ament_install'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_stanley_pid_controller) by extensions ['colcon_pkg']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_stanley_pid_controller) by extension 'colcon_pkg'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_stanley_pid_controller) by extensions ['colcon_meta']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_stanley_pid_controller) by extension 'colcon_meta'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_stanley_pid_controller) by extensions ['ros']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_shenlan_projects/carla_shenlan_stanley_pid_controller) by extension 'ros'
+[0.440s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_stanley_pid_controller' with type 'ros.ament_cmake' and name 'carla_shenlan_stanley_pid_controller'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_spawn_objects) by extensions ['ignore', 'ignore_ament_install']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_spawn_objects) by extension 'ignore'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_spawn_objects) by extension 'ignore_ament_install'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_spawn_objects) by extensions ['colcon_pkg']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_spawn_objects) by extension 'colcon_pkg'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_spawn_objects) by extensions ['colcon_meta']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_spawn_objects) by extension 'colcon_meta'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_spawn_objects) by extensions ['ros']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_spawn_objects) by extension 'ros'
+[0.444s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_spawn_objects' with type 'ros.ament_python' and name 'carla_spawn_objects'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_twist_to_control) by extensions ['ignore', 'ignore_ament_install']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_twist_to_control) by extension 'ignore'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_twist_to_control) by extension 'ignore_ament_install'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_twist_to_control) by extensions ['colcon_pkg']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_twist_to_control) by extension 'colcon_pkg'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_twist_to_control) by extensions ['colcon_meta']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_twist_to_control) by extension 'colcon_meta'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_twist_to_control) by extensions ['ros']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_twist_to_control) by extension 'ros'
+[0.449s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_twist_to_control' with type 'ros.ament_python' and name 'carla_twist_to_control'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_walker_agent) by extensions ['ignore', 'ignore_ament_install']
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_walker_agent) by extension 'ignore'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_walker_agent) by extension 'ignore_ament_install'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_walker_agent) by extensions ['colcon_pkg']
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_walker_agent) by extension 'colcon_pkg'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_walker_agent) by extensions ['colcon_meta']
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_walker_agent) by extension 'colcon_meta'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_walker_agent) by extensions ['ros']
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_walker_agent) by extension 'ros'
+[0.453s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_walker_agent' with type 'ros.ament_python' and name 'carla_walker_agent'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_publisher) by extensions ['ignore', 'ignore_ament_install']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_publisher) by extension 'ignore'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_publisher) by extension 'ignore_ament_install'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_publisher) by extensions ['colcon_pkg']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_publisher) by extension 'colcon_pkg'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_publisher) by extensions ['colcon_meta']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_publisher) by extension 'colcon_meta'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_publisher) by extensions ['ros']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_publisher) by extension 'ros'
+[0.456s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_waypoint_publisher' with type 'ros.ament_python' and name 'carla_waypoint_publisher'
+[0.456s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_types) by extensions ['ignore', 'ignore_ament_install']
+[0.456s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_types) by extension 'ignore'
+[0.456s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_types) by extension 'ignore_ament_install'
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_types) by extensions ['colcon_pkg']
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_types) by extension 'colcon_pkg'
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_types) by extensions ['colcon_meta']
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_types) by extension 'colcon_meta'
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_types) by extensions ['ros']
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/carla_waypoint_types) by extension 'ros'
+[0.461s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/carla_waypoint_types' with type 'ros.ament_cmake' and name 'carla_waypoint_types'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extensions ['ignore', 'ignore_ament_install']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extension 'ignore'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extension 'ignore_ament_install'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extensions ['colcon_pkg']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extension 'colcon_pkg'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extensions ['colcon_meta']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extension 'colcon_meta'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extensions ['ros']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extension 'ros'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extensions ['cmake', 'python']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extension 'cmake'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extension 'python'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extensions ['python_setup_py']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker) by extension 'python_setup_py'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extensions ['ignore', 'ignore_ament_install']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extension 'ignore'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extension 'ignore_ament_install'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extensions ['colcon_pkg']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extension 'colcon_pkg'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extensions ['colcon_meta']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extension 'colcon_meta'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extensions ['ros']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extension 'ros'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extensions ['cmake', 'python']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extension 'cmake'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extension 'python'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extensions ['python_setup_py']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docker/content) by extension 'python_setup_py'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extensions ['ignore', 'ignore_ament_install']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extension 'ignore'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extension 'ignore_ament_install'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extensions ['colcon_pkg']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extension 'colcon_pkg'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extensions ['colcon_meta']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extension 'colcon_meta'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extensions ['ros']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extension 'ros'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extensions ['cmake', 'python']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extension 'cmake'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extension 'python'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extensions ['python_setup_py']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs) by extension 'python_setup_py'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extensions ['ignore', 'ignore_ament_install']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extension 'ignore'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extension 'ignore_ament_install'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extensions ['colcon_pkg']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extension 'colcon_pkg'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extensions ['colcon_meta']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extension 'colcon_meta'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extensions ['ros']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extension 'ros'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extensions ['cmake', 'python']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extension 'cmake'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extension 'python'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extensions ['python_setup_py']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/docs/images) by extension 'python_setup_py'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extensions ['ignore', 'ignore_ament_install']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extension 'ignore'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extension 'ignore_ament_install'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extensions ['colcon_pkg']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extension 'colcon_pkg'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extensions ['colcon_meta']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extension 'colcon_meta'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extensions ['ros']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extension 'ros'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extensions ['cmake', 'python']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extension 'cmake'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extension 'python'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extensions ['python_setup_py']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging) by extension 'python_setup_py'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extensions ['ignore', 'ignore_ament_install']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extension 'ignore'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extension 'ignore_ament_install'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extensions ['colcon_pkg']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extension 'colcon_pkg'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extensions ['colcon_meta']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extension 'colcon_meta'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extensions ['ros']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extension 'ros'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extensions ['cmake', 'python']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extension 'cmake'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extension 'python'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extensions ['python_setup_py']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian) by extension 'python_setup_py'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extensions ['ignore', 'ignore_ament_install']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extension 'ignore'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extension 'ignore_ament_install'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extensions ['colcon_pkg']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extension 'colcon_pkg'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extensions ['colcon_meta']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extension 'colcon_meta'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extensions ['ros']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extension 'ros'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extensions ['cmake', 'python']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extension 'cmake'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extension 'python'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extensions ['python_setup_py']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/packaging/debian/source) by extension 'python_setup_py'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/pcl_recorder) by extensions ['ignore', 'ignore_ament_install']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/pcl_recorder) by extension 'ignore'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/pcl_recorder) by extension 'ignore_ament_install'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/pcl_recorder) by extensions ['colcon_pkg']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/pcl_recorder) by extension 'colcon_pkg'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/pcl_recorder) by extensions ['colcon_meta']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/pcl_recorder) by extension 'colcon_meta'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/pcl_recorder) by extensions ['ros']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/pcl_recorder) by extension 'ros'
+[0.471s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/pcl_recorder' with type 'ros.ament_cmake' and name 'pcl_recorder'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/ros_compatibility) by extensions ['ignore', 'ignore_ament_install']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/ros_compatibility) by extension 'ignore'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/ros_compatibility) by extension 'ignore_ament_install'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/ros_compatibility) by extensions ['colcon_pkg']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/ros_compatibility) by extension 'colcon_pkg'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/ros_compatibility) by extensions ['colcon_meta']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/ros_compatibility) by extension 'colcon_meta'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/ros_compatibility) by extensions ['ros']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/ros_compatibility) by extension 'ros'
+[0.476s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/ros_compatibility' with type 'ros.ament_python' and name 'ros_compatibility'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rqt_carla_control) by extensions ['ignore', 'ignore_ament_install']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rqt_carla_control) by extension 'ignore'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rqt_carla_control) by extension 'ignore_ament_install'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rqt_carla_control) by extensions ['colcon_pkg']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rqt_carla_control) by extension 'colcon_pkg'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rqt_carla_control) by extensions ['colcon_meta']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rqt_carla_control) by extension 'colcon_meta'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rqt_carla_control) by extensions ['ros']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rqt_carla_control) by extension 'ros'
+[0.478s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/rqt_carla_control' with type 'ros.ament_python' and name 'rqt_carla_control'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rviz_carla_plugin) by extensions ['ignore', 'ignore_ament_install']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rviz_carla_plugin) by extension 'ignore'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rviz_carla_plugin) by extension 'ignore_ament_install'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rviz_carla_plugin) by extensions ['colcon_pkg']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rviz_carla_plugin) by extension 'colcon_pkg'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rviz_carla_plugin) by extensions ['colcon_meta']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rviz_carla_plugin) by extension 'colcon_meta'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rviz_carla_plugin) by extensions ['ros']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-bridge/rviz_carla_plugin) by extension 'ros'
+[0.483s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-bridge/rviz_carla_plugin' with type 'ros.ament_cmake' and name 'rviz_carla_plugin'
+[0.483s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.484s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.484s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.484s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.484s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_common' in 'src/ros-bridge/carla_common'
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_msgs' in 'src/ros-bridge/carla_msgs'
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_ros_scenario_runner_types' in 'src/ros-bridge/carla_ros_scenario_runner_types'
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_twist_to_control' in 'src/ros-bridge/carla_twist_to_control'
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_waypoint_types' in 'src/ros-bridge/carla_waypoint_types'
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'ros_compatibility' in 'src/ros-bridge/ros_compatibility'
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'rqt_carla_control' in 'src/ros-bridge/rqt_carla_control'
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_ackermann_msgs' in 'src/ros-bridge/carla_ackermann_msgs'
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_ad_agent' in 'src/ros-bridge/carla_ad_agent'
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_manual_control' in 'src/ros-bridge/carla_manual_control'
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_ros_scenario_runner' in 'src/ros-bridge/carla_ros_scenario_runner'
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_shenlan_bridge_ego_vis' in 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_bridge_ego_vis'
+[0.508s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_shenlan_lattice_planner' in 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_lattice_planner'
+[0.509s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_shenlan_lqr_pid_controller' in 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_lqr_pid_controller'
+[0.509s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_shenlan_mpc_controller' in 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_mpc_controller'
+[0.509s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_shenlan_pid_controller' in 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller'
+[0.509s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_shenlan_stanley_pid_controller' in 'src/ros-bridge/carla_shenlan_projects/carla_shenlan_stanley_pid_controller'
+[0.509s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_spawn_objects' in 'src/ros-bridge/carla_spawn_objects'
+[0.509s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_walker_agent' in 'src/ros-bridge/carla_walker_agent'
+[0.509s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_waypoint_publisher' in 'src/ros-bridge/carla_waypoint_publisher'
+[0.509s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'rviz_carla_plugin' in 'src/ros-bridge/rviz_carla_plugin'
+[0.509s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_ros_bridge' in 'src/ros-bridge/carla_ros_bridge'
+[0.509s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_ackermann_control' in 'src/ros-bridge/carla_ackermann_control'
+[0.509s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'carla_ad_demo' in 'src/ros-bridge/carla_ad_demo'
+[0.509s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'pcl_recorder' in 'src/ros-bridge/pcl_recorder'
+[0.510s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.510s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.513s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 293 installed packages in /opt/ros/foxy
+[0.516s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'carla_shenlan_a_star_planner' build argument 'cmake_args' from command line to 'None'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'carla_shenlan_a_star_planner' build argument 'cmake_target' from command line to 'None'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'carla_shenlan_a_star_planner' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'carla_shenlan_a_star_planner' build argument 'cmake_clean_cache' from command line to 'False'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'carla_shenlan_a_star_planner' build argument 'cmake_clean_first' from command line to 'False'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'carla_shenlan_a_star_planner' build argument 'cmake_force_configure' from command line to 'False'
+[0.592s] Level 5:colcon.colcon_core.verb:set package 'carla_shenlan_a_star_planner' build argument 'ament_cmake_args' from command line to 'None'
+[0.592s] Level 5:colcon.colcon_core.verb:set package 'carla_shenlan_a_star_planner' build argument 'catkin_cmake_args' from command line to 'None'
+[0.592s] Level 5:colcon.colcon_core.verb:set package 'carla_shenlan_a_star_planner' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.592s] DEBUG:colcon.colcon_core.verb:Building package 'carla_shenlan_a_star_planner' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_a_star_planner', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner', 'merge_install': False, 'path': '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner', 'symlink_install': False, 'test_result_base': None}
+[0.593s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.595s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.596s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner' with build type 'ament_cmake'
+[0.596s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner'
+[0.601s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.601s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.602s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.616s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_a_star_planner': AMENT_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_a_star_planner -- -j12 -l12
+[3.243s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_a_star_planner' returned '2': AMENT_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_a_star_planner -- -j12 -l12
+[3.264s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(carla_shenlan_a_star_planner)
+[3.268s] Level 1:colcon.colcon_core.environment:checking '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner' for CMake module files
+[3.269s] Level 1:colcon.colcon_core.environment:checking '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner' for CMake config files
+[3.269s] Level 1:colcon.colcon_core.shell:create_environment_hook('carla_shenlan_a_star_planner', 'cmake_prefix_path')
+[3.270s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/share/carla_shenlan_a_star_planner/hook/cmake_prefix_path.ps1'
+[3.271s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/share/carla_shenlan_a_star_planner/hook/cmake_prefix_path.dsv'
+[3.271s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/share/carla_shenlan_a_star_planner/hook/cmake_prefix_path.sh'
+[3.272s] Level 1:colcon.colcon_core.environment:checking '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/lib'
+[3.272s] Level 1:colcon.colcon_core.environment:checking '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/bin'
+[3.272s] Level 1:colcon.colcon_core.environment:checking '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/lib/pkgconfig/carla_shenlan_a_star_planner.pc'
+[3.272s] Level 1:colcon.colcon_core.environment:checking '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/lib/python3.8/site-packages'
+[3.273s] Level 1:colcon.colcon_core.environment:checking '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/bin'
+[3.274s] INFO:colcon.colcon_core.shell:Creating package script '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/share/carla_shenlan_a_star_planner/package.ps1'
+[3.274s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/share/carla_shenlan_a_star_planner/package.dsv'
+[3.275s] INFO:colcon.colcon_core.shell:Creating package script '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/share/carla_shenlan_a_star_planner/package.sh'
+[3.276s] INFO:colcon.colcon_core.shell:Creating package script '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/share/carla_shenlan_a_star_planner/package.bash'
+[3.276s] INFO:colcon.colcon_core.shell:Creating package script '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/share/carla_shenlan_a_star_planner/package.zsh'
+[3.277s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_a_star_planner/share/colcon-core/packages/carla_shenlan_a_star_planner)
+[3.287s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.287s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.287s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '2'
+[3.288s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.293s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.293s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.293s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[3.307s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[3.309s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/local_setup.ps1'
+[3.310s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/_local_setup_util_ps1.py'
+[3.311s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/setup.ps1'
+[3.313s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/local_setup.sh'
+[3.313s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/_local_setup_util_sh.py'
+[3.314s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/setup.sh'
+[3.315s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/local_setup.bash'
+[3.315s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/setup.bash'
+[3.316s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/local_setup.zsh'
+[3.317s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/setup.zsh'

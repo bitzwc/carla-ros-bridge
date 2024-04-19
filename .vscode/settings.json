@@ -107,6 +107,15 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "any": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "__bit_reference": "cpp",
+        "__hash_table": "cpp",
+        "__split_buffer": "cpp",
+        "__tree": "cpp",
+        "filesystem": "cpp",
+        "forward_list": "cpp",
+        "span": "cpp",
+        "format": "cpp",
+        "queue": "cpp"
     }
 }

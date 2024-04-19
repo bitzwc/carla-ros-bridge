@@ -35,6 +35,7 @@ class RandomMapGenerator : public rclcpp::Node{
 
         void pubSensedPoints();
         
+        //点云
         pcl::PointCloud<pcl::PointXYZ> cloudMap;
 
         // pcl::search::KdTree<pcl::PointXYZ> kdtreeMap;

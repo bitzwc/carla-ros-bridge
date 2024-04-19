@@ -1,0 +1,81 @@
+[1.046s] Invoking command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_pid_controller': AMENT_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller -DCMAKE_INSTALL_PREFIX=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller
+[1.118s] -- The C compiler identification is GNU 9.4.0
+[1.214s] -- The CXX compiler identification is GNU 9.4.0
+[1.220s] -- Check for working C compiler: /usr/bin/cc
+[1.363s] -- Check for working C compiler: /usr/bin/cc -- works
+[1.369s] -- Detecting C compiler ABI info
+[1.524s] -- Detecting C compiler ABI info - done
+[1.567s] -- Detecting C compile features
+[1.568s] -- Detecting C compile features - done
+[1.571s] -- Check for working CXX compiler: /usr/bin/c++
+[1.714s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.715s] -- Detecting CXX compiler ABI info
+[1.879s] -- Detecting CXX compiler ABI info - done
+[1.902s] -- Detecting CXX compile features
+[1.902s] -- Detecting CXX compile features - done
+[1.905s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.941s] -- Found PythonInterp: /home/zhangwencheng/miniconda3/bin/python3 (found suitable version "3.8.17", minimum required is "3") 
+[1.941s] -- Using PYTHON_EXECUTABLE: /home/zhangwencheng/miniconda3/bin/python3
+[2.198s] -- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)
+[2.248s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.255s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[2.406s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[2.450s] -- Found FastRTPS: /opt/ros/foxy/include  
+[2.545s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.603s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[2.792s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[2.849s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[2.851s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.852s] -- Looking for pthread.h
+[2.993s] -- Looking for pthread.h - found
+[2.993s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[3.129s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[3.129s] -- Looking for pthread_create in pthreads
+[3.256s] -- Looking for pthread_create in pthreads - not found
+[3.257s] -- Looking for pthread_create in pthread
+[3.375s] -- Looking for pthread_create in pthread - found
+[3.376s] -- Found Threads: TRUE  
+[3.681s] -- Found carla_msgs: 1.3.0 (/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/share/carla_msgs/cmake)
+[4.013s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[4.147s] -- Added test 'copyright' to check source files copyright and LICENSE
+[4.152s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[4.152s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller/include>
+[4.152s] -- Configured cppcheck exclude dirs and/or files: 
+[4.153s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[4.153s] -- Configured cpplint exclude dirs and/or files: 
+[4.154s] -- Added test 'lint_cmake' to check CMake code style
+[4.156s] -- Added test 'uncrustify' to check C / C++ code style
+[4.156s] -- Configured uncrustify additional arguments: 
+[4.157s] -- Added test 'xmllint' to check XML markup files
+[4.161s] -- Configuring done
+[4.177s] -- Generating done
+[4.179s] -- Build files have been written to: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_pid_controller
+[4.205s] Invoked command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_pid_controller' returned '0': AMENT_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_pid_controller -DCMAKE_INSTALL_PREFIX=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller
+[4.206s] Invoking command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_pid_controller': AMENT_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_pid_controller -- -j12 -l12
+[4.328s] [35m[1mScanning dependencies of target carla_shenlan_pid_controller_node[0m
+[4.407s] [ 25%] [32mBuilding CXX object CMakeFiles/carla_shenlan_pid_controller_node.dir/src/reference_line.cpp.o[0m
+[4.416s] [ 50%] [32mBuilding CXX object CMakeFiles/carla_shenlan_pid_controller_node.dir/src/vehicle_longitudinal_controller_pid.cpp.o[0m
+[4.418s] [ 75%] [32mBuilding CXX object CMakeFiles/carla_shenlan_pid_controller_node.dir/src/pid_controller.cpp.o[0m
+[22.533s] [100%] [32m[1mLinking CXX executable carla_shenlan_pid_controller_node[0m
+[23.380s] [100%] Built target carla_shenlan_pid_controller_node
+[23.453s] Invoked command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_pid_controller' returned '0': AMENT_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_pid_controller -- -j12 -l12
+[23.741s] Invoking command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_pid_controller': AMENT_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_pid_controller
+[23.774s] -- Install configuration: ""
+[23.775s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/lib/carla_shenlan_pid_controller/carla_shenlan_pid_controller_node
+[23.782s] -- Set runtime path of "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/lib/carla_shenlan_pid_controller/carla_shenlan_pid_controller_node" to ""
+[23.783s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/ament_index/resource_index/package_run_dependencies/carla_shenlan_pid_controller
+[23.790s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/ament_index/resource_index/parent_prefix_path/carla_shenlan_pid_controller
+[23.790s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/carla_shenlan_pid_controller/environment/ament_prefix_path.sh
+[23.791s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/carla_shenlan_pid_controller/environment/ament_prefix_path.dsv
+[23.792s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/carla_shenlan_pid_controller/environment/path.sh
+[23.792s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/carla_shenlan_pid_controller/environment/path.dsv
+[23.793s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/carla_shenlan_pid_controller/local_setup.bash
+[23.793s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/carla_shenlan_pid_controller/local_setup.sh
+[23.794s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/carla_shenlan_pid_controller/local_setup.zsh
+[23.794s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/carla_shenlan_pid_controller/local_setup.dsv
+[23.794s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/carla_shenlan_pid_controller/package.dsv
+[23.795s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/ament_index/resource_index/packages/carla_shenlan_pid_controller
+[23.795s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/carla_shenlan_pid_controller/cmake/carla_shenlan_pid_controllerConfig.cmake
+[23.795s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/carla_shenlan_pid_controller/cmake/carla_shenlan_pid_controllerConfig-version.cmake
+[23.796s] -- Installing: /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_shenlan_pid_controller/share/carla_shenlan_pid_controller/package.xml
+[23.809s] Invoked command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_pid_controller' returned '0': AMENT_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_shenlan_pid_controller
