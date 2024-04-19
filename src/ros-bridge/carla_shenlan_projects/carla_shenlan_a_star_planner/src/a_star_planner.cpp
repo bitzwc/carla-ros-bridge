@@ -18,8 +18,10 @@ AStarPlannerNode::AStarPlannerNode()
     RCLCPP_INFO(LOGGER, " ~~~~~~~~~~~~~ a_star_node init finish ~~~~~~~~~~~~~ ");
 
 
-    _map_sub = this->create_subscription<sensor_msgs::msg::PointCloud2>("/global_map", 10, std::bind(&AStarPlannerNode::rcvPointCloudCallBack, this, _1));
-    _pts_sub = this->create_subscription<geometry_msgs::msg::PoseStamped>("/goal_pose", 10, std::bind(&AStarPlannerNode::rcvWaypointsCallback, this, _1));
+    _map_sub = this->create_subscription<sensor_msgs::msg::PointCloud2>("/global_map", 10, 
+        std::bind(&AStarPlannerNode::rcvPointCloudCallBack, this, _1));
+    _pts_sub = this->create_subscription<geometry_msgs::msg::PoseStamped>("/goal_pose", 10, 
+        std::bind(&AStarPlannerNode::rcvWaypointsCallback, this, _1));
 
     _grid_map_vis_pub = this->create_publisher<sensor_msgs::msg::PointCloud2>("grid_map_vis", 10);
     _grid_path_vis_pub = this->create_publisher<visualization_msgs::msg::Marker>("grid_path_vis", 10);
@@ -123,6 +125,9 @@ void AStarPlannerNode::rcvPointCloudCallBack(sensor_msgs::msg::PointCloud2::Shar
     _has_map = true;
 }
 
+/*
+    接收到输入的目标点，开始寻找起点到终点的路径
+*/
 void AStarPlannerNode::pathFinding(Vector3d start_pt, const Vector3d target_pt) {
     // Call A* to search for a path
     _astar_path_finder->AstarGraphSearch(start_pt, target_pt);
@@ -138,6 +143,9 @@ void AStarPlannerNode::pathFinding(Vector3d start_pt, const Vector3d target_pt) 
     _astar_path_finder->resetUsedGrids();
 }
 
+/*
+    将找到的路径可视化
+*/
 void AStarPlannerNode::visGridPath(vector<Vector3d> nodes, bool is_use_jps) {
     visualization_msgs::msg::Marker node_vis;
     node_vis.header.frame_id = "world";
@@ -176,6 +184,9 @@ void AStarPlannerNode::visGridPath(vector<Vector3d> nodes, bool is_use_jps) {
     _grid_path_vis_pub->publish(node_vis);
 }
 
+/*
+    将访问过的点做可视化
+*/
 void AStarPlannerNode::visVisitedNode(vector<Vector3d> nodes) {
     visualization_msgs::msg::Marker node_vis;
     node_vis.header.frame_id = "world";

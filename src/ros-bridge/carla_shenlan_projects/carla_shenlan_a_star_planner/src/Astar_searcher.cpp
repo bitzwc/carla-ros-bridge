@@ -6,7 +6,19 @@ using namespace Eigen;
 AstarPathFinder::AstarPathFinder() : Node("astart_searcher"){}
 AstarPathFinder::~AstarPathFinder(){}
 
-void AstarPathFinder::initGridMap(double _resolution, Vector3d global_xyz_l, Vector3d global_xyz_u, int max_x_id, int max_y_id, int max_z_id)
+/*
+    初始化网格地图
+    _resolution：分辨率
+    global_xyz_l：xyz轴的下界
+    global_xyz_u：xyz轴的上界
+    max_x_id：x轴最大格子数
+    max_y_id：y轴最大格子数
+    max_z_id：z轴最大格子数
+
+    输出网格地图GridNodeMap
+*/
+void AstarPathFinder::initGridMap(double _resolution, Vector3d global_xyz_l, 
+    Vector3d global_xyz_u, int max_x_id, int max_y_id, int max_z_id)
 {
     gl_xl = global_xyz_l(0);
     gl_yl = global_xyz_l(1);
@@ -61,6 +73,8 @@ void AstarPathFinder::resetUsedGrids()
                 resetGrid(GridNodeMap[i][j][k]);
 }
 
+//根据前面随机生成的点，作为障碍物，在data中存下来
+//这里data是一个int数组，分别用GLYZ_SIZE、GLZ_SIZE、1作为分段存储，这样设计可以提高data访问的速度
 void AstarPathFinder::setObs(const double coord_x, const double coord_y, const double coord_z)
 {
     if (coord_x < gl_xl || coord_y < gl_yl || coord_z < gl_zl ||
@@ -89,6 +103,9 @@ vector<Vector3d> AstarPathFinder::getVisitedNodes()
     return visited_nodes;
 }
 
+/*
+    格子的索引转成坐标点，+0.5是取格子的中心
+*/
 Vector3d AstarPathFinder::gridIndex2coord(const Vector3i &index)
 {
     Vector3d pt;
@@ -100,6 +117,9 @@ Vector3d AstarPathFinder::gridIndex2coord(const Vector3i &index)
     return pt;
 }
 
+/*
+    将路径点的坐标转成格子的索引
+*/
 Vector3i AstarPathFinder::coord2gridIndex(const Vector3d &pt)
 {
     Vector3i idx;
@@ -125,6 +145,7 @@ inline bool AstarPathFinder::isFree(const Eigen::Vector3i &index) const
     return isFree(index(0), index(1), index(2));
 }
 
+//是否有障碍物
 inline bool AstarPathFinder::isOccupied(const int &idx_x, const int &idx_y, const int &idx_z) const
 {
     return (idx_x >= 0 && idx_x < GLX_SIZE && idx_y >= 0 && idx_y < GLY_SIZE && idx_z >= 0 && idx_z < GLZ_SIZE &&
@@ -172,16 +193,21 @@ inline void AstarPathFinder::AstarGetSucc(GridNodePtr currentPtr, vector<GridNod
                 neighbour_x = current_x + i;
                 neighbour_y = current_y + j;
                 neighbour_z = current_z + k;
+
+                //没有超出网格边界
                 if (neighbour_x < 0 || neighbour_x > (GLX_SIZE - 1) || neighbour_y < 0 || neighbour_y > (GLY_SIZE - 1)|| neighbour_z < 0 || neighbour_z > (GLZ_SIZE - 1))
                 // if (isFree(neighbour_x, neighbour_y, neighbour_z))
                 {
                     continue; // prevent cross border
                 }
+
+                //是否有障碍物
                 if(isOccupied(neighbour_x, neighbour_y, neighbour_z))
                 {
                     continue;
                 } 
                 
+                //是否已访问的结点
                 temporary_ptr = GridNodeMap[neighbour_x][neighbour_y][neighbour_z]; // GrdiNodeMap was initlized in init, represent the map.
                 if(temporary_ptr->id == -1)
                 {
@@ -190,6 +216,7 @@ inline void AstarPathFinder::AstarGetSucc(GridNodePtr currentPtr, vector<GridNod
                
                 neighbour_coordinate = temporary_ptr->coord;
 
+                //当前点和邻居点的距离
                 distance = std::sqrt(std::pow((neighbour_coordinate[0] - current_coordinate[0]), 2) + std::pow((neighbour_coordinate[1] - current_coordinate[1]), 2) + std::pow((neighbour_coordinate[2] - current_coordinate[2]), 2));
 
                 neighborPtrSets.push_back(temporary_ptr);
@@ -199,6 +226,7 @@ inline void AstarPathFinder::AstarGetSucc(GridNodePtr currentPtr, vector<GridNod
     }
 }
 
+//启发函数
 double AstarPathFinder::getHeu(GridNodePtr node1, GridNodePtr node2)
 {
     /* 
@@ -211,11 +239,32 @@ double AstarPathFinder::getHeu(GridNodePtr node1, GridNodePtr node2)
     Eigen::Vector3d node1_coordinate = node1->coord;
     Eigen::Vector3d node2_coordinate = node2->coord;
     // **** TODO: Manhattan *****
+    // distance_heuristic = 
+    //     std::abs(node2->coord(0) - node1->coord(0)) 
+    //     + std::abs(node2->coord(1) - node1->coord(1)) 
+    //     + std::abs(node2->coord(2) - node1->coord(2));
 
     // **** TODO: Euclidean  *****
+    // distance_heuristic = std::sqrt(
+    //     std::pow(node2->coord(0) - node1->coord(0), 2)
+    //     + std::pow(node2->coord(1) - node1->coord(1), 2)
+    //     + std::pow(node2->coord(2) - node1->coord(2), 2)
+    // );
 
-    // **** TODO: Diagonal  *****
+    // **** TODO: Diagonal  ***** 三维情况怎么表示？
+    double D = 1;
+    double D2 = std::sqrt(2);
+    double D3 = std::sqrt(3);
 
+    distance_heuristic = 
+        std::abs(node2->coord(0) - node1->coord(0)) 
+        + std::abs(node2->coord(1) - node1->coord(1)) 
+        + std::abs(node2->coord(2) - node1->coord(2))
+        + (std::sqrt(2) - 2) * std::min(std::abs(node2->coord(0) - node1->coord(0)), 
+                                        std::abs(node2->coord(1) - node1->coord(1))
+                                    );
+
+    //是否带权重，来放大、缩小启发函数的值，会影响算法的计算速度
     if (tie_breaker)
     {
         distance_heuristic = distance_heuristic * (1.0 + 1.0/100.0);
@@ -247,13 +296,17 @@ void AstarPathFinder::AstarGraphSearch(Vector3d start_pt, Vector3d end_pt)
     GridNodePtr endPtr = new GridNode(end_idx, end_pt);
 
     // openSet is the open_list implemented through multimap in STL library
+    //允许有重复的key的map
     openSet.clear();
     // currentPtr represents the node with lowest f(n) in the open_list
     GridNodePtr currentPtr = NULL;
     GridNodePtr neighborPtr = NULL;
 
     // put start node in open set
+    //当前点到起点的最短距离g(x)=0
     startPtr->gScore = 0;
+
+    //计算启发函数
     startPtr->fScore = getHeu(startPtr, endPtr);
     startPtr->id = 1;
     startPtr->coord = start_pt;
@@ -290,7 +343,7 @@ void AstarPathFinder::AstarGraphSearch(Vector3d start_pt, Vector3d end_pt)
         AstarGetSucc(currentPtr, neighborPtrSets, edgeCostSets);
 
         /*
-        For all unexpanded neigbors "m" of node "n"
+        For all unexpanded neigbors "m" of node "n" 遍历当前结点的所有邻居结点
         */
         for (int i = 0; i < (int)neighborPtrSets.size(); i++)
         {
@@ -301,6 +354,7 @@ void AstarPathFinder::AstarGraphSearch(Vector3d start_pt, Vector3d end_pt)
             neighborPtrSets[i]->id = 1 : unexpanded, equal to this node is in open set  
             */
            neighborPtr = neighborPtrSets[i];
+           //未访问过
             if (neighborPtr->id == 0) // discover a new node, which is not in the closed set and open set
             { 
                 /*

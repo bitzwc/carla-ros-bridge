@@ -1,0 +1,14 @@
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+** WARNING ** io features related to libusb-1.0 will be disabled
+[01m[K/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner/src/Astar_searcher.cpp:[m[K In member function ‘[01m[Kdouble AstarPathFinder::getHeu(GridNodePtr, GridNodePtr)[m[K’:
+[01m[K/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner/src/Astar_searcher.cpp:239:21:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Knode1_coordinate[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+  239 |     Eigen::Vector3d [01;35m[Knode1_coordinate[m[K = node1->coord;
+      |                     [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner/src/Astar_searcher.cpp:240:21:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Knode2_coordinate[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+  240 |     Eigen::Vector3d [01;35m[Knode2_coordinate[m[K = node2->coord;
+      |                     [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner/src/a_star_planner.cpp:[m[K In member function ‘[01m[Kvoid AStarPlannerNode::visGridPath(std::vector<Eigen::Matrix<double, 3, 1> >, bool)[m[K’:
+[01m[K/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner/src/a_star_planner.cpp:149:65:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kis_use_jps[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  149 | void AStarPlannerNode::visGridPath(vector<Vector3d> nodes, [01;35m[Kbool is_use_jps[m[K) {
+      |                                                            [01;35m[K~~~~~^~~~~~~~~~[m[K

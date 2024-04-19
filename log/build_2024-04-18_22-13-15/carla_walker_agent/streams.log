@@ -1,0 +1,38 @@
+[1.091s] Invoking command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_walker_agent': AMENT_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/prefix_override:/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/lib/python3.8/site-packages:/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/carla_walker_agent build --build-base /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/build install --record /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/install.log --single-version-externally-managed
+[1.629s] running egg_info
+[1.629s] creating ../../../build/carla_walker_agent/carla_walker_agent.egg-info
+[1.629s] writing ../../../build/carla_walker_agent/carla_walker_agent.egg-info/PKG-INFO
+[1.629s] writing dependency_links to ../../../build/carla_walker_agent/carla_walker_agent.egg-info/dependency_links.txt
+[1.629s] writing entry points to ../../../build/carla_walker_agent/carla_walker_agent.egg-info/entry_points.txt
+[1.629s] writing requirements to ../../../build/carla_walker_agent/carla_walker_agent.egg-info/requires.txt
+[1.630s] writing top-level names to ../../../build/carla_walker_agent/carla_walker_agent.egg-info/top_level.txt
+[1.630s] writing manifest file '../../../build/carla_walker_agent/carla_walker_agent.egg-info/SOURCES.txt'
+[1.630s] reading manifest file '../../../build/carla_walker_agent/carla_walker_agent.egg-info/SOURCES.txt'
+[1.630s] writing manifest file '../../../build/carla_walker_agent/carla_walker_agent.egg-info/SOURCES.txt'
+[1.630s] running build
+[1.630s] running build_py
+[1.630s] creating /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/build
+[1.630s] creating /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/build/lib
+[1.630s] creating /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/build/lib/carla_walker_agent
+[1.630s] copying src/carla_walker_agent/carla_walker_agent.py -> /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/build/lib/carla_walker_agent
+[1.630s] copying src/carla_walker_agent/__init__.py -> /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/build/lib/carla_walker_agent
+[1.630s] running install
+[1.631s] running install_lib
+[1.631s] creating /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/lib/python3.8/site-packages/carla_walker_agent
+[1.631s] copying /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/build/lib/carla_walker_agent/carla_walker_agent.py -> /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/lib/python3.8/site-packages/carla_walker_agent
+[1.631s] copying /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/build/lib/carla_walker_agent/__init__.py -> /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/lib/python3.8/site-packages/carla_walker_agent
+[1.631s] byte-compiling /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/lib/python3.8/site-packages/carla_walker_agent/carla_walker_agent.py to carla_walker_agent.cpython-38.pyc
+[1.631s] byte-compiling /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/lib/python3.8/site-packages/carla_walker_agent/__init__.py to __init__.cpython-38.pyc
+[1.631s] running install_data
+[1.631s] creating /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/share/ament_index
+[1.631s] creating /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/share/ament_index/resource_index
+[1.631s] creating /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/share/ament_index/resource_index/packages
+[1.631s] copying resource/carla_walker_agent -> /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/share/ament_index/resource_index/packages
+[1.632s] copying package.xml -> /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/share/carla_walker_agent
+[1.632s] copying launch/carla_walker_agent.launch.py -> /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/share/carla_walker_agent
+[1.632s] running install_egg_info
+[1.632s] Copying ../../../build/carla_walker_agent/carla_walker_agent.egg-info to /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/lib/python3.8/site-packages/carla_walker_agent-0.0.0-py3.8.egg-info
+[1.632s] running install_scripts
+[1.655s] Installing carla_walker_agent script to /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/lib/carla_walker_agent
+[1.656s] writing list of installed files to '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/install.log'
+[1.691s] Invoked command in '/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_walker_agent' returned '0': AMENT_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/prefix_override:/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_walker_agent/lib/python3.8/site-packages:/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/install/carla_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/carla_walker_agent build --build-base /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/build install --record /home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_walker_agent/install.log --single-version-externally-managed
