@@ -1,8 +1,0 @@
-{
-  "package_name": "carla_waypoint_types",
-  "non_idl_tuples": [
-    "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_waypoint_types:msg/CarlaWaypoint.msg",
-    "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_waypoint_types:srv/GetWaypoint.srv",
-    "/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/src/ros-bridge/carla_waypoint_types:srv/GetActorWaypoint.srv"
-  ]
-}

@@ -1,5 +1,0 @@
-[console_scripts]
-carla_shenlan_vis_ego_vehicle = carla_shenlan_bridge_ego_vis.carla_shenlan_vis_ego_vehicle:main
-longitudinal_control_pid = carla_shenlan_bridge_ego_vis.longitudinal_control_pid:main
-reference_line_recorder = carla_shenlan_bridge_ego_vis.reference_line_recorder:main
-

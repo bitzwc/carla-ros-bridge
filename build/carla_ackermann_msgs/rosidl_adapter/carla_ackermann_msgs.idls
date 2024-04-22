@@ -1,5 +1,0 @@
-/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ackermann_msgs/rosidl_adapter/carla_ackermann_msgs:msg/EgoVehicleControlInfo.idl
-/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ackermann_msgs/rosidl_adapter/carla_ackermann_msgs:msg/EgoVehicleControlCurrent.idl
-/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ackermann_msgs/rosidl_adapter/carla_ackermann_msgs:msg/EgoVehicleControlMaxima.idl
-/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ackermann_msgs/rosidl_adapter/carla_ackermann_msgs:msg/EgoVehicleControlStatus.idl
-/home/zhangwencheng/Documents/autonomous_driving/projects/carla-ros-bridge/build/carla_ackermann_msgs/rosidl_adapter/carla_ackermann_msgs:msg/EgoVehicleControlTarget.idl

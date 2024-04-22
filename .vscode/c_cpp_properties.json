@@ -6,7 +6,7 @@
         "limitSymbolsToIncludedHeaders": false
       },
       "includePath": [
-        "/usr/local/include/**",
+        "/usr/include/**",
         "${workspaceFolder}/install/**",
         "${workspaceFolder}/install/**/include/**",
         "${workspaceFolder}/src/ros-bridge/carla_shenlan_projects/**/include/**",
