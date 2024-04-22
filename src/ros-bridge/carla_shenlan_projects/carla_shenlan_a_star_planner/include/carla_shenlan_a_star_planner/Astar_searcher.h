@@ -13,6 +13,7 @@ class AstarPathFinder : public rclcpp::Node
 	private:
 
 	protected:
+		std::string dis_type;
 		uint8_t * data;
 		GridNodePtr *** GridNodeMap;
 		Eigen::Vector3i goalIdx;

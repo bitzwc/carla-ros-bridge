@@ -1,0 +1,3 @@
+astar_searcher:
+  ros__parameters:
+    # dis_type: Manhattan # Manhattan、Euclidean 、Diagonal

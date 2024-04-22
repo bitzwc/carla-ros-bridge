@@ -54,7 +54,7 @@
 2. source source_env.sh
 3. colcon build
 4. source source_env.sh
-5. ros2 launch carla_shenlan_a_star_planner a_star_planner.launch.py
+5. ros2 launch carla_shenlan_a_star_planner a_star_planner.launch.py --ros-args --dis_type:=
 ## 作业要求
 1. carla-ros-bridge/src/ros-bridge/carla_shenlan_projects/carla_shenlan_a_star_planner/src/Astar_searcher.cpp 中的 TODO部分
 2. 对比分析不同的启发函数的计算耗时，每次运行后在终端内会打印计算时间，需要截图放入文档中上传。

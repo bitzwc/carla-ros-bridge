@@ -3,7 +3,13 @@
 using namespace std;
 using namespace Eigen;
 
-AstarPathFinder::AstarPathFinder() : Node("astart_searcher"){}
+AstarPathFinder::AstarPathFinder() : Node("astar_searcher"){
+    //在ros中声明参数dis_type，先从配置文件中读取dis_type
+    this->declare_parameter<std::string>("dis_type", "");
+
+    //从ros中获取参数dis_type，并赋值给dis_type，此时参数dis_type参数有值，dis_type也有值
+    this->get_parameter<std::string>("dis_type", dis_type);
+}
 AstarPathFinder::~AstarPathFinder(){}
 
 /*
@@ -238,31 +244,38 @@ double AstarPathFinder::getHeu(GridNodePtr node1, GridNodePtr node2)
     double distance_heuristic;
     Eigen::Vector3d node1_coordinate = node1->coord;
     Eigen::Vector3d node2_coordinate = node2->coord;
+
+    //这里都转成正数
+    double dx = std::abs(node2->coord(0) - node1->coord(0));
+    double dy = std::abs(node2->coord(1) - node1->coord(1));
+    double dz = std::abs(node2->coord(2) - node1->coord(2));
+
+    std::cout << "距离类型：" << dis_type << std::endl;
     // **** TODO: Manhattan *****
-    // distance_heuristic = 
-    //     std::abs(node2->coord(0) - node1->coord(0)) 
-    //     + std::abs(node2->coord(1) - node1->coord(1)) 
-    //     + std::abs(node2->coord(2) - node1->coord(2));
+    if(this->dis_type == "Manhattan"){
+        distance_heuristic = dx + dy + dz;
+    }
 
     // **** TODO: Euclidean  *****
-    // distance_heuristic = std::sqrt(
-    //     std::pow(node2->coord(0) - node1->coord(0), 2)
-    //     + std::pow(node2->coord(1) - node1->coord(1), 2)
-    //     + std::pow(node2->coord(2) - node1->coord(2), 2)
-    // );
+    else if(this->dis_type == "Euclidean"){
+        distance_heuristic = std::sqrt(std::pow(dx, 2) + std::pow(dy, 2)+ std::pow(dz, 2));
+    }
 
-    // **** TODO: Diagonal  ***** 三维情况怎么表示？
-    double D = 1;
-    double D2 = std::sqrt(2);
-    double D3 = std::sqrt(3);
+    // **** TODO: Diagonal  *****
+    else if(this->dis_type == "Diagonal"){
+        //x、y、z方向距离，x、y对角距离，x、y、z对角距离
+        double D = 1;
+        double D2 = std::sqrt(2);
+        double D3 = std::sqrt(3);
 
-    distance_heuristic = 
-        std::abs(node2->coord(0) - node1->coord(0)) 
-        + std::abs(node2->coord(1) - node1->coord(1)) 
-        + std::abs(node2->coord(2) - node1->coord(2))
-        + (std::sqrt(2) - 2) * std::min(std::abs(node2->coord(0) - node1->coord(0)), 
-                                        std::abs(node2->coord(1) - node1->coord(1))
-                                    );
+        //dx、dy、dz中的最小值、中间值、最大值
+        double min_d = std::min(std::min(dx, dy), dz);
+        double max_d = std::max(std::max(dx, dy), dz);
+        double mid_d = dx + dy + dz - min_d - max_d;
+
+        //D*(dx + dy + dz) + (D3 - 3 * D) * min_d + (D2 - 2*D) * (mid_d - min_d)
+        distance_heuristic = D * (dx + dy + dz) + (D3 - 3 * D) * min_d + (D2 - 2 * D) * (mid_d - min_d);
+    }
 
     //是否带权重，来放大、缩小启发函数的值，会影响算法的计算速度
     if (tie_breaker)
