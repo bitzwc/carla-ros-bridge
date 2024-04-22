@@ -124,5 +124,6 @@ class AStarPlannerNode : public rclcpp::Node {
         double dy = y1 - y;
         return sqrt(dx * dx + dy * dy);
     };
+    std::string dis_type;
 };
 #endif /*  */

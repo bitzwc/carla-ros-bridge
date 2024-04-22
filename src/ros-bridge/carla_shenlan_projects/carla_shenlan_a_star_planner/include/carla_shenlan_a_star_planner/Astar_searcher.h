@@ -11,9 +11,9 @@
 class AstarPathFinder : public rclcpp::Node
 {	
 	private:
-
+		
 	protected:
-		std::string dis_type;
+		
 		uint8_t * data;
 		GridNodePtr *** GridNodeMap;
 		Eigen::Vector3i goalIdx;
@@ -51,6 +51,7 @@ class AstarPathFinder : public rclcpp::Node
 		Eigen::Vector3d coordRounding(const Eigen::Vector3d & coord);
 		std::vector<Eigen::Vector3d> getPath();
 		std::vector<Eigen::Vector3d> getVisitedNodes();
+		std::string dis_type;
 };
 
 #endif

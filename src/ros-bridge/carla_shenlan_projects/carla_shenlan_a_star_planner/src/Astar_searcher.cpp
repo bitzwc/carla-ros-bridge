@@ -3,13 +3,7 @@
 using namespace std;
 using namespace Eigen;
 
-AstarPathFinder::AstarPathFinder() : Node("astar_searcher"){
-    //在ros中声明参数dis_type，先从配置文件中读取dis_type
-    this->declare_parameter<std::string>("dis_type", "");
-
-    //从ros中获取参数dis_type，并赋值给dis_type，此时参数dis_type参数有值，dis_type也有值
-    this->get_parameter<std::string>("dis_type", dis_type);
-}
+AstarPathFinder::AstarPathFinder() : Node("astar_searcher"){}
 AstarPathFinder::~AstarPathFinder(){}
 
 /*
@@ -250,7 +244,6 @@ double AstarPathFinder::getHeu(GridNodePtr node1, GridNodePtr node2)
     double dy = std::abs(node2->coord(1) - node1->coord(1));
     double dz = std::abs(node2->coord(2) - node1->coord(2));
 
-    std::cout << "距离类型：" << dis_type << std::endl;
     // **** TODO: Manhattan *****
     if(this->dis_type == "Manhattan"){
         distance_heuristic = dx + dy + dz;
@@ -275,6 +268,8 @@ double AstarPathFinder::getHeu(GridNodePtr node1, GridNodePtr node2)
 
         //D*(dx + dy + dz) + (D3 - 3 * D) * min_d + (D2 - 2*D) * (mid_d - min_d)
         distance_heuristic = D * (dx + dy + dz) + (D3 - 3 * D) * min_d + (D2 - 2 * D) * (mid_d - min_d);
+    }else{
+        return 0.0;
     }
 
     //是否带权重，来放大、缩小启发函数的值，会影响算法的计算速度

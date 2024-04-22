@@ -138,5 +138,6 @@
         "numbers": "cpp",
         "semaphore": "cpp",
         "stop_token": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/zhangwencheng/Documents/project/carla-ros-bridge/src/ros-bridge/carla_ros_bridge"
 }

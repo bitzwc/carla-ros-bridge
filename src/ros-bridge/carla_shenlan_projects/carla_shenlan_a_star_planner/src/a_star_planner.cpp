@@ -16,8 +16,13 @@ AStarPlannerNode::AStarPlannerNode()
 **************************************************************************************'''*/
 {
     RCLCPP_INFO(LOGGER, " ~~~~~~~~~~~~~ a_star_node init finish ~~~~~~~~~~~~~ ");
+    //在ros中声明参数dis_type，先从配置文件中读取dis_type
+    this->declare_parameter<std::string>("dis_type", "");
 
-
+    //从ros中获取参数dis_type，并赋值给dis_type，此时参数dis_type参数有值，dis_type也有值
+    this->get_parameter<std::string>("dis_type", dis_type);
+    std::cout << "dis_type:" << dis_type << std::endl;
+    
     _map_sub = this->create_subscription<sensor_msgs::msg::PointCloud2>("/global_map", 10, 
         std::bind(&AStarPlannerNode::rcvPointCloudCallBack, this, _1));
     _pts_sub = this->create_subscription<geometry_msgs::msg::PoseStamped>("/goal_pose", 10, 
@@ -46,6 +51,7 @@ AStarPlannerNode::AStarPlannerNode()
     _max_z_id = (int)(_z_size * _inv_resolution);
 
     _astar_path_finder = new AstarPathFinder();
+    _astar_path_finder->dis_type = dis_type;
     _astar_path_finder->initGridMap(_resolution, _map_lower, _map_upper, _max_x_id, _max_y_id, _max_z_id);
 }
 
