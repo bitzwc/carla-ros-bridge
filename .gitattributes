@@ -1,0 +1,6 @@
+pid纵向控制定速巡航.mkv filter=lfs diff=lfs merge=lfs -text
+stanley横向控制.mkv filter=lfs diff=lfs merge=lfs -text
+不同启发函数下的A*路径规划.mkv filter=lfs diff=lfs merge=lfs -text
+lattice规划避障.mkv filter=lfs diff=lfs merge=lfs -text
+lqr横向控制.mkv filter=lfs diff=lfs merge=lfs -text
+mpc横向控制.mkv filter=lfs diff=lfs merge=lfs -text
